@@ -1,0 +1,128 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    font-family: "Poppins", sans-serif;
+
+    color: var(--dark);
+
+    background: var(--white);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* =====================================================
+   GENERAL SECTION
+===================================================== */
+
+.section-padding {
+    padding: 105px 0;
+}
+
+.section-label {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 18px;
+
+    color: var(--primary);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.section-label::before {
+    content: "";
+
+    width: 25px;
+    height: 3px;
+
+    margin-right: 10px;
+
+    border-radius: 10px;
+
+    background: var(--secondary);
+}
+
+.section-title {
+    margin-bottom: 20px;
+
+    color: var(--dark);
+
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: -1px;
+}
+
+.section-title span {
+    color: var(--primary);
+}
+
+.section-description {
+    color: var(--text);
+
+    line-height: 1.9;
+}
+
+.text-link {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 12px;
+
+    color: var(--primary);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.text-link:hover {
+    color: var(--secondary-dark);
+
+    gap: 12px;
+}
+
+
+/* =====================================================
+   GLOBAL RESPONSIVE
+===================================================== */
+
+@media (max-width: 576px) {
+
+    .section-padding {
+        padding: 75px 0;
+    }
+
+}

@@ -1,0 +1,385 @@
+/* =====================================================
+   ABOUT HOME
+===================================================== */
+
+.about-home {
+    position: relative;
+    overflow: hidden;
+
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   IMAGE AREA
+===================================================== */
+
+.about-visual {
+    position: relative;
+
+    min-height: 560px;
+}
+
+.about-image-main {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 88%;
+    height: 510px;
+
+    overflow: hidden;
+
+    border-radius: 30px 80px 30px 30px;
+
+    box-shadow:
+        0 22px 55px rgba(16, 24, 40, 0.13);
+
+    z-index: 2;
+}
+
+.about-image-main img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =====================================================
+   ORANGE ACCENT
+===================================================== */
+
+.about-accent-box {
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    right: 20px;
+    bottom: 10px;
+
+    border-radius: 30px;
+
+    background: var(--secondary-light);
+
+    z-index: 1;
+}
+
+.about-accent-box::after {
+    content: "";
+
+    position: absolute;
+
+    width: 75px;
+    height: 75px;
+
+    right: 25px;
+    bottom: 25px;
+
+    border-radius: 50%;
+
+    border:
+        15px solid rgba(247, 148, 29, 0.25);
+}
+
+
+/* =====================================================
+   FLOATING CARD
+===================================================== */
+
+.about-floating {
+    position: absolute;
+
+    right: 0;
+    bottom: 70px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 17px 20px;
+
+    border-radius: 15px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 15px 40px rgba(16, 24, 40, 0.14);
+
+    z-index: 3;
+}
+
+.about-floating-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+
+    font-size: 20px;
+}
+
+.about-floating div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-floating strong {
+    color: var(--dark);
+
+    font-size: 13px;
+}
+
+.about-floating span {
+    margin-top: 3px;
+
+    color: var(--text);
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   ABOUT CONTENT
+===================================================== */
+
+.about-content {
+    padding-left: 20px;
+}
+
+.about-content .section-description {
+    max-width: 590px;
+
+    margin-bottom: 30px;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   VALUES
+===================================================== */
+
+.about-values {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+
+    margin-top: 30px;
+}
+
+.about-value {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+}
+
+.about-value-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 17px;
+}
+
+.about-value-icon.orange {
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+}
+
+.about-value div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-value strong {
+    margin-bottom: 4px;
+
+    color: var(--dark);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.about-value span {
+    color: var(--text);
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   ABOUT RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .about-visual {
+        min-height: 530px;
+
+        margin-bottom: 20px;
+    }
+
+    .about-image-main {
+        width: 90%;
+        height: 480px;
+    }
+
+    .about-content {
+        padding-left: 0;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .about-visual {
+        min-height: 420px;
+    }
+
+    .about-image-main {
+        width: 94%;
+        height: 380px;
+
+        border-radius:
+            22px 55px 22px 22px;
+    }
+
+    .about-accent-box {
+        width: 130px;
+        height: 130px;
+    }
+
+    .about-floating {
+        right: 0;
+        bottom: 20px;
+
+        padding: 12px 14px;
+    }
+
+    .about-values {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .about-actions {
+        flex-direction: column;
+    }
+
+    .about-primary-btn,
+    .about-secondary-btn {
+        width: 100%;
+    }
+
+}
+
+/* =====================================================
+   ABOUT ACTIONS
+===================================================== */
+
+.about-actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 32px;
+}
+
+.about-primary-btn,
+.about-secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 13px 19px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        gap 0.25s ease;
+}
+
+
+/* BUTTON PROGRAM */
+
+.about-primary-btn {
+    background: var(--primary);
+
+    color: var(--white);
+
+    box-shadow:
+        0 10px 24px rgba(7, 90, 166, 0.16);
+}
+
+.about-primary-btn:hover {
+    gap: 12px;
+
+    background: var(--primary-dark);
+
+    color: var(--white);
+
+    transform: translateY(-2px);
+}
+
+
+/* BUTTON DONASI */
+
+.about-secondary-btn {
+    border: 1px solid var(--secondary);
+
+    background: var(--secondary-light);
+
+    color: var(--secondary-dark);
+}
+
+.about-secondary-btn:hover {
+    gap: 12px;
+
+    background: var(--secondary);
+
+    color: var(--white);
+
+    transform: translateY(-2px);
+}

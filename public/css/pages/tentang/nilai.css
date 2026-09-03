@@ -1,0 +1,557 @@
+/* =====================================================
+   VALUES PAGE
+===================================================== */
+
+.values-hero {
+    position: relative;
+
+    padding: 180px 0 95px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 88% 20%,
+            rgba(247, 148, 29, 0.13),
+            transparent 26%
+        ),
+        linear-gradient(
+            135deg,
+            #f4faff,
+            #ffffff
+        );
+}
+
+.values-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 340px;
+    height: 340px;
+
+    right: -130px;
+    bottom: -160px;
+
+    border-radius: 50%;
+
+    border:
+        60px solid rgba(7, 90, 166, 0.05);
+}
+
+.values-hero-content {
+    position: relative;
+
+    max-width: 860px;
+
+    z-index: 2;
+}
+
+.values-hero h1 {
+    max-width: 850px;
+
+    margin-bottom: 20px;
+
+    color: var(--dark);
+
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    letter-spacing: -2px;
+}
+
+.values-hero h1 span {
+    color: var(--primary);
+}
+
+.values-hero p {
+    max-width: 720px;
+
+    margin-bottom: 28px;
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   MAIN VALUE
+===================================================== */
+
+.values-main {
+    background: #ffffff;
+}
+
+.values-main-wrapper {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        90px 90px 1fr;
+
+    align-items: center;
+
+    gap: 30px;
+
+    overflow: hidden;
+
+    padding: 48px;
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-dark),
+            var(--primary)
+        );
+
+    box-shadow:
+        0 22px 55px rgba(7, 90, 166, 0.14);
+}
+
+.values-main-wrapper::after {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    right: -90px;
+    bottom: -140px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(247, 148, 29, 0.10);
+}
+
+.values-main-number {
+    position: relative;
+
+    z-index: 2;
+
+    color:
+        rgba(255, 255, 255, 0.15);
+
+    font-size: 58px;
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+.values-main-icon {
+    position: relative;
+
+    z-index: 2;
+
+    width: 78px;
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    color: var(--secondary);
+
+    font-size: 31px;
+}
+
+.values-main-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.values-main-content > span {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: var(--secondary);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+}
+
+.values-main-content h2 {
+    max-width: 750px;
+
+    margin-bottom: 14px;
+
+    color: var(--white);
+
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 600;
+
+    line-height: 1.4;
+}
+
+.values-main-content h2 strong {
+    color: var(--secondary);
+
+    font-weight: 700;
+}
+
+.values-main-content p {
+    max-width: 720px;
+
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.68);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   VALUES GRID
+===================================================== */
+
+.values-grid-section {
+    background:
+        linear-gradient(
+            180deg,
+            #f8fbfe,
+            #ffffff
+        );
+}
+
+.values-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 45px;
+
+    margin-bottom: 45px;
+}
+
+.values-heading > div {
+    max-width: 650px;
+}
+
+.values-heading > p {
+    max-width: 410px;
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   VALUE CARD
+===================================================== */
+
+.value-detail-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 30px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.value-detail-card:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(7, 90, 166, 0.18);
+
+    box-shadow:
+        0 18px 42px rgba(15, 23, 42, 0.08);
+}
+
+.value-detail-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.value-detail-top > span {
+    color: #e5eaf0;
+
+    font-size: 29px;
+    font-weight: 700;
+}
+
+.value-detail-icon {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    font-size: 21px;
+}
+
+.value-detail-icon.blue {
+    background: var(--primary-light);
+
+    color: var(--primary);
+}
+
+.value-detail-icon.orange {
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+}
+
+.value-detail-card h3 {
+    margin-bottom: 12px;
+
+    color: var(--dark);
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.value-detail-card p {
+    max-width: 570px;
+
+    margin-bottom: 25px;
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+.value-detail-line {
+    width: 38px;
+    height: 4px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    transition: width 0.25s ease;
+}
+
+.value-detail-card:hover
+.value-detail-line {
+    width: 85px;
+}
+
+
+/* =====================================================
+   VALUES CLOSING
+===================================================== */
+
+.values-closing {
+    padding: 90px 0;
+
+    background: #ffffff;
+}
+
+.values-closing-wrapper {
+    display: grid;
+
+    grid-template-columns:
+        auto 1fr;
+
+    gap: 25px;
+
+    align-items: center;
+
+    padding: 40px 45px;
+
+    border:
+        1px solid
+        rgba(7, 90, 166, 0.10);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary-light),
+            var(--secondary-light)
+        );
+}
+
+.values-closing-icon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: var(--white);
+
+    color: var(--primary);
+
+    font-size: 28px;
+
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.values-closing-wrapper
+> div:last-child > span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--secondary-dark);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.7px;
+}
+
+.values-closing-wrapper h2 {
+    margin-bottom: 8px;
+
+    color: var(--dark);
+
+    font-size: 26px;
+    font-weight: 650;
+
+    line-height: 1.4;
+}
+
+.values-closing-wrapper h2 strong {
+    color: var(--primary);
+
+    font-weight: 700;
+}
+
+.values-closing-wrapper p {
+    max-width: 800px;
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   VALUES RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .values-hero {
+        padding: 150px 0 80px;
+    }
+
+    .values-main-wrapper {
+        grid-template-columns:
+            auto 1fr;
+
+        padding: 40px;
+    }
+
+    .values-main-number {
+        display: none;
+    }
+
+    .values-heading {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .values-heading > p {
+        max-width: 650px;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .values-hero {
+        padding: 130px 0 65px;
+    }
+
+    .values-hero h1 {
+        font-size: 40px;
+    }
+
+    .values-main-wrapper {
+        grid-template-columns: 1fr;
+
+        padding: 28px 22px;
+    }
+
+    .values-main-icon {
+        width: 68px;
+        height: 68px;
+
+        font-size: 27px;
+    }
+
+    .value-detail-card {
+        padding: 25px 22px;
+    }
+
+    .values-closing {
+        padding: 70px 0;
+    }
+
+    .values-closing-wrapper {
+        grid-template-columns: 1fr;
+
+        padding: 28px 22px;
+    }
+
+    .values-closing-wrapper h2 {
+        font-size: 22px;
+    }
+
+}

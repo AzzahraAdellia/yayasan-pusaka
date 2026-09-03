@@ -1,0 +1,534 @@
+/* =====================================================
+   PARTNERS PAGE
+===================================================== */
+
+.partners-page-hero {
+    position: relative;
+
+    padding: 180px 0 95px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 88% 20%,
+            rgba(247, 148, 29, 0.13),
+            transparent 27%
+        ),
+        linear-gradient(
+            135deg,
+            #f4faff,
+            #ffffff
+        );
+}
+
+.partners-page-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 340px;
+    height: 340px;
+
+    right: -130px;
+    bottom: -160px;
+
+    border-radius: 50%;
+
+    border:
+        60px solid rgba(7, 90, 166, 0.05);
+}
+
+.partners-page-hero-content {
+    position: relative;
+
+    max-width: 870px;
+
+    z-index: 2;
+}
+
+.partners-page-hero h1 {
+    max-width: 850px;
+
+    margin-bottom: 20px;
+
+    color: var(--dark);
+
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    letter-spacing: -2px;
+}
+
+.partners-page-hero h1 span {
+    color: var(--primary);
+}
+
+.partners-page-hero p {
+    max-width: 730px;
+
+    margin-bottom: 28px;
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.partners-page-intro {
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   PARTNER LIST
+===================================================== */
+
+.partners-page-list {
+    background:
+        linear-gradient(
+            180deg,
+            #f8fbfe,
+            #ffffff
+        );
+}
+
+.partners-page-heading {
+    max-width: 750px;
+
+    margin: 0 auto 48px;
+}
+
+.partners-page-heading .section-label {
+    justify-content: center;
+}
+
+.partners-page-heading p {
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.partners-page-logo-card {
+    height: 145px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 28px;
+
+    border: 1px solid var(--border);
+    border-radius: 17px;
+
+    background: var(--white);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.partners-page-logo-card:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(7, 90, 166, 0.18);
+
+    box-shadow:
+        0 17px 38px rgba(15, 23, 42, 0.08);
+}
+
+.partners-page-logo-card img {
+    max-width: 100%;
+    max-height: 72px;
+
+    object-fit: contain;
+
+    filter: grayscale(100%);
+
+    opacity: 0.65;
+
+    transition: 0.25s ease;
+}
+
+.partners-page-logo-card:hover img {
+    filter: grayscale(0%);
+
+    opacity: 1;
+
+    transform: scale(1.04);
+}
+
+
+/* =====================================================
+   PARTNERSHIP TYPES
+===================================================== */
+
+.partnership-types {
+    background: #ffffff;
+}
+
+.partnership-types-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-bottom: 45px;
+}
+
+.partnership-types-heading > div {
+    max-width: 650px;
+}
+
+.partnership-types-heading > p {
+    max-width: 400px;
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.partnership-type-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 29px 24px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    background: var(--white);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.partnership-type-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 17px 38px rgba(15, 23, 42, 0.08);
+}
+
+.partnership-type-icon {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 21px;
+
+    border-radius: 14px;
+
+    font-size: 20px;
+}
+
+.partnership-type-icon.blue {
+    background: var(--primary-light);
+
+    color: var(--primary);
+}
+
+.partnership-type-icon.orange {
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+}
+
+.partnership-type-card h3 {
+    margin-bottom: 10px;
+
+    color: var(--dark);
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.partnership-type-card p {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   PARTNERSHIP PROCESS
+===================================================== */
+
+.partnership-process {
+    background:
+        linear-gradient(
+            180deg,
+            #f8fbfe,
+            #ffffff
+        );
+}
+
+.partnership-process-heading {
+    max-width: 720px;
+
+    margin: 0 auto 55px;
+}
+
+.partnership-process-heading .section-label {
+    justify-content: center;
+}
+
+.partnership-process-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 70px 1fr 70px 1fr 70px 1fr;
+
+    align-items: center;
+}
+
+.partnership-process-item {
+    position: relative;
+
+    text-align: center;
+}
+
+.partnership-process-item > span {
+    position: absolute;
+
+    top: -10px;
+    right: 15%;
+
+    color: #e7ecf1;
+
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.partnership-process-icon {
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 22px;
+}
+
+.partnership-process-icon.orange {
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+}
+
+.partnership-process-item h3 {
+    margin-bottom: 7px;
+
+    color: var(--dark);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.partnership-process-item p {
+    max-width: 180px;
+
+    margin: 0 auto;
+
+    color: var(--text);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+}
+
+.partnership-process-line {
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary-light),
+            var(--secondary-light)
+        );
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.partnership-cta {
+    padding: 90px 0;
+
+    background: #ffffff;
+}
+
+.partnership-cta-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    padding: 45px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-dark),
+            var(--primary)
+        );
+}
+
+.partnership-cta-wrapper > div {
+    max-width: 730px;
+}
+
+.partnership-cta-wrapper > div > span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--secondary);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+}
+
+.partnership-cta-wrapper h2 {
+    margin-bottom: 12px;
+
+    color: var(--white);
+
+    font-size: 30px;
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+.partnership-cta-wrapper h2 strong {
+    color: var(--secondary);
+}
+
+.partnership-cta-wrapper p {
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.68);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .partners-page-hero {
+        padding: 150px 0 80px;
+    }
+
+    .partnership-types-heading {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .partnership-types-heading > p {
+        max-width: 650px;
+    }
+
+    .partnership-process-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 25px;
+    }
+
+    .partnership-process-line {
+        display: none;
+    }
+
+    .partnership-cta-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .partners-page-hero {
+        padding: 130px 0 65px;
+    }
+
+    .partners-page-hero h1 {
+        font-size: 40px;
+    }
+
+    .partners-page-logo-card {
+        height: 115px;
+
+        padding: 20px;
+    }
+
+    .partnership-process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .partnership-cta {
+        padding: 70px 0;
+    }
+
+    .partnership-cta-wrapper {
+        padding: 28px 22px;
+    }
+
+    .partnership-cta-wrapper h2 {
+        font-size: 25px;
+    }
+
+}

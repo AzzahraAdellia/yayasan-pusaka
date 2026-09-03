@@ -1,0 +1,465 @@
+/* =====================================================
+   IMPACT STORIES
+===================================================== */
+
+.impact-stories {
+    position: relative;
+
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.impact-stories-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 50px;
+
+    margin-bottom: 48px;
+}
+
+.impact-stories-heading > div:first-child {
+    max-width: 680px;
+}
+
+.impact-stories-description {
+    max-width: 410px;
+}
+
+.impact-stories-description p {
+    margin-bottom: 18px;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   FEATURED STORY
+===================================================== */
+
+.impact-story-featured {
+    height: 100%;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    background: var(--white);
+
+    box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.07);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.impact-story-featured:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 24px 55px rgba(15, 23, 42, 0.11);
+}
+
+
+/* =====================================================
+   FEATURED IMAGE
+===================================================== */
+
+.impact-story-image {
+    position: relative;
+
+    height: 360px;
+
+    overflow: hidden;
+}
+
+.impact-story-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.impact-story-featured:hover
+.impact-story-image img {
+    transform: scale(1.04);
+}
+
+.impact-story-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 55%,
+            rgba(3, 68, 127, 0.28)
+        );
+}
+
+
+/* =====================================================
+   CATEGORY
+===================================================== */
+
+.impact-story-category {
+    position: absolute;
+
+    top: 22px;
+    left: 22px;
+
+    padding: 7px 12px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    color: var(--primary);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+}
+
+
+/* =====================================================
+   FEATURED CONTENT
+===================================================== */
+
+.impact-story-content {
+    padding: 32px;
+}
+
+.impact-story-label {
+    display: inline-block;
+
+    margin-bottom: 11px;
+
+    color: var(--secondary);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.impact-story-content h3 {
+    max-width: 610px;
+
+    margin-bottom: 15px;
+
+    color: var(--dark);
+
+    font-size: 27px;
+    font-weight: 650;
+
+    line-height: 1.35;
+}
+
+.impact-story-content p {
+    max-width: 650px;
+
+    margin-bottom: 22px;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.impact-story-link {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--primary);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.impact-story-link:hover {
+    gap: 11px;
+
+    color: var(--secondary-dark);
+}
+
+
+/* =====================================================
+   SIDE STORIES
+===================================================== */
+
+.impact-story-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    height: 100%;
+}
+
+
+/* =====================================================
+   SMALL STORY CARD
+===================================================== */
+
+.impact-story-small {
+    display: grid;
+
+    grid-template-columns: 145px 1fr;
+
+    overflow: hidden;
+
+    min-height: 175px;
+
+    border: 1px solid var(--border);
+    border-radius: 17px;
+
+    background: var(--white);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.impact-story-small:hover {
+    transform: translateX(4px);
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =====================================================
+   SMALL STORY IMAGE
+===================================================== */
+
+.impact-story-small-image {
+    overflow: hidden;
+}
+
+.impact-story-small-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.impact-story-small:hover
+.impact-story-small-image img {
+    transform: scale(1.05);
+}
+
+
+/* =====================================================
+   SMALL STORY CONTENT
+===================================================== */
+
+.impact-story-small-content {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 22px;
+}
+
+.impact-story-small-content > span {
+    margin-bottom: 8px;
+
+    color: var(--secondary);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+.impact-story-small-content h4 {
+    margin-bottom: 14px;
+
+    color: var(--dark);
+
+    font-size: 16px;
+    font-weight: 600;
+
+    line-height: 1.45;
+}
+
+.impact-story-small-content a {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--primary);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.impact-story-small-content a:hover {
+    gap: 10px;
+
+    color: var(--secondary-dark);
+}
+
+
+/* =====================================================
+   QUOTE
+===================================================== */
+
+.impact-story-quote {
+    position: relative;
+
+    flex: 1;
+
+    min-height: 150px;
+
+    padding: 28px;
+
+    overflow: hidden;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-dark),
+            var(--primary)
+        );
+}
+
+.impact-story-quote::after {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    right: -50px;
+    bottom: -60px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(247, 148, 29, 0.13);
+}
+
+.impact-story-quote-icon {
+    margin-bottom: 12px;
+
+    color: var(--secondary);
+
+    font-size: 25px;
+}
+
+.impact-story-quote p {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 390px;
+
+    margin-bottom: 12px;
+
+    color: var(--white);
+
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 1.7;
+}
+
+.impact-story-quote span {
+    position: relative;
+
+    z-index: 2;
+
+    color:
+        rgba(255, 255, 255, 0.65);
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .impact-stories-heading {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .impact-stories-description {
+        max-width: 650px;
+    }
+
+    .impact-story-list {
+        margin-top: 10px;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .impact-story-image {
+        height: 280px;
+    }
+
+    .impact-story-content {
+        padding: 24px;
+    }
+
+    .impact-story-content h3 {
+        font-size: 22px;
+    }
+
+    .impact-story-small {
+        grid-template-columns: 115px 1fr;
+
+        min-height: 155px;
+    }
+
+    .impact-story-small-content {
+        padding: 16px;
+    }
+
+    .impact-story-small-content h4 {
+        font-size: 14px;
+    }
+
+}

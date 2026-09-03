@@ -1,0 +1,94 @@
+/* =====================================================
+   YAYASAN PUSAKA - MAIN STYLESHEET
+===================================================== */
+
+
+/* =====================================================
+   BASE
+===================================================== */
+
+@import url('./base/variables.css');
+@import url('./base/global.css');
+
+
+/* =====================================================
+   COMPONENTS
+===================================================== */
+
+@import url('./components/navbar.css');
+@import url('./components/footer.css');
+
+
+/* =====================================================
+   HOME
+===================================================== */
+
+@import url('./pages/home/hero.css');
+@import url('./pages/home/about.css');
+@import url('./pages/home/impact.css');
+@import url('./pages/home/program.css');
+@import url('./pages/home/stories.css');
+@import url('./pages/home/news.css');
+@import url('./pages/home/partners.css');
+@import url('./pages/home/donation-cta.css');
+
+
+/* =====================================================
+   TENTANG KAMI
+===================================================== */
+
+@import url('./pages/tentang/profil.css');
+@import url('./pages/tentang/sejarah.css');
+@import url('./pages/tentang/visi-misi.css');
+@import url('./pages/tentang/nilai.css');
+@import url('./pages/tentang/struktur.css');
+@import url('./pages/tentang/legalitas.css');
+
+
+/* =====================================================
+   PROGRAM
+===================================================== */
+
+@import url('./pages/program/index.css');
+@import url('./pages/program/pendidikan.css');
+@import url('./pages/program/sosial.css');
+@import url('./pages/program/pemberdayaan.css');
+@import url('./pages/program/pelatihan.css');
+
+
+/* =====================================================
+   DAMPAK
+===================================================== */
+
+@import url('./pages/dampak.css');
+
+
+/* =====================================================
+   INFORMASI
+===================================================== */
+
+@import url('./pages/informasi/index.css');
+@import url('./pages/informasi/berita.css');
+@import url('./pages/informasi/kegiatan.css');
+@import url('./pages/informasi/galeri.css');
+
+
+/* =====================================================
+   MITRA
+===================================================== */
+
+@import url('./pages/mitra.css');
+
+
+/* =====================================================
+   KONTAK
+===================================================== */
+
+@import url('./pages/kontak.css');
+
+
+/* =====================================================
+   DONASI
+===================================================== */
+
+@import url('./pages/donasi.css');

@@ -1,0 +1,649 @@
+/* =====================================================
+   IMPACT PAGE
+===================================================== */
+
+.impact-page-hero {
+    position: relative;
+
+    padding: 180px 0 95px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 88% 20%,
+            rgba(247, 148, 29, 0.13),
+            transparent 27%
+        ),
+        linear-gradient(
+            135deg,
+            #f4faff 0%,
+            #ffffff 50%,
+            #fff8ef 100%
+        );
+}
+
+.impact-page-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 340px;
+    height: 340px;
+
+    right: -130px;
+    bottom: -160px;
+
+    border-radius: 50%;
+
+    border:
+        60px solid rgba(7, 90, 166, 0.05);
+}
+
+.impact-page-hero-content {
+    position: relative;
+
+    max-width: 870px;
+
+    z-index: 2;
+}
+
+.impact-page-hero h1 {
+    max-width: 850px;
+
+    margin-bottom: 20px;
+
+    color: var(--dark);
+
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    letter-spacing: -2px;
+}
+
+.impact-page-hero h1 span {
+    color: var(--primary);
+}
+
+.impact-page-hero p {
+    max-width: 730px;
+
+    margin-bottom: 28px;
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   MAIN STATS
+===================================================== */
+
+.impact-page-stats {
+    background: #ffffff;
+}
+
+.impact-page-heading {
+    max-width: 740px;
+
+    margin: 0 auto 48px;
+}
+
+.impact-page-heading .section-label {
+    justify-content: center;
+}
+
+.impact-page-heading p {
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.impact-page-stat-card {
+    height: 100%;
+
+    padding: 30px 24px;
+
+    text-align: center;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    background: var(--white);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.impact-page-stat-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.impact-page-stat-icon {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    font-size: 21px;
+}
+
+.impact-page-stat-icon.blue {
+    background: var(--primary-light);
+
+    color: var(--primary);
+}
+
+.impact-page-stat-icon.orange {
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+}
+
+.impact-page-stat-card h3 {
+    margin-bottom: 7px;
+
+    color: var(--primary);
+
+    font-size: 38px;
+    font-weight: 700;
+}
+
+.impact-page-stat-card strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--dark);
+
+    font-size: 13px;
+}
+
+.impact-page-stat-card span {
+    color: var(--text);
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   BREAKDOWN
+===================================================== */
+
+.impact-program-breakdown {
+    background:
+        linear-gradient(
+            180deg,
+            #f8fbfe,
+            #ffffff
+        );
+}
+
+.impact-breakdown-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-bottom: 45px;
+}
+
+.impact-breakdown-heading > div {
+    max-width: 650px;
+}
+
+.impact-breakdown-heading > p {
+    max-width: 400px;
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.impact-breakdown-card {
+    height: 100%;
+
+    padding: 28px 24px;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    background: var(--white);
+}
+
+.impact-breakdown-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 22px;
+
+    border-radius: 13px;
+
+    font-size: 20px;
+}
+
+.impact-breakdown-icon.blue {
+    background: var(--primary-light);
+
+    color: var(--primary);
+}
+
+.impact-breakdown-icon.orange {
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+}
+
+.impact-breakdown-card > span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--secondary);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+.impact-breakdown-card h3 {
+    margin-bottom: 8px;
+
+    color: var(--dark);
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.impact-breakdown-card p {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   REGIONS
+===================================================== */
+
+.impact-regions {
+    background: #ffffff;
+}
+
+.impact-region-list {
+    margin-top: 28px;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+.impact-region-list div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.impact-region-list div:last-child {
+    border-bottom: none;
+}
+
+.impact-region-list span {
+    color: #475467;
+
+    font-size: 12px;
+}
+
+.impact-region-list strong {
+    color: var(--primary);
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   MAP
+===================================================== */
+
+.impact-map-placeholder {
+    min-height: 430px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 45px;
+
+    text-align: center;
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-light),
+            var(--secondary-light)
+        );
+}
+
+.impact-map-icon {
+    width: 80px;
+    height: 80px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: var(--white);
+
+    color: var(--primary);
+
+    font-size: 30px;
+}
+
+.impact-map-placeholder h3 {
+    margin-bottom: 10px;
+
+    color: var(--dark);
+
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.impact-map-placeholder p {
+    max-width: 420px;
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   IMPACT STORIES
+===================================================== */
+
+.impact-page-stories {
+    background:
+        linear-gradient(
+            180deg,
+            #f8fbfe,
+            #ffffff
+        );
+}
+
+.impact-page-stories-heading {
+    max-width: 760px;
+
+    margin: 0 auto 48px;
+}
+
+.impact-page-stories-heading .section-label {
+    justify-content: center;
+}
+
+.impact-page-stories-heading p {
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.impact-page-story-card {
+    height: 100%;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    background: var(--white);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.impact-page-story-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 18px 42px rgba(15, 23, 42, 0.08);
+}
+
+.impact-page-story-card > img {
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+}
+
+.impact-page-story-content {
+    padding: 24px;
+}
+
+.impact-page-story-content > span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--secondary);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+}
+
+.impact-page-story-content h3 {
+    margin-bottom: 10px;
+
+    color: var(--dark);
+
+    font-size: 17px;
+    font-weight: 600;
+
+    line-height: 1.45;
+}
+
+.impact-page-story-content p {
+    margin-bottom: 18px;
+
+    color: var(--text);
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+.impact-page-story-content a {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--primary);
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   TRANSPARENCY CTA
+===================================================== */
+
+.impact-transparency {
+    padding: 90px 0;
+
+    background: #ffffff;
+}
+
+.impact-transparency-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    padding: 45px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-dark),
+            var(--primary)
+        );
+}
+
+.impact-transparency-wrapper > div {
+    max-width: 730px;
+}
+
+.impact-transparency-wrapper > div > span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--secondary);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+}
+
+.impact-transparency-wrapper h2 {
+    margin-bottom: 12px;
+
+    color: var(--white);
+
+    font-size: 30px;
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+.impact-transparency-wrapper h2 strong {
+    color: var(--secondary);
+}
+
+.impact-transparency-wrapper p {
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.68);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .impact-page-hero {
+        padding: 150px 0 80px;
+    }
+
+    .impact-breakdown-heading {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .impact-breakdown-heading > p {
+        max-width: 650px;
+    }
+
+    .impact-transparency-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .impact-page-hero {
+        padding: 130px 0 65px;
+    }
+
+    .impact-page-hero h1 {
+        font-size: 40px;
+    }
+
+    .impact-map-placeholder {
+        min-height: 330px;
+
+        padding: 30px 22px;
+    }
+
+    .impact-transparency {
+        padding: 70px 0;
+    }
+
+    .impact-transparency-wrapper {
+        padding: 28px 22px;
+    }
+
+    .impact-transparency-wrapper h2 {
+        font-size: 25px;
+    }
+
+}

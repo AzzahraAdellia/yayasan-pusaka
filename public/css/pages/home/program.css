@@ -1,0 +1,366 @@
+/* =====================================================
+   PROGRAM HOME
+===================================================== */
+
+.program-home {
+    position: relative;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f8fbfe 100%
+        );
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.program-home-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 50px;
+
+    margin-bottom: 45px;
+}
+
+.program-home-heading > div:first-child {
+    max-width: 650px;
+}
+
+.program-home-description {
+    max-width: 410px;
+}
+
+.program-home-description p {
+    margin-bottom: 18px;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   PROGRAM CARD
+===================================================== */
+
+.program-feature-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 32px 26px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    background: var(--white);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.program-feature-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(7, 90, 166, 0.20);
+
+    box-shadow:
+        0 22px 50px
+        rgba(15, 23, 42, 0.09);
+}
+
+
+/* =====================================================
+   NUMBER
+===================================================== */
+
+.program-card-number {
+    position: absolute;
+
+    top: 22px;
+    right: 22px;
+
+    color: #e8edf3;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.program-feature-icon {
+    width: 56px;
+    height: 56px;
+
+    margin-bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    font-size: 22px;
+
+    transition: 0.25s ease;
+}
+
+.program-feature-icon.blue {
+    background: var(--primary-light);
+
+    color: var(--primary);
+}
+
+.program-feature-icon.orange {
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+}
+
+.program-feature-card:hover .program-feature-icon {
+    transform: rotate(-4deg) scale(1.07);
+}
+
+
+/* =====================================================
+   TITLE & DESCRIPTION
+===================================================== */
+
+.program-feature-card h3 {
+    min-height: 52px;
+
+    margin-bottom: 14px;
+
+    color: var(--dark);
+
+    font-size: 18px;
+    font-weight: 600;
+
+    line-height: 1.4;
+}
+
+.program-feature-card p {
+    min-height: 92px;
+
+    margin-bottom: 20px;
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   TAGS
+===================================================== */
+
+.program-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 25px;
+}
+
+.program-tags span {
+    padding: 6px 9px;
+
+    border-radius: 20px;
+
+    background: #f4f6f8;
+
+    color: #667085;
+
+    font-size: 9px;
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   LINK
+===================================================== */
+
+.program-card-link {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--primary);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.program-card-link:hover {
+    gap: 11px;
+
+    color: var(--secondary-dark);
+}
+
+
+/* =====================================================
+   BOTTOM BORDER
+===================================================== */
+
+.program-feature-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: 0.3s ease;
+}
+
+.program-feature-card:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* =====================================================
+   PROGRAM HOME BOTTOM
+===================================================== */
+
+.program-home-bottom {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 45px;
+
+    padding: 22px 25px;
+
+    border:
+        1px solid
+        rgba(7, 90, 166, 0.10);
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary-light),
+            var(--secondary-light)
+        );
+}
+
+.program-home-bottom-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: var(--white);
+
+    color: var(--secondary);
+
+    font-size: 19px;
+}
+
+.program-home-bottom > div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.program-home-bottom strong {
+    margin-bottom: 3px;
+
+    color: var(--dark);
+
+    font-size: 13px;
+}
+
+.program-home-bottom span {
+    color: var(--text);
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .program-home-heading {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .program-home-description {
+        max-width: 650px;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .program-feature-card {
+        padding: 28px 22px;
+    }
+
+    .program-feature-card h3 {
+        min-height: auto;
+    }
+
+    .program-feature-card p {
+        min-height: auto;
+    }
+
+    .program-home-bottom {
+        align-items: flex-start;
+
+        padding: 18px;
+    }
+
+}

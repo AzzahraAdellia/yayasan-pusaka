@@ -1,0 +1,573 @@
+/* =====================================================
+   ORGANIZATION PAGE
+===================================================== */
+
+.organization-hero {
+    position: relative;
+
+    padding: 180px 0 95px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 88% 20%,
+            rgba(247, 148, 29, 0.13),
+            transparent 26%
+        ),
+        linear-gradient(
+            135deg,
+            #f4faff,
+            #ffffff
+        );
+}
+
+.organization-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 340px;
+    height: 340px;
+
+    right: -130px;
+    bottom: -160px;
+
+    border-radius: 50%;
+
+    border:
+        60px solid rgba(7, 90, 166, 0.05);
+}
+
+.organization-hero-content {
+    position: relative;
+
+    max-width: 860px;
+
+    z-index: 2;
+}
+
+.organization-hero h1 {
+    max-width: 850px;
+
+    margin-bottom: 20px;
+
+    color: var(--dark);
+
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    letter-spacing: -2px;
+}
+
+.organization-hero h1 span {
+    color: var(--primary);
+}
+
+.organization-hero p {
+    max-width: 720px;
+
+    margin-bottom: 28px;
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.organization-intro {
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   ORGANIZATION LEVELS
+===================================================== */
+
+.organization-levels {
+    background:
+        linear-gradient(
+            180deg,
+            #f8fbfe,
+            #ffffff
+        );
+}
+
+.organization-heading {
+    max-width: 740px;
+
+    margin: 0 auto 48px;
+}
+
+.organization-heading .section-label {
+    justify-content: center;
+}
+
+.organization-heading p {
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   ORGANIZATION LEVEL CARD
+===================================================== */
+
+.organization-level-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 30px 25px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 19px;
+
+    background: var(--white);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.organization-level-card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(7, 90, 166, 0.18);
+
+    box-shadow:
+        0 18px 42px rgba(15, 23, 42, 0.08);
+}
+
+.organization-level-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 14px;
+
+    font-size: 21px;
+}
+
+.organization-level-icon.blue {
+    background: var(--primary-light);
+
+    color: var(--primary);
+}
+
+.organization-level-icon.orange {
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+}
+
+.organization-level-number {
+    position: absolute;
+
+    top: 23px;
+    right: 24px;
+
+    color: #e7ecf1;
+
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.organization-level-card h3 {
+    margin-bottom: 12px;
+
+    color: var(--dark);
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.organization-level-card p {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* BOTTOM ACCENT */
+
+.organization-level-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: 0.3s ease;
+}
+
+.organization-level-card:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* =====================================================
+   ORGANIZATION CHART
+===================================================== */
+
+.organization-chart-section {
+    background: #ffffff;
+}
+
+.organization-chart-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-bottom: 40px;
+}
+
+.organization-chart-heading > div {
+    max-width: 650px;
+}
+
+.organization-chart-heading > p {
+    max-width: 400px;
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   CHART WRAPPER
+===================================================== */
+
+.organization-chart-wrapper {
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =====================================================
+   CHART TOOLBAR
+===================================================== */
+
+.organization-chart-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px 22px;
+
+    border-bottom: 1px solid var(--border);
+
+    background: #f8fafc;
+}
+
+.organization-chart-toolbar > div {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.organization-chart-toolbar > div i {
+    color: var(--primary);
+
+    font-size: 18px;
+}
+
+.organization-chart-toolbar > div span {
+    color: var(--dark);
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   CHART BUTTON
+===================================================== */
+
+.organization-chart-button {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 9px 13px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: var(--white);
+
+    color: var(--primary);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.organization-chart-button:hover {
+    border-color: var(--primary);
+
+    background: var(--primary);
+
+    color: var(--white);
+}
+
+
+/* =====================================================
+   CHART IMAGE
+===================================================== */
+
+.organization-chart-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 500px;
+
+    padding: 40px;
+
+    overflow: auto;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f8fbfe
+        );
+}
+
+.organization-chart-image img {
+    display: block;
+
+    width: auto;
+    max-width: 100%;
+
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =====================================================
+   GOVERNANCE
+===================================================== */
+
+.organization-governance {
+    padding: 90px 0;
+
+    background: #ffffff;
+}
+
+.organization-governance-wrapper {
+    display: grid;
+
+    grid-template-columns:
+        auto 1fr;
+
+    gap: 25px;
+
+    align-items: center;
+
+    padding: 40px 45px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-dark),
+            var(--primary)
+        );
+}
+
+.organization-governance-icon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    color: var(--secondary);
+
+    font-size: 28px;
+}
+
+.organization-governance-wrapper
+> div:last-child > span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--secondary);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.7px;
+}
+
+.organization-governance-wrapper h2 {
+    margin-bottom: 8px;
+
+    color: var(--white);
+
+    font-size: 27px;
+    font-weight: 650;
+
+    line-height: 1.4;
+}
+
+.organization-governance-wrapper h2 strong {
+    color: var(--secondary);
+
+    font-weight: 700;
+}
+
+.organization-governance-wrapper p {
+    max-width: 800px;
+
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.68);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   ORGANIZATION RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .organization-hero {
+        padding: 150px 0 80px;
+    }
+
+    .organization-chart-heading {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .organization-chart-heading > p {
+        max-width: 650px;
+    }
+
+}
+
+
+@media (max-width: 767px) {
+
+    .organization-chart-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .organization-chart-image {
+        min-height: 350px;
+
+        padding: 20px;
+    }
+
+    .organization-governance-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .organization-hero {
+        padding: 130px 0 65px;
+    }
+
+    .organization-hero h1 {
+        font-size: 40px;
+    }
+
+    .organization-level-card {
+        padding: 26px 22px;
+    }
+
+    .organization-governance {
+        padding: 70px 0;
+    }
+
+    .organization-governance-wrapper {
+        padding: 28px 22px;
+    }
+
+    .organization-governance-wrapper h2 {
+        font-size: 22px;
+    }
+
+}

@@ -1,0 +1,532 @@
+/* =====================================================
+   HERO PREMIUM
+===================================================== */
+
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 82px;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(7, 90, 166, 0.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 88% 20%,
+            rgba(247, 148, 29, 0.12),
+            transparent 27%
+        ),
+        linear-gradient(
+            135deg,
+            #f5faff 0%,
+            #ffffff 52%,
+            #fff8ef 100%
+        );
+}
+
+
+/* =====================================================
+   HERO LEFT
+===================================================== */
+
+.hero-label {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 8px 14px;
+    margin-bottom: 22px;
+
+    border-radius: 50px;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.hero-label::before {
+    content: "";
+
+    width: 8px;
+    height: 8px;
+
+    margin-right: 9px;
+
+    border-radius: 50%;
+
+    background: var(--secondary);
+}
+
+.hero-section h1 {
+    max-width: 700px;
+
+    margin-bottom: 25px;
+
+    color: var(--dark);
+
+    font-size: clamp(45px, 5.4vw, 72px);
+    font-weight: 700;
+
+    line-height: 1.08;
+
+    letter-spacing: -2px;
+}
+
+.hero-section h1 span {
+    position: relative;
+
+    color: var(--primary);
+}
+
+.hero-section h1 span::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 110px;
+    height: 5px;
+
+    border-radius: 20px;
+
+    background: var(--secondary);
+}
+
+.hero-description {
+    max-width: 650px;
+
+    margin-bottom: 32px;
+
+    color: var(--text);
+
+    font-size: 16px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   HERO BUTTONS
+===================================================== */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 14px;
+}
+
+
+/* =====================================================
+   HERO TRUST
+===================================================== */
+
+.hero-trust {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    margin-top: 42px;
+}
+
+.hero-trust-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.hero-trust-item > i {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+
+    font-size: 19px;
+}
+
+.hero-trust-item:nth-child(2) > i {
+    background: var(--primary-light);
+
+    color: var(--primary);
+}
+
+.hero-trust-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-trust-item strong {
+    color: var(--dark);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.hero-trust-item span {
+    margin-top: 2px;
+
+    color: var(--text);
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   HERO RIGHT IMAGE
+===================================================== */
+
+.hero-visual {
+    position: relative;
+
+    min-height: 590px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image-wrapper {
+    position: relative;
+
+    width: 88%;
+    height: 520px;
+
+    overflow: hidden;
+
+    border-radius: 35px 90px 35px 90px;
+
+    box-shadow:
+        0 25px 70px rgba(16, 24, 40, 0.16);
+
+    z-index: 2;
+}
+
+.hero-main-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.hero-image-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 60%,
+            rgba(3, 68, 127, 0.25)
+        );
+}
+
+
+/* =====================================================
+   HERO DECORATION
+===================================================== */
+
+.hero-decoration-circle {
+    position: absolute;
+
+    width: 340px;
+    height: 340px;
+
+    right: -20px;
+    bottom: 0;
+
+    border-radius: 50%;
+
+    border:
+        60px solid
+        rgba(247, 148, 29, 0.10);
+
+    z-index: 1;
+}
+
+
+/* =====================================================
+   FLOATING CARD
+===================================================== */
+
+.hero-floating-card {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 18px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.8);
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.93);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 15px 40px rgba(16, 24, 40, 0.13);
+
+    z-index: 3;
+}
+
+.hero-card-top {
+    top: 70px;
+    right: -10px;
+}
+
+.hero-card-bottom {
+    bottom: 55px;
+    left: -5px;
+}
+
+.floating-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    font-size: 18px;
+}
+
+.floating-icon.orange {
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+}
+
+.floating-icon.blue {
+    background: var(--primary-light);
+
+    color: var(--primary);
+}
+
+.hero-floating-card div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-floating-card span {
+    color: var(--text);
+
+    font-size: 10px;
+}
+
+.hero-floating-card strong {
+    color: var(--dark);
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   HERO RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .hero-section {
+        padding-top: 130px;
+        padding-bottom: 90px;
+    }
+
+    .hero-visual {
+        min-height: auto;
+
+        margin-top: 30px;
+    }
+
+    .hero-image-wrapper {
+        width: 100%;
+        height: 480px;
+    }
+
+    .hero-card-top {
+        right: 15px;
+    }
+
+    .hero-card-bottom {
+        left: 15px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .hero-section {
+        padding-top: 120px;
+        padding-bottom: 70px;
+    }
+
+    .hero-section h1 {
+        font-size: 42px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-trust {
+        flex-direction: column;
+
+        gap: 18px;
+
+        margin-top: 35px;
+    }
+
+    .hero-image-wrapper {
+        height: 380px;
+
+        border-radius: 25px 60px 25px 60px;
+    }
+
+    .hero-floating-card {
+        padding: 10px 13px;
+    }
+
+    .hero-card-top {
+        top: 20px;
+        right: 5px;
+    }
+
+    .hero-card-bottom {
+        bottom: 20px;
+        left: 5px;
+    }
+
+    .hero-decoration-circle {
+        width: 230px;
+        height: 230px;
+
+        border-width: 45px;
+    }
+
+}
+
+/* =====================================================
+   HERO BUTTONS
+===================================================== */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 30px;
+}
+
+
+/* BUTTON BASE */
+
+.hero-buttons .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 13px 20px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        gap 0.25s ease;
+}
+
+
+/* LIHAT PROGRAM KAMI */
+
+.hero-buttons .btn-primary-custom {
+    border: 1px solid var(--primary);
+
+    background: var(--primary);
+
+    color: var(--white);
+
+    box-shadow:
+        0 10px 25px rgba(7, 90, 166, 0.18);
+}
+
+.hero-buttons .btn-primary-custom:hover {
+    gap: 13px;
+
+    border-color: var(--primary-dark);
+
+    background: var(--primary-dark);
+
+    color: var(--white);
+
+    transform: translateY(-2px);
+}
+
+
+/* DONASI SEKARANG */
+
+.hero-buttons .btn-outline-custom {
+    border: 1px solid var(--secondary);
+
+    background: var(--white);
+
+    color: var(--secondary);
+}
+
+.hero-buttons .btn-outline-custom:hover {
+    border-color: var(--secondary);
+
+    background: var(--secondary);
+
+    color: var(--white);
+
+    transform: translateY(-2px);
+}
+
+
+/* ICON */
+
+.hero-buttons .btn i {
+    font-size: 13px;
+}

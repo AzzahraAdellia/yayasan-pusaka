@@ -1,0 +1,428 @@
+/* =====================================================
+   IMPACT STATS
+===================================================== */
+
+.impact-stats {
+    position: relative;
+
+    padding: 100px 0;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-dark),
+            var(--primary)
+        );
+}
+
+
+/* =====================================================
+   DECORATION
+===================================================== */
+
+.impact-stats::before {
+    content: "";
+
+    position: absolute;
+
+    width: 380px;
+    height: 380px;
+
+    left: -170px;
+    top: -170px;
+
+    border-radius: 50%;
+
+    border:
+        70px solid
+        rgba(255, 255, 255, 0.035);
+}
+
+.impact-stats::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    right: -110px;
+    bottom: -150px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(247, 148, 29, 0.08);
+}
+
+.impact-stats .container {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.impact-stats-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-bottom: 50px;
+}
+
+.impact-stats-heading > div {
+    max-width: 600px;
+}
+
+.impact-eyebrow {
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 15px;
+
+    color: var(--secondary);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.impact-eyebrow::before {
+    content: "";
+
+    width: 26px;
+    height: 3px;
+
+    margin-right: 10px;
+
+    border-radius: 20px;
+
+    background: var(--secondary);
+}
+
+.impact-stats-heading h2 {
+    margin: 0;
+
+    color: var(--white);
+
+    font-size: clamp(34px, 4vw, 48px);
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: -1px;
+}
+
+.impact-stats-heading h2 span {
+    color: var(--secondary);
+}
+
+.impact-stats-heading > p {
+    max-width: 390px;
+
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.68);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   STAT CARDS
+===================================================== */
+
+.impact-numbers {
+    position: relative;
+}
+
+.impact-stat-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 30px 25px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.075);
+
+    backdrop-filter: blur(12px);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.impact-stat-card:hover {
+    transform: translateY(-6px);
+
+    background:
+        rgba(255, 255, 255, 0.11);
+
+    border-color:
+        rgba(247, 148, 29, 0.4);
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.impact-stat-icon {
+    width: 50px;
+    height: 50px;
+
+    margin-bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    font-size: 20px;
+}
+
+.impact-stat-icon.blue {
+    background:
+        rgba(255, 255, 255, 0.11);
+
+    color: var(--white);
+}
+
+.impact-stat-icon.orange {
+    background:
+        rgba(247, 148, 29, 0.16);
+
+    color: var(--secondary);
+}
+
+
+/* =====================================================
+   NUMBER
+===================================================== */
+
+.impact-number {
+    display: flex;
+    align-items: flex-start;
+
+    margin-bottom: 8px;
+
+    line-height: 1;
+}
+
+.impact-value {
+    color: var(--white);
+
+    font-size: 42px;
+    font-weight: 700;
+
+    letter-spacing: -1px;
+}
+
+.impact-unit {
+    margin-left: 4px;
+    margin-top: 2px;
+
+    color: var(--secondary);
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.impact-stat-card p {
+    margin-bottom: 5px;
+
+    color: var(--white);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.impact-note {
+    color:
+        rgba(255, 255, 255, 0.52);
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   ORANGE LINE
+===================================================== */
+
+.impact-stat-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 25px;
+    bottom: 0;
+
+    width: 38px;
+    height: 4px;
+
+    border-radius: 10px 10px 0 0;
+
+    background: var(--secondary);
+
+    transition: width 0.25s ease;
+}
+
+.impact-stat-card:hover::after {
+    width: 80px;
+}
+
+
+/* =====================================================
+   IMPACT FOOTER
+===================================================== */
+
+.impact-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-top: 38px;
+
+    padding-top: 30px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+}
+
+.impact-footer-info {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color:
+        rgba(255, 255, 255, 0.55);
+
+    font-size: 11px;
+}
+
+.impact-footer-info i {
+    color: var(--secondary);
+
+    font-size: 14px;
+}
+
+.impact-link {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--white);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.impact-link:hover {
+    gap: 12px;
+
+    color: var(--secondary);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .impact-stats {
+        padding: 80px 0;
+    }
+
+    .impact-stats-heading {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 18px;
+    }
+
+    .impact-stats-heading > p {
+        max-width: 600px;
+    }
+
+}
+
+
+@media (max-width: 767px) {
+
+    .impact-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .impact-stats {
+        padding: 70px 0;
+    }
+
+    .impact-stats-heading {
+        margin-bottom: 35px;
+    }
+
+    .impact-stat-card {
+        padding: 24px 18px;
+    }
+
+    .impact-stat-icon {
+        width: 44px;
+        height: 44px;
+
+        margin-bottom: 20px;
+    }
+
+    .impact-value {
+        font-size: 34px;
+    }
+
+    .impact-unit {
+        font-size: 18px;
+    }
+
+    .impact-stat-card p {
+        font-size: 12px;
+    }
+
+    .impact-note {
+        font-size: 9px;
+    }
+
+}

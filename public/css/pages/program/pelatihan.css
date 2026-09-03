@@ -1,0 +1,713 @@
+/* =====================================================
+   TRAINING PROGRAM PAGE
+===================================================== */
+
+.training-hero {
+    position: relative;
+
+    padding: 180px 0 95px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 88% 20%,
+            rgba(247, 148, 29, 0.13),
+            transparent 27%
+        ),
+        linear-gradient(
+            135deg,
+            #f4faff 0%,
+            #ffffff 50%,
+            #fff8ef 100%
+        );
+}
+
+.training-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 340px;
+    height: 340px;
+
+    right: -130px;
+    bottom: -160px;
+
+    border-radius: 50%;
+
+    border:
+        60px solid rgba(7, 90, 166, 0.05);
+}
+
+.training-hero-content {
+    position: relative;
+
+    max-width: 870px;
+
+    z-index: 2;
+}
+
+.training-hero h1 {
+    max-width: 850px;
+
+    margin-bottom: 20px;
+
+    color: var(--dark);
+
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    letter-spacing: -2px;
+}
+
+.training-hero h1 span {
+    color: var(--primary);
+}
+
+.training-hero p {
+    max-width: 730px;
+
+    margin-bottom: 28px;
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.training-intro {
+    background: #ffffff;
+}
+
+.training-points {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.training-points div {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #475467;
+
+    font-size: 12px;
+}
+
+.training-points i {
+    color: var(--secondary);
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.training-image-wrapper {
+    position: relative;
+
+    height: 500px;
+}
+
+.training-image-wrapper > img {
+    width: 92%;
+    height: 100%;
+
+    margin-left: auto;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 80px 30px 30px 30px;
+
+    box-shadow:
+        0 22px 55px rgba(15, 23, 42, 0.12);
+}
+
+.training-floating-card {
+    position: absolute;
+
+    left: 0;
+    bottom: 40px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 16px 18px;
+
+    border-radius: 14px;
+
+    background: var(--white);
+
+    box-shadow:
+        0 16px 38px rgba(15, 23, 42, 0.13);
+}
+
+.training-floating-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+
+    font-size: 20px;
+}
+
+.training-floating-card > div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.training-floating-card strong {
+    color: var(--dark);
+
+    font-size: 13px;
+}
+
+.training-floating-card span {
+    margin-top: 2px;
+
+    color: var(--text);
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   PROGRAMS
+===================================================== */
+
+.training-programs {
+    background:
+        linear-gradient(
+            180deg,
+            #f8fbfe,
+            #ffffff
+        );
+}
+
+.training-programs-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-bottom: 45px;
+}
+
+.training-programs-heading > div {
+    max-width: 650px;
+}
+
+.training-programs-heading > p {
+    max-width: 400px;
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   TRAINING PROGRAM CARD
+===================================================== */
+
+.training-program-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 30px 26px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    background: var(--white);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.training-program-card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(7, 90, 166, 0.18);
+
+    box-shadow:
+        0 20px 45px rgba(15, 23, 42, 0.08);
+}
+
+.training-card-icon {
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 23px;
+
+    border-radius: 14px;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 21px;
+}
+
+.training-card-icon.orange {
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+}
+
+.training-card-number {
+    position: absolute;
+
+    top: 22px;
+    right: 24px;
+
+    color: #e6ebf0;
+
+    font-size: 31px;
+    font-weight: 700;
+}
+
+.training-card-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--secondary);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.training-program-card h3 {
+    margin-bottom: 12px;
+
+    color: var(--dark);
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.training-program-card > p {
+    min-height: 105px;
+
+    margin-bottom: 20px;
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   TAGS
+===================================================== */
+
+.training-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 24px;
+}
+
+.training-tags span {
+    padding: 6px 9px;
+
+    border-radius: 30px;
+
+    background: #f5f7fa;
+
+    color: #667085;
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   CARD LINK
+===================================================== */
+
+.training-program-card > a {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--primary);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.training-program-card > a:hover {
+    gap: 11px;
+
+    color: var(--secondary-dark);
+}
+
+
+/* =====================================================
+   CARD ACCENT
+===================================================== */
+
+.training-program-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: 0.3s ease;
+}
+
+.training-program-card:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* =====================================================
+   JOURNEY
+===================================================== */
+
+.training-journey {
+    background: #ffffff;
+}
+
+.training-journey-heading {
+    max-width: 720px;
+
+    margin: 0 auto 55px;
+}
+
+.training-journey-heading .section-label {
+    justify-content: center;
+}
+
+.training-journey-heading p {
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.training-journey-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 70px 1fr 70px 1fr 70px 1fr;
+
+    align-items: center;
+}
+
+.training-journey-item {
+    position: relative;
+
+    text-align: center;
+}
+
+.training-journey-item > span {
+    position: absolute;
+
+    top: -10px;
+    right: 15%;
+
+    color: #e7ecf1;
+
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.training-journey-icon {
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 23px;
+}
+
+.training-journey-icon.orange {
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+}
+
+.training-journey-item h3 {
+    margin-bottom: 7px;
+
+    color: var(--dark);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.training-journey-item p {
+    margin: 0 auto;
+
+    max-width: 180px;
+
+    color: var(--text);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+}
+
+.training-journey-line {
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary-light),
+            var(--secondary-light)
+        );
+}
+
+
+/* =====================================================
+   IMPACT
+===================================================== */
+
+.training-impact {
+    padding: 90px 0;
+
+    background: #ffffff;
+}
+
+.training-impact-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    padding: 45px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-dark),
+            var(--primary)
+        );
+}
+
+.training-impact-wrapper > div {
+    max-width: 750px;
+}
+
+.training-impact-wrapper > div > span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--secondary);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+}
+
+.training-impact-wrapper h2 {
+    margin-bottom: 12px;
+
+    color: var(--white);
+
+    font-size: 30px;
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+.training-impact-wrapper h2 strong {
+    color: var(--secondary);
+}
+
+.training-impact-wrapper p {
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.68);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .training-hero {
+        padding: 150px 0 80px;
+    }
+
+    .training-image-wrapper {
+        height: 460px;
+    }
+
+    .training-programs-heading {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .training-programs-heading > p {
+        max-width: 650px;
+    }
+
+    .training-journey-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 25px;
+    }
+
+    .training-journey-line {
+        display: none;
+    }
+
+    .training-impact-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .training-hero {
+        padding: 130px 0 65px;
+    }
+
+    .training-hero h1 {
+        font-size: 40px;
+    }
+
+    .training-image-wrapper {
+        height: 380px;
+    }
+
+    .training-image-wrapper > img {
+        width: 94%;
+
+        border-radius:
+            55px 22px 22px 22px;
+    }
+
+    .training-floating-card {
+        left: 0;
+        bottom: 20px;
+
+        padding: 12px 14px;
+    }
+
+    .training-program-card {
+        padding: 26px 22px;
+    }
+
+    .training-program-card > p {
+        min-height: auto;
+    }
+
+    .training-journey-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .training-impact {
+        padding: 70px 0;
+    }
+
+    .training-impact-wrapper {
+        padding: 28px 22px;
+    }
+
+    .training-impact-wrapper h2 {
+        font-size: 25px;
+    }
+
+}

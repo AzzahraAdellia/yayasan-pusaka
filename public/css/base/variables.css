@@ -1,0 +1,22 @@
+/* =====================================================
+   ROOT COLORS
+===================================================== */
+
+:root {
+    /* PRIMARY - BLUE */
+    --primary: #075aa6;
+    --primary-dark: #03447f;
+    --primary-light: #eaf4fd;
+
+    /* ACCENT - ORANGE */
+    --secondary: #f7941d;
+    --secondary-dark: #d97706;
+    --secondary-light: #fff3e3;
+
+    /* NEUTRAL */
+    --dark: #17212b;
+    --text: #667085;
+    --light: #f7f9fc;
+    --white: #ffffff;
+    --border: #e5e7eb;
+}

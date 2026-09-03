@@ -1,0 +1,717 @@
+/* =====================================================
+   EMPOWERMENT PROGRAM PAGE
+===================================================== */
+
+.empowerment-hero {
+    position: relative;
+
+    padding: 180px 0 95px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 88% 20%,
+            rgba(247, 148, 29, 0.13),
+            transparent 27%
+        ),
+        linear-gradient(
+            135deg,
+            #f4faff 0%,
+            #ffffff 50%,
+            #fff8ef 100%
+        );
+}
+
+.empowerment-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 340px;
+    height: 340px;
+
+    right: -130px;
+    bottom: -160px;
+
+    border-radius: 50%;
+
+    border:
+        60px solid rgba(7, 90, 166, 0.05);
+}
+
+.empowerment-hero-content {
+    position: relative;
+
+    max-width: 870px;
+
+    z-index: 2;
+}
+
+.empowerment-hero h1 {
+    max-width: 850px;
+
+    margin-bottom: 20px;
+
+    color: var(--dark);
+
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    letter-spacing: -2px;
+}
+
+.empowerment-hero h1 span {
+    color: var(--primary);
+}
+
+.empowerment-hero p {
+    max-width: 730px;
+
+    margin-bottom: 28px;
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.empowerment-intro {
+    background: #ffffff;
+}
+
+.empowerment-image-wrapper {
+    position: relative;
+
+    height: 500px;
+}
+
+.empowerment-image-wrapper > img {
+    width: 92%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 30px 80px 30px 30px;
+
+    box-shadow:
+        0 22px 55px rgba(15, 23, 42, 0.12);
+}
+
+.empowerment-floating-card {
+    position: absolute;
+
+    right: 0;
+    bottom: 40px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 16px 18px;
+
+    border-radius: 14px;
+
+    background: var(--white);
+
+    box-shadow:
+        0 16px 38px rgba(15, 23, 42, 0.13);
+}
+
+.empowerment-floating-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+
+    font-size: 20px;
+}
+
+.empowerment-floating-card > div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.empowerment-floating-card strong {
+    color: var(--dark);
+
+    font-size: 13px;
+}
+
+.empowerment-floating-card span {
+    margin-top: 2px;
+
+    color: var(--text);
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   POINTS
+===================================================== */
+
+.empowerment-points {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.empowerment-points div {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #475467;
+
+    font-size: 12px;
+}
+
+.empowerment-points i {
+    color: var(--secondary);
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   PROGRAMS
+===================================================== */
+
+.empowerment-programs {
+    background:
+        linear-gradient(
+            180deg,
+            #f8fbfe,
+            #ffffff
+        );
+}
+
+.empowerment-programs-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-bottom: 45px;
+}
+
+.empowerment-programs-heading > div {
+    max-width: 650px;
+}
+
+.empowerment-programs-heading > p {
+    max-width: 400px;
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   PROGRAM CARD
+===================================================== */
+
+.empowerment-program-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 32px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    background: var(--white);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.empowerment-program-card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(7, 90, 166, 0.18);
+
+    box-shadow:
+        0 20px 45px rgba(15, 23, 42, 0.08);
+}
+
+.empowerment-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+}
+
+.empowerment-card-header > span {
+    color: #e6ebf0;
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.empowerment-card-icon {
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    font-size: 21px;
+}
+
+.empowerment-card-icon.blue {
+    background: var(--primary-light);
+
+    color: var(--primary);
+}
+
+.empowerment-card-icon.orange {
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+}
+
+.empowerment-card-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--secondary);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.empowerment-program-card h3 {
+    margin-bottom: 12px;
+
+    color: var(--dark);
+
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.empowerment-program-card > p {
+    margin-bottom: 22px;
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   CARD FEATURES
+===================================================== */
+
+.empowerment-card-features {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 25px;
+}
+
+.empowerment-card-features span {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 7px 10px;
+
+    border-radius: 30px;
+
+    background: #f5f7fa;
+
+    color: #667085;
+
+    font-size: 9px;
+}
+
+.empowerment-card-features i {
+    color: var(--secondary);
+}
+
+
+/* =====================================================
+   CARD LINK
+===================================================== */
+
+.empowerment-program-card > a {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--primary);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.empowerment-program-card > a:hover {
+    gap: 11px;
+
+    color: var(--secondary-dark);
+}
+
+
+/* =====================================================
+   CARD ACCENT
+===================================================== */
+
+.empowerment-program-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: 0.3s ease;
+}
+
+.empowerment-program-card:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* =====================================================
+   PROCESS
+===================================================== */
+
+.empowerment-process {
+    background: #ffffff;
+}
+
+.empowerment-process-heading {
+    max-width: 740px;
+
+    margin: 0 auto 50px;
+}
+
+.empowerment-process-heading .section-label {
+    justify-content: center;
+}
+
+.empowerment-process-heading p {
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.empowerment-process-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.empowerment-process-item {
+    position: relative;
+
+    padding: 28px 22px;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f9fbfd
+        );
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.empowerment-process-item:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 17px 38px rgba(15, 23, 42, 0.07);
+}
+
+.empowerment-process-number {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    color: #e8edf2;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.empowerment-process-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 21px;
+
+    border-radius: 13px;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 19px;
+}
+
+.empowerment-process-icon.orange {
+    background: var(--secondary-light);
+
+    color: var(--secondary);
+}
+
+.empowerment-process-item h3 {
+    margin-bottom: 9px;
+
+    color: var(--dark);
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.empowerment-process-item p {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   IMPACT
+===================================================== */
+
+.empowerment-impact {
+    padding: 90px 0;
+
+    background: #ffffff;
+}
+
+.empowerment-impact-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    padding: 45px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-dark),
+            var(--primary)
+        );
+}
+
+.empowerment-impact-wrapper > div {
+    max-width: 750px;
+}
+
+.empowerment-impact-wrapper > div > span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--secondary);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+}
+
+.empowerment-impact-wrapper h2 {
+    margin-bottom: 12px;
+
+    color: var(--white);
+
+    font-size: 30px;
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+.empowerment-impact-wrapper h2 strong {
+    color: var(--secondary);
+}
+
+.empowerment-impact-wrapper p {
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.68);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .empowerment-hero {
+        padding: 150px 0 80px;
+    }
+
+    .empowerment-image-wrapper {
+        height: 460px;
+    }
+
+    .empowerment-programs-heading {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .empowerment-programs-heading > p {
+        max-width: 650px;
+    }
+
+    .empowerment-process-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .empowerment-impact-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .empowerment-hero {
+        padding: 130px 0 65px;
+    }
+
+    .empowerment-hero h1 {
+        font-size: 40px;
+    }
+
+    .empowerment-image-wrapper {
+        height: 380px;
+    }
+
+    .empowerment-image-wrapper > img {
+        width: 94%;
+
+        border-radius:
+            22px 55px 22px 22px;
+    }
+
+    .empowerment-floating-card {
+        right: 0;
+        bottom: 20px;
+
+        padding: 12px 14px;
+    }
+
+    .empowerment-program-card {
+        padding: 26px 22px;
+    }
+
+    .empowerment-process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .empowerment-impact {
+        padding: 70px 0;
+    }
+
+    .empowerment-impact-wrapper {
+        padding: 28px 22px;
+    }
+
+    .empowerment-impact-wrapper h2 {
+        font-size: 25px;
+    }
+
+}
