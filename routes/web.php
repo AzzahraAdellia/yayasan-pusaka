@@ -203,7 +203,7 @@ Route::middleware(['auth', 'verified'])
         |--------------------------------------------------------------------------
         */
 
-        Route::resource('berita', NewsController::class)
+        Route::resource('berita', AdminNewsController::class)
             ->parameters([
                 'berita' => 'news'
             ])
