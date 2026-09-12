@@ -25,7 +25,7 @@
                             </strong>
 
                             <span>
-                                Peduli • Berdaya • Berdampak
+                                Berkembang • Berbagi • Bermakna
                             </span>
                         </div>
 
@@ -33,9 +33,9 @@
 
 
                     <p class="footer-about">
-                        Yayasan Pusaka hadir melalui berbagai program
-                        sosial, pendidikan, pemberdayaan, dan pengembangan
-                        untuk memberikan manfaat yang berkelanjutan.
+                        Sejak 1967, Yayasan Pusaka hadir membawa semangat kepedulian bagi keluarga besar 
+                        PT Kereta Api Indonesia (Persero) melalui program pendidikan, sosial, pemberdayaan, dan 
+                        pengembangan yang berkelanjutan.
                     </p>
 
 

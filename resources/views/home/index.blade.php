@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('title', 'Yayasan Pusaka | Peduli, Berdaya, Berdampak')
+@section('title', 'Yayasan Pusaka | Berkembang, Berbagi, dan Bermakna')
 
 
 @section('content')
@@ -24,14 +24,21 @@
                 </span>
 
                 <h1>
-                    Bersama Tumbuh,
-                    <span>Berdaya dan Berdampak.</span>
+                    Berkembang,
+                    <span>Berbagi dan Bermakna.</span>
                 </h1>
 
                 <p class="hero-description">
-                    Yayasan Pusaka hadir melalui berbagai program sosial,
-                    pendidikan, pemberdayaan, dan pengembangan untuk membantu
-                    menciptakan masa depan yang lebih baik bagi para penerima manfaat.
+                    Sejak 1967, Yayasan Pusaka hadir membawa semangat kepedulian bagi
+                    keluarga besar PT Kereta Api Indonesia (Persero), 
+                    khususnya anak yatim/piatu, pensiunan, 
+                    serta keluarga yang membutuhkan dukungan.
+                <br>             
+                <br>
+                    Melalui program pendidikan, sosial, pemberdayaan, 
+                    dan pengembangan keterampilan, kami berupaya membuka 
+                    lebih banyak kesempatan agar setiap penerima manfaat dapat tumbuh, 
+                    berdaya, dan memiliki masa depan yang lebih baik.
                 </p>
 
                 <div class="hero-buttons">
@@ -202,18 +209,24 @@
 
                     <h2 class="section-title">
 
-                        Kepedulian yang Tumbuh Menjadi
-                        <span>Dampak Nyata.</span>
+                        Kepedulian yang Tumbuh
+                        <span>Sejak 1967.</span>
 
                     </h2>
 
                     <p class="section-description">
 
-                        Yayasan Pusaka hadir sebagai wadah kepedulian
-                        sosial yang berkomitmen memberikan manfaat
-                        melalui berbagai program pendidikan,
-                        pemberdayaan, pengembangan, serta kegiatan
-                        sosial bagi para penerima manfaat.
+                        Yayasan Pusaka didirikan pada 31 Maret 1967 di Kota Bandung 
+                        oleh para pejabat Perusahaan Kereta Api Milik Negara Republik Indonesia.
+                        Berawal dari semangat kepedulian terhadap kesejahteraan pegawai, pensiunan, 
+                        dan keluarga besar perkeretaapian, Yayasan Pusaka terus berkembang menjadi 
+                        lembaga sosial yang menghadirkan berbagai program pendidikan, sosial, pemberdayaan, 
+                        dan pengembangan.
+                        <br>
+                        <br>
+                        Bagi kami, kepedulian bukan hanya tentang memberikan bantuan. 
+                        Kepedulian adalah tentang mendampingi, membuka kesempatan, dan 
+                        membantu penerima manfaat membangun masa depan yang lebih baik.
 
                     </p>
 
@@ -333,14 +346,15 @@
                     </span>
 
                     <h2>
-                        Bersama Menghadirkan
+                        Dari Kepedulian Menjadi 
                         <span>Manfaat Nyata.</span>
                     </h2>
                 </div>
 
                 <p>
-                    Data berikut nantinya dapat terhubung langsung
-                    dengan aplikasi internal Yayasan Pusaka melalui API.
+                    Setiap program Yayasan Pusaka berangkat dari kebutuhan nyata para penerima manfaat. 
+                    Dukungan diberikan tidak hanya dalam bentuk bantuan, tetapi juga melalui pendampingan, 
+                    pelatihan, serta kesempatan untuk tumbuh dan menjadi lebih mandiri.
                 </p>
 
             </div>
@@ -523,8 +537,8 @@
                 </span>
 
                 <h2 class="section-title">
-                    Program yang Hadir untuk
-                    <span>Menciptakan Peluang.</span>
+                            Hadir untuk Membuka
+                    <span>Lebih Banyak Kesempatan.</span>
                 </h2>
 
             </div>
@@ -533,9 +547,9 @@
             <div class="program-home-description">
 
                 <p>
-                    Yayasan Pusaka menjalankan berbagai program yang berfokus
-                    pada pendidikan, kepedulian sosial, pemberdayaan, serta
-                    pengembangan keterampilan bagi para penerima manfaat.
+                    Yayasan Pusaka mengembangkan berbagai program yang dirancang sesuai kebutuhan penerima manfaat. 
+                    Mulai dari dukungan pendidikan hingga pengembangan keterampilan, setiap program diarahkan untuk 
+                    memberikan manfaat yang nyata dan berkelanjutan.
                 </p>
 
                 <a href="{{ route('programs.index') }}"
@@ -728,8 +742,8 @@
                 </span>
 
                 <h2 class="section-title">
-                    Kegiatan & Berita
-                    <span>Yayasan Pusaka.</span>
+                    Ikuti Langkah dan 
+                    <span>Kegiatan Kami.</span>
                 </h2>
 
             </div>
@@ -738,9 +752,9 @@
             <div class="news-home-description">
 
                 <p>
-                    Ikuti perkembangan program, kegiatan sosial,
-                    kolaborasi, serta berbagai informasi terbaru
-                    dari Yayasan Pusaka.
+                    Temukan berbagai informasi terbaru mengenai program, kegiatan sosial, pelatihan, 
+                    pemberdayaan, kolaborasi, serta aktivitas Yayasan Pusaka di berbagai wilayah.
+                    Setiap kegiatan menjadi bagian dari perjalanan kami untuk terus hadir dan memberikan manfaat bagi keluarga besar PT KAI.
                 </p>
 
                 <a href="{{ route('information.index') }}"
@@ -1165,15 +1179,15 @@
             </span>
 
             <h2 class="section-title">
-                Tumbuh Bersama melalui
-                <span>Kolaborasi.</span>
+                Bersama, Manfaat Dapat 
+                <span>Menjangkau Lebih Jauh.</span>
             </h2>
 
             <p>
-                Kolaborasi menjadi bagian penting dalam memperluas
-                manfaat. Yayasan Pusaka terbuka untuk bekerja sama
-                dengan berbagai institusi, perusahaan, komunitas,
-                dan organisasi.
+                Kami percaya bahwa dampak yang besar tidak dibangun sendiri.
+                Yayasan Pusaka terbuka untuk berkolaborasi dengan PT Kereta Api Indonesia (Persero), 
+                anak perusahaan, instansi, perusahaan, lembaga pendidikan, komunitas, organisasi sosial, serta berbagai pihak yang memiliki semangat kepedulian yang sama.
+                Melalui kolaborasi, kami ingin menghadirkan lebih banyak kesempatan dan manfaat bagi mereka yang membutuhkan.
             </p>
 
         </div>
@@ -1272,14 +1286,15 @@
                 </span>
 
                 <h3>
-                    Bersama, Kita Bisa Memberikan
-                    Dampak yang Lebih Luas.
+                    Mari Tumbuh dan 
+                    Memberikan Dampak Bersama
                 </h3>
 
                 <p>
-                    Kami terbuka untuk kolaborasi program,
-                    kemitraan sosial, pendidikan, pemberdayaan,
-                    serta berbagai bentuk kerja sama lainnya.
+                    Kolaborasi dapat dimulai dari berbagai bentuk: dukungan program sosial, 
+                    pendidikan, pelatihan keterampilan, pemberdayaan UMKM, hingga pengembangan 
+                    program baru yang sesuai dengan kebutuhan penerima manfaat.
+                    Mari bersama-sama mengubah kepedulian menjadi manfaat yang nyata.
                 </p>
 
             </div>
@@ -1328,16 +1343,16 @@
                 </span>
 
                 <h2 class="section-title">
-                    Di Balik Setiap Program,
-                    Ada <span>Cerita yang Berarti.</span>
+                    Setiap Bantuan 
+                    Memiliki <span>Cerita.</span>
                 </h2>
             </div>
 
             <div class="impact-stories-description">
                 <p>
-                    Setiap penerima manfaat memiliki perjalanan yang berbeda.
-                    Melalui dukungan yang tepat, kami berupaya membuka lebih
-                    banyak kesempatan untuk tumbuh, berkembang, dan mandiri.
+                    Di balik setiap program terdapat perjalanan, perjuangan, dan harapan para penerima manfaat.
+                    Kami percaya bahwa bantuan yang tepat tidak hanya membantu seseorang melewati hari ini, 
+                    tetapi juga dapat membuka jalan menuju masa depan yang lebih baik.
                 </p>
 
                 <a href="{{ route('impact') }}"
@@ -1522,14 +1537,16 @@
                 </span>
 
                 <h2>
-                    Satu Langkah Kecil,
-                    Bisa Menjadi <span>Dampak Besar.</span>
+                    Dari Kepedulian Anda, 
+                    Tumbuh <span>Harapan Mereka.</span>
                 </h2>
 
                 <p>
-                    Setiap dukungan membantu Yayasan Pusaka menghadirkan
-                    lebih banyak manfaat melalui program pendidikan,
-                    sosial, pemberdayaan, dan pengembangan.
+                    Setiap dukungan memiliki arti.
+                    Donasi yang diberikan membantu Yayasan Pusaka menjalankan berbagai 
+                    program pendidikan, sosial, pemberdayaan, dan pengembangan bagi penerima manfaat.
+                    Bersama, kita dapat membuka lebih banyak kesempatan bagi anak-anak untuk melanjutkan pendidikan, 
+                    membantu keluarga menjadi lebih mandiri, serta menghadirkan kepedulian bagi para pensiunan yang membutuhkan.
                 </p>
 
                 <div class="donation-cta-actions">

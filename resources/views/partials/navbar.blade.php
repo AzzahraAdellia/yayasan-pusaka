@@ -9,12 +9,13 @@
                href="{{ route('home') }}">
 
                 <div class="brand-logo">
-                    YP
+                    <img src="{{ asset('images/logo-yp.png') }}"
+                        alt="Logo Yayasan Pusaka">
                 </div>
 
                 <div class="brand-text">
                     <strong>Yayasan Pusaka</strong>
-                    <span>Peduli • Berdaya • Berdampak</span>
+                    <span>Bermakna • Berbagi • Bermakna</span>
                 </div>
 
             </a>
