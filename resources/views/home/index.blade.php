@@ -168,7 +168,7 @@
                     <div class="about-image-main">
 
                         <img
-                            src="{{ asset('images/about-beranda.jpg') }}"
+                            src="{{ asset('images/about-beranda.JPG') }}"
                             alt="Kegiatan Yayasan Pusaka"
                         >
 
