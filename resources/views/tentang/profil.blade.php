@@ -15,7 +15,7 @@
         <div class="profile-hero-content">
 
             <span class="section-label">
-                TENTANG KAMI
+                PROFIL YAYASAN
             </span>
 
             <h1>
@@ -24,9 +24,9 @@
             </h1>
 
             <p>
-                Yayasan Pusaka hadir sebagai organisasi sosial yang berkomitmen
-                untuk memberikan manfaat melalui pendidikan, pemberdayaan,
-                kepedulian sosial, serta berbagai program pengembangan.
+                Sejak 1967, Yayasan Pusaka hadir membawa semangat kepedulian bagi 
+                keluarga besar PT Kereta Api Indonesia (Persero), melalui pelayanan sosial, 
+                pendidikan, pemberdayaan, serta pengembangan yang berkelanjutan.
             </p>
 
             <div class="profile-breadcrumb">
@@ -97,21 +97,23 @@
                 </span>
 
                 <h2 class="section-title">
-                    Berangkat dari Kepedulian,
-                    Tumbuh Menjadi <span>Gerakan Bersama.</span>
+                    Tumbuh dari Kepedulian
+                    <span>Keluarga Besar Perkeretaapian.</span>
                 </h2>
 
                 <p class="section-description">
-                    Yayasan Pusaka merupakan yayasan yang bergerak di bidang
-                    sosial dengan semangat untuk membantu, mendampingi, serta
-                    membuka peluang yang lebih baik bagi para penerima manfaat.
+                    Yayasan Pusaka merupakan lembaga sosial yang didirikan pada 31 Maret 1967 di Kota Bandung 
+                    oleh para pejabat Perusahaan Kereta Api Milik Negara Republik Indonesia.
+                    Sejak awal berdirinya, Yayasan Pusaka membawa semangat kepedulian terhadap kesejahteraan 
+                    karyawan kereta api, pensiunan, serta keluarganya. Semangat tersebut terus dijaga dan 
+                    dikembangkan melalui berbagai bentuk pelayanan dan program yang disesuaikan dengan kebutuhan penerima manfaat.
                 </p>
 
                 <p class="section-description">
-                    Melalui berbagai program pendidikan, sosial, pemberdayaan,
-                    pelatihan, dan pengembangan, Yayasan Pusaka berupaya
-                    menghadirkan manfaat yang tidak hanya bersifat sesaat,
-                    tetapi juga mendorong kemandirian dan keberlanjutan.
+                    Dalam perjalanannya, Yayasan Pusaka terus bertumbuh dan beradaptasi. 
+                    Pelayanan yang diberikan tidak hanya berupa bantuan sosial, tetapi juga mencakup pendidikan, pendampingan, 
+                    pemberdayaan, pelatihan keterampilan, serta berbagai program pengembangan yang mendorong penerima manfaat 
+                    untuk tumbuh dan semakin mandiri.
                 </p>
 
                 <div class="profile-highlight">
@@ -119,21 +121,21 @@
                     <div>
                         <i class="bi bi-check-circle-fill"></i>
                         <span>
-                            Berorientasi pada penerima manfaat
+                            Tumbuh bersama keluarga besar perkeretaapian.
                         </span>
                     </div>
 
                     <div>
                         <i class="bi bi-check-circle-fill"></i>
                         <span>
-                            Mengutamakan kolaborasi
+                            Hadir untuk mendampingi mereka yang membutuhkan.
                         </span>
                     </div>
 
                     <div>
                         <i class="bi bi-check-circle-fill"></i>
                         <span>
-                            Mendorong keberlanjutan program
+                            Mengembangkan program yang memberikan manfaat jangka panjang.
                         </span>
                     </div>
 

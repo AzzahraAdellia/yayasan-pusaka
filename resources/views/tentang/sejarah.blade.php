@@ -15,17 +15,18 @@
         <div class="history-hero-content">
 
             <span class="section-label">
-                TENTANG KAMI
+                SEJARAH
             </span>
 
             <h1>
-                Perjalanan <span>Yayasan Pusaka.</span>
+                Perjalanan Kepedulian<span>Sejak 1967.</span>
             </h1>
 
             <p>
-                Dari sebuah kepedulian yang sederhana, Yayasan Pusaka terus
-                berkembang melalui berbagai program sosial, pendidikan,
-                pemberdayaan, dan pengembangan bagi para penerima manfaat.
+                Lebih dari lima dekade perjalanan Yayasan Pusaka berawal dari satu semangat yang sama: 
+                menghadirkan kepedulian dan meningkatkan kesejahteraan keluarga besar perkeretaapian.
+                Dari masa ke masa, Yayasan Pusaka terus berkembang mengikuti kebutuhan penerima manfaat 
+                serta menghadirkan berbagai bentuk pelayanan yang semakin luas dan berkelanjutan.
             </p>
 
             <div class="profile-breadcrumb">
@@ -76,16 +77,16 @@
             <div class="col-lg-7">
 
                 <p class="section-description">
-                    Yayasan Pusaka lahir dari semangat kepedulian untuk membantu
-                    dan memberikan dukungan kepada mereka yang membutuhkan.
-                    Seiring waktu, bentuk kepedulian tersebut berkembang menjadi
-                    program yang lebih terstruktur dan berkelanjutan.
+                    <br>
+                    Yayasan Pusaka didirikan pada 31 Maret 1967 di Kota Bandung oleh para pejabat 
+                    Perusahaan Kereta Api Milik Negara Republik Indonesia.
+                    Kehadiran Yayasan Pusaka dilandasi oleh semangat kepedulian untuk meningkatkan 
+                    kesejahteraan karyawan kereta api, pensiunan, serta keluarganya.
                 </p>
 
                 <p class="section-description">
-                    Perjalanan Yayasan Pusaka terus berkembang melalui kolaborasi,
-                    penguatan program, serta keterlibatan berbagai pihak yang
-                    memiliki semangat yang sama untuk menciptakan manfaat nyata.
+                    Sejak saat itu, Yayasan Pusaka menjadi wadah untuk menghimpun kepedulian dan 
+                    menghadirkan berbagai bentuk pelayanan bagi keluarga besar perkeretaapian yang membutuhkan.
                 </p>
 
             </div>
@@ -112,14 +113,14 @@
             </span>
 
             <h2 class="section-title">
-                Langkah demi Langkah,
-                <span>Membangun Manfaat.</span>
+                Dari Kepedulian,
+                <span>Menuju Manfaat yang Berkelanjutan.</span>
             </h2>
 
-            <p>
+            {{-- <p>
                 Timeline ini nantinya bisa disesuaikan dengan tahun dan
                 peristiwa resmi Yayasan Pusaka.
-            </p>
+            </p> --}}
 
         </div>
 
@@ -130,24 +131,26 @@
             <div class="history-item">
 
                 <div class="history-year">
-                    AWAL
+                    1967
                 </div>
 
                 <div class="history-dot"></div>
 
                 <div class="history-card">
 
-                    <span>
-                        FASE AWAL
-                    </span>
+                    {{-- <span>
+                        YAYASAN PUSAKA DIDIRIKAN
+                    </span> --}}
 
                     <h3>
-                        Lahir dari Semangat Kepedulian
+                        Yayasan Pusaka didirikan
                     </h3>
 
                     <p>
-                        Yayasan Pusaka mulai tumbuh dari kepedulian terhadap
-                        kebutuhan sosial dan dukungan bagi penerima manfaat.
+                        Yayasan Pusaka resmi didirikan pada 31 Maret 1967 di Kota Bandung oleh para 
+                        pejabat Perusahaan Kereta Api Milik Negara Republik Indonesia.
+                        Pendirian Yayasan Pusaka menjadi awal dari perjalanan panjang pelayanan sosial bagi 
+                        karyawan kereta api, pensiunan, serta keluarganya.
                     </p>
 
                 </div>
@@ -159,25 +162,27 @@
             <div class="history-item">
 
                 <div class="history-year">
-                    TUMBUH
+                    PERJALANAN BERIKUTNYA
                 </div>
 
                 <div class="history-dot orange"></div>
 
                 <div class="history-card">
 
-                    <span>
-                        PENGEMBANGAN PROGRAM
-                    </span>
+                    {{-- <span>
+                        MEMPERLUAS KEPEDULIAN DAN PELAYANAN
+                    </span> --}}
 
                     <h3>
-                        Program Mulai Berkembang
+                        Memperluas Kepedulian dan Pelayanan
                     </h3>
 
                     <p>
-                        Kegiatan sosial berkembang menjadi berbagai program
-                        yang lebih terarah di bidang pendidikan, sosial,
-                        pemberdayaan, dan pengembangan.
+                        Seiring berjalannya waktu, Yayasan Pusaka terus menjalankan perannya 
+                        dalam memberikan perhatian kepada keluarga besar perkeretaapian.
+                        Pelayanan berkembang dengan memberikan perhatian kepada anak yatim/piatu dari 
+                        keluarga pegawai dan pensiunan, pensiunan yang membutuhkan dukungan, serta keluarga 
+                        prasejahtera dalam lingkungan PT Kereta Api Indonesia (Persero).
                     </p>
 
                 </div>
@@ -189,25 +194,28 @@
             <div class="history-item">
 
                 <div class="history-year">
-                    KOLABORASI
+                    PENGEMBANGAN PROGRAM
                 </div>
 
                 <div class="history-dot"></div>
 
                 <div class="history-card">
 
-                    <span>
-                        MEMPERLUAS DAMPAK
-                    </span>
+                    {{-- <span>
+                        Dari Bantuan Menuju Pemberdayaan
+                    </span> --}}
 
                     <h3>
-                        Membangun Kolaborasi dan Kemitraan
+                        Dari Bantuan Menuju Pemberdayaan
                     </h3>
 
                     <p>
-                        Yayasan Pusaka memperluas jejaring dan membangun
-                        kolaborasi dengan berbagai institusi, perusahaan,
-                        komunitas, dan organisasi.
+                        Perubahan kebutuhan penerima manfaat mendorong Yayasan Pusaka untuk terus mengembangkan bentuk pelayanannya.
+                        Dukungan yang diberikan berkembang dari pelayanan sosial menjadi berbagai program yang mencakup pendidikan, 
+                        pendampingan sosial, pemberdayaan ekonomi, serta pelatihan dan pengembangan keterampilan.
+                        
+                        Perkembangan tersebut menjadi bagian dari upaya Yayasan Pusaka agar penerima manfaat tidak hanya memperoleh bantuan, 
+                        tetapi juga memiliki kesempatan untuk mengembangkan potensi dan meningkatkan kemandirian.
                     </p>
 
                 </div>
@@ -219,25 +227,28 @@
             <div class="history-item">
 
                 <div class="history-year">
-                    KINI
+                    PENGUATAN KOLABORASI
                 </div>
 
                 <div class="history-dot orange"></div>
 
                 <div class="history-card">
 
-                    <span>
-                        BERKELANJUTAN
-                    </span>
+                    {{-- <span>
+                        Tumbuh Bersama melalui Sinergi
+                    </span> --}}
 
                     <h3>
-                        Terus Bergerak untuk Manfaat yang Lebih Luas
+                        Tumbuh Bersama melalui Sinergi
                     </h3>
 
                     <p>
-                        Yayasan Pusaka terus mengembangkan program dan sistem
-                        yang lebih baik agar manfaat yang diberikan semakin
-                        luas, terukur, dan berkelanjutan.
+                        Dalam memperluas manfaat, Yayasan Pusaka terus membangun sinergi dan kolaborasi dengan 
+                        PT Kereta Api Indonesia (Persero), anak perusahaan, lembaga pendidikan, organisasi, 
+                        komunitas, serta berbagai mitra lainnya.
+                        
+                        Kolaborasi menjadi bagian penting dalam pengembangan program, peningkatan kualitas pelayanan, 
+                        serta perluasan kesempatan bagi penerima manfaat.
                     </p>
 
                 </div>
@@ -264,18 +275,20 @@
             <div>
 
                 <span>
-                    PERJALANAN BERLANJUT
+                    SEMANGAT YANG TERUS DIJAGA
                 </span>
 
                 <h2>
-                    Setiap Langkah Adalah Bagian dari
-                    <strong>Manfaat yang Lebih Besar.</strong>
+                    Lebih dari Lima Dekade 
+                    <strong>Mengabdi dan Peduli.</strong>
                 </h2>
 
                 <p>
-                    Perjalanan Yayasan Pusaka terus berkembang bersama
-                    penerima manfaat, mitra, dan seluruh pihak yang ikut
-                    berkontribusi.
+                    Perjalanan Yayasan Pusaka bukan hanya tentang berapa lama yayasan ini berdiri, 
+                    tetapi tentang kepedulian yang terus diwariskan dari satu generasi ke generasi berikutnya.
+                    Berawal dari kepedulian terhadap kesejahteraan keluarga besar perkeretaapian, Yayasan Pusaka terus bergerak untuk 
+                    memberikan manfaat yang lebih luas melalui pelayanan, pendampingan, pemberdayaan, dan kolaborasi.
+                    Semangat tersebut akan terus menjadi bagian dari perjalanan Yayasan Pusaka dalam menghadirkan manfaat bagi penerima manfaat hari ini dan di masa yang akan datang.
                 </p>
 
             </div>

@@ -15,7 +15,7 @@
         <div class="vision-hero-content">
 
             <span class="section-label">
-                TENTANG KAMI
+                VISI & MISI
             </span>
 
             <h1>
