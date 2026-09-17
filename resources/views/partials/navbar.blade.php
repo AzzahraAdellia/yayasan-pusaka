@@ -14,8 +14,8 @@
                 </div>
 
                 <div class="brand-text">
-                    <strong>Yayasan Pusaka</strong>
-                    <span>Bermakna • Berbagi • Bermakna</span>
+                    <strong>YAYASAN PUSAKA</strong>
+                    <span>Berkembang • Berbagi • Bermakna</span>
                 </div>
 
             </a>

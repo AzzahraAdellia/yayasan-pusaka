@@ -27,6 +27,12 @@
         );
 }
 
+/* Desktop besar */
+@media (min-width: 1200px) {
+    .hero-section {
+        padding-top: 130px;
+    }
+}
 
 /* =====================================================
    HERO LEFT

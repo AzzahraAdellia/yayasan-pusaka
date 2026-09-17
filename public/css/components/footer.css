@@ -40,12 +40,12 @@
 
     border-radius: 13px;
 
-    background:
+    /* background:
         linear-gradient(
             135deg,
             var(--primary),
             var(--primary-dark)
-        );
+        ); */
 
     color: var(--white);
 

@@ -16,12 +16,13 @@
                     <div class="footer-brand">
 
                         <div class="footer-brand-logo">
-                            YP
+                            <img src="{{ asset('images/logo-yp.png') }}"
+                                alt="Logo Yayasan Pusaka">
                         </div>
 
                         <div>
                             <strong>
-                                Yayasan Pusaka
+                                YAYASAN PUSAKA
                             </strong>
 
                             <span>
@@ -31,38 +32,36 @@
 
                     </div>
 
-
                     <p class="footer-about">
-                        Sejak 1967, Yayasan Pusaka hadir membawa semangat kepedulian bagi keluarga besar 
-                        PT Kereta Api Indonesia (Persero) melalui program pendidikan, sosial, pemberdayaan, dan 
+                        Sejak 1967, Yayasan Pusaka hadir membawa semangat kepedulian bagi keluarga besar
+                        PT Kereta Api Indonesia (Persero) melalui program pendidikan, sosial, pemberdayaan, dan
                         pengembangan yang berkelanjutan.
                     </p>
 
-
                     <div class="footer-social">
 
-                    @if (!empty($footerSettings['instagram_url']))
+                        @if (!empty($footerSettings['instagram_url']))
 
-                        <a href="{{ $footerSettings['instagram_url'] }}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram">
+                            <a href="{{ $footerSettings['instagram_url'] }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram">
 
-                            <i class="bi bi-instagram"></i>
+                                <i class="bi bi-instagram"></i>
 
-                        </a>
+                            </a>
 
-                    @endif
+                        @endif
 
-                        {{-- <a href="#"
-                           aria-label="YouTube">
+                        {{-- 
+                        <a href="#" aria-label="YouTube">
                             <i class="bi bi-youtube"></i>
                         </a>
 
-                        <a href="#"
-                           aria-label="Facebook">
+                        <a href="#" aria-label="Facebook">
                             <i class="bi bi-facebook"></i>
-                        </a> --}}
+                        </a>
+                        --}}
 
                     </div>
 

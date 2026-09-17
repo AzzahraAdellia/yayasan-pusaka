@@ -243,8 +243,8 @@
                                 <strong>Kepedulian</strong>
 
                                 <span>
-                                    Hadir dan tumbuh bersama
-                                    penerima manfaat.
+                                    Hadir dan memberikan perhatian
+                                    kepada penerima manfaat yang membutuhkan.
                                 </span>
                             </div>
 
@@ -258,11 +258,11 @@
                             </div>
 
                             <div>
-                                <strong>Kolaborasi</strong>
+                                <strong>Pendampingan</strong>
 
                                 <span>
-                                    Membangun manfaat melalui
-                                    kebersamaan.
+                                    Berjalan bersama penerima manfaat
+                                    dalam setiap proses pertumbuhan.
                                 </span>
                             </div>
 
@@ -279,7 +279,7 @@
                                 <strong>Pemberdayaan</strong>
 
                                 <span>
-                                    Mendorong kemandirian dan
+                                    Mendorong keterampilan, kemandirian dan
                                     kesempatan berkembang.
                                 </span>
                             </div>
@@ -294,11 +294,11 @@
                             </div>
 
                             <div>
-                                <strong>Dampak</strong>
+                                <strong>Keberlanjutan</strong>
 
                                 <span>
-                                    Menciptakan manfaat yang
-                                    berkelanjutan.
+                                    Menghadirkan program yang memberikan
+                                    manfaat janga panjang.
                                 </span>
                             </div>
 
@@ -381,11 +381,12 @@
                         </div>
 
                         <p>
-                            Penerima Manfaat
+                            Penerima Manfaat Senior
                         </p>
 
                         <span class="impact-note">
-                            Seluruh program
+                            Pensiunan & keluarga PT KAI yang menderita 
+                            sakit menahun dan ekonomi lemah.
                         </span>
 
                     </div>
@@ -412,11 +413,11 @@
                         </div>
 
                         <p>
-                            Program
+                            Keluarga Asuh
                         </p>
 
                         <span class="impact-note">
-                            Sosial & pemberdayaan
+                            Keluarga yang ditinggal karyawan/karyawati PT KAI
                         </span>
 
                     </div>
@@ -443,11 +444,11 @@
                         </div>
 
                         <p>
-                            Kegiatan
+                            Anak Asuh
                         </p>
 
                         <span class="impact-note">
-                            Telah dilaksanakan
+                            Anak yatim dan/atau piatu karyawan/karyawati PT KAI
                         </span>
 
                     </div>
@@ -474,11 +475,12 @@
                         </div>
 
                         <p>
-                            Wilayah
+                            Alumni
                         </p>
 
                         <span class="impact-note">
-                            Jangkauan program
+                            Anak-anak yang pernah mendapat bantuan pendidikan
+                            dan menjadi peserta program pelatihan Yayasan Pusaka.
                         </span>
 
                     </div>
