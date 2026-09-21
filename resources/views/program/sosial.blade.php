@@ -152,7 +152,7 @@
                     @else
 
                         <img
-                            src="{{ asset('images/program-sosial.jpg') }}"
+                            src="{{ asset('images/bantuan-sosial.jpg') }}"
                             alt="{{ $program->name }}"
                         >
 
@@ -196,6 +196,11 @@
      PROGRAM LIST
 ========================= --}}
 
+
+{{-- =========================
+     BENTUK BANTUAN SOSIAL
+========================= --}}
+
 <section class="social-programs section-padding">
 
     <div class="container">
@@ -209,15 +214,19 @@
                 </span>
 
                 <h2 class="section-title">
-                    Bentuk Dukungan
-                    <span>yang Kami Hadirkan.</span>
+                    Bentuk Bantuan
+                    <span>yang Kami Berikan.</span>
                 </h2>
 
             </div>
 
             <p>
-                Program dijalankan sesuai dengan kebutuhan penerima manfaat
-                dan ruang lingkup pelayanan sosial Yayasan Pusaka.
+                Yayasan Pusaka memberikan berbagai bentuk
+                bantuan kepada para pensiunan PT Kereta Api
+                Indonesia (Persero), khususnya Penerima
+                Manfaat Senior (PMS), sebagai wujud
+                kepedulian dan dukungan terhadap
+                kesejahteraan mereka.
             </p>
 
         </div>
@@ -225,216 +234,195 @@
 
         <div class="row g-4">
 
-            {{-- YATIM / PIATU --}}
-            <div class="col-lg-4">
+            {{-- KUNJUNGAN RUMAH --}}
 
-                <article class="social-program-card">
+            <div class="col-lg-6">
 
-                    <div class="social-card-icon orange">
-                        <i class="bi bi-person-heart"></i>
-                    </div>
-
-                    <span class="social-card-number">
-                        01
-                    </span>
-
-                    <span class="social-card-label">
-                        SOSIAL
-                    </span>
-
-                    <h3>
-                        Anak Yatim/Piatu
-                    </h3>
-
-                    <p>
-                        Memberikan dukungan dan perhatian kepada anak
-                        yatim/piatu melalui program sosial dan pendidikan
-                        yang berkelanjutan.
-                    </p>
-
-                </article>
-
-            </div>
-
-
-            {{-- ABK --}}
-            <div class="col-lg-4">
-
-                <article class="social-program-card">
+                <article class="social-program-card h-100">
 
                     <div class="social-card-icon blue">
-                        <i class="bi bi-universal-access"></i>
+                        <i class="bi bi-house-heart-fill"></i>
                     </div>
 
                     <span class="social-card-number">
-                        02
-                    </span>
-
-                    <span class="social-card-label">
-                        PENDAMPINGAN
-                    </span>
-
-                    <h3>
-                        Dukungan ABK
-                    </h3>
-
-                    <p>
-                        Mendukung kebutuhan dan pengembangan anak
-                        berkebutuhan khusus melalui pendampingan dan
-                        program yang relevan.
-                    </p>
-
-                </article>
-
-            </div>
-
-
-            {{-- BANTUAN SOSIAL --}}
-            <div class="col-lg-4">
-
-                <article class="social-program-card">
-
-                    <div class="social-card-icon orange">
-                        <i class="bi bi-box2-heart-fill"></i>
-                    </div>
-
-                    <span class="social-card-number">
-                        03
-                    </span>
-
-                    <span class="social-card-label">
-                        BANTUAN
-                    </span>
-
-                    <h3>
-                        Bantuan Sosial
-                    </h3>
-
-                    <p>
-                        Memberikan bantuan kepada penerima manfaat
-                        sesuai dengan kebutuhan dan kondisi sosial yang
-                        membutuhkan dukungan.
-                    </p>
-
-                </article>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-{{-- =========================
-     SOCIAL APPROACH
-========================= --}}
-
-<section class="social-approach section-padding">
-
-    <div class="container">
-
-        <div class="social-approach-wrapper">
-
-            <div class="social-approach-title">
-
-                <span>
-                    PENDEKATAN KAMI
-                </span>
-
-                <h2>
-                    Kepedulian yang
-                    <strong>Tepat Sasaran.</strong>
-                </h2>
-
-            </div>
-
-
-            <div class="social-approach-steps">
-
-                <div class="social-approach-step">
-
-                    <span>
                         01
                     </span>
 
-                    <div>
+                    <span class="social-card-label">
+                        KUNJUNGAN
+                    </span>
 
-                        <strong>
-                            Identifikasi
-                        </strong>
+                    <h3>
+                        Kunjungan ke Rumah PMS
+                    </h3>
 
-                        <p>
-                            Memahami kebutuhan penerima manfaat.
-                        </p>
+                    <p>
+                        Yayasan Pusaka melakukan kunjungan
+                        langsung ke rumah Penerima Manfaat
+                        Senior (PMS) sebagai bentuk perhatian,
+                        kepedulian, dan upaya menjaga hubungan
+                        kekeluargaan dengan para pensiunan
+                        PT KAI.
+                    </p>
 
+                </article>
+
+            </div>
+
+
+            {{-- BANTUAN UANG TUNAI --}}
+
+            <div class="col-lg-6">
+
+                <article class="social-program-card h-100">
+
+                    <div class="social-card-icon orange">
+                        <i class="bi bi-cash-coin"></i>
                     </div>
 
-                </div>
-
-
-                <div class="social-approach-step">
-
-                    <span>
+                    <span class="social-card-number">
                         02
                     </span>
 
-                    <div>
+                    <span class="social-card-label">
+                        BANTUAN FINANSIAL
+                    </span>
 
-                        <strong>
-                            Verifikasi
-                        </strong>
+                    <h3>
+                        Bantuan Uang Tunai
+                    </h3>
 
-                        <p>
-                            Memastikan bantuan sesuai kondisi dan kebutuhan.
-                        </p>
-
+                    <div class="social-cash-amount">
+                        Rp500.000
                     </div>
 
-                </div>
+                    <p>
+                        Pemberian bantuan uang tunai sebesar
+                        Rp500.000 kepada penerima manfaat
+                        untuk membantu memenuhi kebutuhan
+                        sehari-hari.
+                    </p>
+
+                </article>
+
+            </div>
 
 
-                <div class="social-approach-step">
+            {{-- KEGIATAN SOSIALISASI --}}
 
-                    <span>
+            <div class="col-lg-6">
+
+                <article class="social-program-card h-100">
+
+                    <div class="social-card-icon blue">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+
+                    <span class="social-card-number">
                         03
                     </span>
 
-                    <div>
+                    <span class="social-card-label">
+                        KEGIATAN BERKALA
+                    </span>
 
-                        <strong>
-                            Pelaksanaan
-                        </strong>
+                    <h3>
+                        Kegiatan Sosialisasi PMS
+                    </h3>
 
-                        <p>
-                            Memberikan dukungan melalui program yang tepat.
-                        </p>
+                    <p>
+                        Yayasan Pusaka menyelenggarakan
+                        kegiatan sosialisasi secara berkala
+                        bagi Penerima Manfaat Senior (PMS)
+                        sebagai sarana silaturahmi,
+                        pendampingan, dan pemberian
+                        informasi yang bermanfaat.
+                    </p>
+
+                    <div class="social-benefit-list">
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Sesi motivasi
+                        </div>
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Layanan pemeriksaan kesehatan gratis
+                        </div>
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Kegiatan sosial dan silaturahmi
+                        </div>
 
                     </div>
 
-                </div>
+                </article>
+
+            </div>
 
 
-                <div class="social-approach-step">
+            {{-- BANTUAN ALAT KESEHATAN --}}
 
-                    <span>
+            <div class="col-lg-6">
+
+                <article class="social-program-card h-100">
+
+                    <div class="social-card-icon orange">
+                        <i class="bi bi-heart-pulse-fill"></i>
+                    </div>
+
+                    <span class="social-card-number">
                         04
                     </span>
 
-                    <div>
+                    <span class="social-card-label">
+                        BANTUAN KESEHATAN
+                    </span>
 
-                        <strong>
-                            Pendampingan
-                        </strong>
+                    <h3>
+                        Bantuan Alat Kesehatan
+                    </h3>
 
-                        <p>
-                            Melihat perkembangan dan keberlanjutan manfaat.
-                        </p>
+                    <p>
+                        Yayasan Pusaka menyediakan bantuan
+                        alat kesehatan dan perlengkapan
+                        penunjang aktivitas bagi penerima
+                        manfaat sesuai dengan kebutuhan
+                        masing-masing.
+                    </p>
+
+                    <div class="social-benefit-list">
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Tabung oksigen
+                        </div>
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Kursi roda
+                        </div>
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Popok dewasa (pampers)
+                        </div>
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Kursi salat
+                        </div>
+
+                        <div>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Tongkat jalan
+                        </div>
 
                     </div>
 
-                </div>
+                </article>
 
             </div>
 
@@ -445,44 +433,177 @@
 </section>
 
 
+
 {{-- =========================
-     IMPACT CTA
+     PERSYARATAN DAN PENGAJUAN
 ========================= --}}
 
-<section class="social-impact">
+<section class="social-requirements section-padding">
 
     <div class="container">
 
-        <div class="social-impact-wrapper">
+        <div class="social-requirements-heading">
 
-            <div>
+            <span class="section-label">
+                INFORMASI BANTUAN SOSIAL
+            </span>
 
-                <span>
-                    DAMPAK SOSIAL
-                </span>
+            <h2 class="section-title">
+                Persyaratan dan
+                <span>Cara Pengajuan.</span>
+            </h2>
 
-                <h2>
-                    Setiap Kepedulian Bisa Menjadi
-                    <strong>Harapan yang Baru.</strong>
-                </h2>
+            <p class="section-description">
+                Informasi mengenai persyaratan penerima
+                manfaat dan prosedur pengajuan bantuan
+                sosial Yayasan Pusaka.
+            </p>
 
-                <p>
-                    Statistik penerima manfaat dan capaian program sosial
-                    nantinya dapat terhubung dengan data aplikasi internal
-                    Yayasan Pusaka melalui API.
-                </p>
+        </div>
+
+
+        <div class="row g-4">
+
+            {{-- PERSYARATAN --}}
+
+            <div class="col-lg-6">
+
+                <div class="social-requirement-card">
+
+                    <div class="social-requirement-header">
+
+                        <div class="social-requirement-icon blue">
+                            <i class="bi bi-clipboard-check-fill"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                01 / KETENTUAN
+                            </span>
+
+                            <h3>
+                                Persyaratan Penerima Bantuan
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <p>
+                        Program bantuan sosial ditujukan
+                        bagi pensiunan PT Kereta Api
+                        Indonesia (Persero) dan keluarga nya yang memenuhi
+                        kriteria berikut:
+                    </p>
+
+
+                    <div class="social-requirement-list">
+
+                        <div>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            <span>
+                                Mengalami sakit menahun.
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            <span>
+                                Memiliki kondisi ekonomi lemah.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
 
-            <a href="{{ route('impact') }}"
-               class="profile-commitment-btn">
 
-                Lihat Dampak Kami
+            {{-- CARA PENGAJUAN --}}
 
-                <i class="bi bi-arrow-right"></i>
+            <div class="col-lg-6">
 
-            </a>
+                <div class="social-requirement-card">
+
+                    <div class="social-requirement-header">
+
+                        <div class="social-requirement-icon orange">
+                            <i class="bi bi-file-earmark-text-fill"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                02 / PROSEDUR
+                            </span>
+
+                            <h3>
+                                Cara Pengajuan Bantuan
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <p>
+                        Pengajuan bantuan sosial Yayasan
+                        Pusaka dilakukan melalui:
+                    </p>
+
+
+                    <div class="social-requirement-list">
+
+                        <div>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            <span>
+                                DPD PERPENKA
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            <span>
+                                DPC PERPENKA
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="social-submission-note">
+
+                        <i class="bi bi-info-circle-fill"></i>
+
+                        <span>
+                            Penerima manfaat dapat mengajukan
+                            bantuan melalui DPD atau DPC
+                            PERPENKA Wilayah masing-masing.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 

@@ -77,7 +77,7 @@
                     @else
 
                         <img
-                            src="{{ asset('images/program-pendidikan.jpg') }}"
+                            src="{{ asset('images/bantuan-pendidikan.jpg') }}"
                             alt="{{ $program->name }}"
                         >
 
@@ -174,8 +174,9 @@
 </section>
 
 
+
 {{-- =========================
-     PROGRAM LIST
+     NOMINAL BANTUAN PENDIDIKAN
 ========================= --}}
 
 <section class="education-programs section-padding">
@@ -187,19 +188,20 @@
             <div>
 
                 <span class="section-label">
-                    PROGRAM PENDIDIKAN
+                    BANTUAN PENDIDIKAN
                 </span>
 
                 <h2 class="section-title">
-                    Bentuk Dukungan
-                    <span>yang Kami Jalankan.</span>
+                    Nominal Bantuan
+                    <span>Pendidikan.</span>
                 </h2>
 
             </div>
 
             <p>
-                Setiap program dirancang untuk membantu penerima manfaat
-                memperoleh kesempatan pendidikan yang lebih baik.
+                Yayasan Pusaka memberikan bantuan pendidikan
+                kepada penerima manfaat sesuai dengan jenjang
+                pendidikan yang sedang ditempuh.
             </p>
 
         </div>
@@ -207,93 +209,293 @@
 
         <div class="row g-4">
 
-            {{-- BANTUAN PENDIDIKAN --}}
-            <div class="col-lg-6">
+            @php
+                $educationLevels = [
+                    [
+                        'level' => 'Pra Sekolah / TK',
+                        'icon' => 'bi-backpack2-fill',
+                        'amount' => 'Rp 5.000.000',
+                        'color' => 'blue',
+                    ],
+                    [
+                        'level' => 'SD / Sederajat',
+                        'icon' => 'bi-book-fill',
+                        'amount' => 'Rp 7.000.000',
+                        'color' => 'orange',
+                    ],
+                    [
+                        'level' => 'SMP / Sederajat',
+                        'icon' => 'bi-journal-bookmark-fill',
+                        'amount' => 'Rp 8.000.000',
+                        'color' => 'blue',
+                    ],
+                    [
+                        'level' => 'SMA / SMK / Sederajat',
+                        'icon' => 'bi-mortarboard-fill',
+                        'amount' => 'Rp 9.000.000',
+                        'color' => 'orange',
+                    ],
+                    [
+                        'level' => 'D3 / Sederajat / ABK',
+                        'icon' => 'bi-buildings-fill',
+                        'amount' => 'Rp 10.000.000',
+                        'color' => 'blue',
+                    ],
+                    [
+                        'level' => 'D4 / S1 / Sederajat',
+                        'icon' => 'bi-buildings-fill',
+                        'amount' => 'Rp 12.000.000',
+                        'color' => 'blue',
+                    ],
 
-                <article class="education-program-card">
+                ];
+            @endphp
 
-                    <div class="education-card-top">
 
-                        <div class="education-card-icon blue">
-                            <i class="bi bi-book-fill"></i>
+            @foreach ($educationLevels as $index => $level)
+
+                <div class="col-lg-4 col-md-6">
+
+                    <article class="education-program-card h-100">
+
+                        <div class="education-card-top">
+
+                            <div class="education-card-icon {{ $level['color'] }}">
+
+                                <i class="bi {{ $level['icon'] }}"></i>
+
+                            </div>
+
+                            <span>
+                                {{ sprintf('%02d', $index + 1) }}
+                            </span>
+
                         </div>
 
-                        <span>
-                            01
-                        </span>
+                        <h3>
+                            {{ $level['level'] }}
+                        </h3>
+
+                        <p>
+                            Nominal bantuan pendidikan
+                        </p>
+
+                        <h3 class="education-amount">
+                            {{ $level['amount'] }}
+                        </h3>
+
+                        <div class="education-card-meta">
+
+                            <span>
+                                <i class="bi bi-check-circle"></i>
+                                Bantuan Pendidikan
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            @endforeach
+
+        </div>
+
+
+        <p class="education-nominal-note">
+
+            <i class="bi bi-info-circle"></i>
+
+            Nominal bantuan diberikan sesuai dengan
+            ketentuan program Yayasan Pusaka yang berlaku.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+{{-- =========================
+     PERSYARATAN BANTUAN
+========================= --}}
+
+<section class="education-requirements section-padding">
+
+    <div class="container">
+
+        <div class="education-requirements-heading">
+
+            <span class="section-label">
+                INFORMASI PENDAFTARAN
+            </span>
+
+            <h2 class="section-title">
+                Persyaratan Penerima
+                <span>Bantuan Pendidikan.</span>
+            </h2>
+
+            <p class="section-description">
+                Berikut adalah informasi persyaratan
+                yang perlu diperhatikan oleh calon
+                penerima bantuan pendidikan Yayasan Pusaka.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {{-- PERSYARATAN UMUM --}}
+
+            <div class="col-lg-6">
+
+                <div class="education-requirement-card">
+
+                    <div class="education-requirement-header">
+
+                        <div class="education-card-icon blue">
+                            <i class="bi bi-person-check-fill"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                01 / KETENTUAN
+                            </span>
+
+                            <h3>
+                                Persyaratan Umum
+                            </h3>
+
+                        </div>
 
                     </div>
 
-                    <h3>
-                        Bantuan Pendidikan
-                    </h3>
 
-                    <p>
-                        Dukungan bagi penerima manfaat untuk membantu
-                        keberlanjutan pendidikan sesuai jenjang dan kebutuhan.
-                    </p>
+                    <ul class="education-requirement-list">
 
-                    <div class="education-card-meta">
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Anak yatim atau piatu dari keluarga
+                                besar PT Kereta Api Indonesia (Persero).
+                            </span>
+                        </li>
 
-                        <span>
-                            <i class="bi bi-mortarboard"></i>
-                            Pendidikan
-                        </span>
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Berusia maksimal 24 tahun.
+                            </span>
+                        </li>
 
-                        <span>
-                            <i class="bi bi-people"></i>
-                            Penerima Manfaat
-                        </span>
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Belum menikah.
+                            </span>
+                        </li>
 
-                    </div>
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Memenuhi ketentuan penerima manfaat
+                                yang ditetapkan oleh Yayasan Pusaka.
+                            </span>
+                        </li>
 
-                </article>
+                    </ul>
+
+                </div>
 
             </div>
 
 
-            {{-- ANAK ASUH --}}
+
+            {{-- PERSYARATAN ADMINISTRASI --}}
+
             <div class="col-lg-6">
 
-                <article class="education-program-card">
+                <div class="education-requirement-card">
 
-                    <div class="education-card-top">
+                    <div class="education-requirement-header">
 
                         <div class="education-card-icon orange">
-                            <i class="bi bi-person-heart"></i>
+                            <i class="bi bi-file-earmark-text-fill"></i>
                         </div>
 
-                        <span>
-                            02
-                        </span>
+                        <div>
+
+                            <span>
+                                02 / DOKUMEN
+                            </span>
+
+                            <h3>
+                                Persyaratan Administrasi
+                            </h3>
+
+                        </div>
 
                     </div>
 
-                    <h3>
-                        Anak Asuh
-                    </h3>
 
-                    <p>
-                        Program pendampingan untuk mendukung pendidikan,
-                        pengembangan, dan kebutuhan penerima manfaat secara
-                        berkelanjutan.
-                    </p>
+                    <ul class="education-requirement-list">
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Surat Keterangan Pensiun Karyawan/Karyawati.
+                            </span>
+                        </li>
 
-                    <div class="education-card-meta">
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Surat Keterangan/Akta Kematian Karyawan/Karyawati.
+                            </span>
+                        </li>
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Fotokopi Kartu Keluarga (KK).
+                            </span>
+                        </li>
 
-                        <span>
-                            <i class="bi bi-heart"></i>
-                            Pendampingan
-                        </span>
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Fotokopi KTP orang tua atau wali.
+                            </span>
+                        </li>
 
-                        <span>
-                            <i class="bi bi-stars"></i>
-                            Pengembangan
-                        </span>
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Fotokopi akta kelahiran penerima manfaat.
+                            </span>
+                        </li>
 
-                    </div>
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Surat keterangan aktif sekolah atau
+                                kuliah bagi penerima manfaat yang
+                                sedang menempuh pendidikan.
+                            </span>
+                        </li>
 
-                </article>
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>
+                                Dokumen pendukung lainnya sesuai
+                                ketentuan Yayasan Pusaka.
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
 
             </div>
 
@@ -304,8 +506,9 @@
 </section>
 
 
+
 {{-- =========================
-     IMPACT
+     INFORMASI LEBIH LANJUT
 ========================= --}}
 
 <section class="education-impact">
@@ -317,27 +520,27 @@
             <div>
 
                 <span>
-                    DAMPAK PROGRAM
+                    INFORMASI BANTUAN PENDIDIKAN
                 </span>
 
                 <h2>
-                    Setiap Dukungan Pendidikan adalah
-                    <strong>Investasi untuk Masa Depan.</strong>
+                    Butuh Informasi Lebih Lanjut
+                    <strong>Mengenai Bantuan Pendidikan?</strong>
                 </h2>
 
                 <p>
-                    Data penerima manfaat dan capaian program pendidikan
-                    nantinya dapat diambil langsung dari aplikasi internal
-                    Yayasan Pusaka melalui API.
+                    Hubungi Yayasan Pusaka untuk mendapatkan
+                    informasi mengenai program bantuan pendidikan,
+                    persyaratan, dan ketentuan penerima manfaat.
                 </p>
 
             </div>
 
 
-            <a href="{{ route('impact') }}"
+            <a href="{{ route('contact') }}"
                class="profile-commitment-btn">
 
-                Lihat Dampak
+                Hubungi Kami
 
                 <i class="bi bi-arrow-right"></i>
 

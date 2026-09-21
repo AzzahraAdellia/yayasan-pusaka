@@ -175,8 +175,9 @@
 </section>
 
 
+
 {{-- =========================
-     PROGRAM TYPES
+     PROGRAM PELATIHAN DAN PENGEMBANGAN
 ========================= --}}
 
 <section class="training-programs section-padding">
@@ -192,164 +193,232 @@
                 </span>
 
                 <h2 class="section-title">
-                    Beragam Program untuk
-                    <span>Mengembangkan Kemampuan.</span>
+                    Beragam Pelatihan untuk
+                    <span>Mengembangkan Potensi.</span>
                 </h2>
 
             </div>
 
             <p>
-                Jenis pelatihan dapat berkembang sesuai kebutuhan,
-                peluang, serta karakter penerima manfaat.
+                Yayasan Pusaka menyelenggarakan berbagai
+                program pelatihan dan pengembangan bagi
+                anak asuh serta orang tua atau wali
+                untuk meningkatkan keterampilan,
+                mengenali potensi, dan membuka
+                peluang masa depan.
             </p>
 
         </div>
 
 
-        <div class="row g-4">
+        @php
 
-            {{-- PELATIHAN KETERAMPILAN --}}
-            <div class="col-md-6 col-lg-4">
+            $trainingPrograms = [
 
-                <article class="training-program-card">
+                [
+                    'title' => 'Pelatihan Barista',
 
-                    <div class="training-card-icon blue">
-                        <i class="bi bi-tools"></i>
-                    </div>
+                    'label' => 'KETERAMPILAN',
 
-                    <span class="training-card-number">
-                        01
-                    </span>
+                    'icon' => 'bi-cup-hot-fill',
 
-                    <span class="training-card-label">
-                        KETERAMPILAN
-                    </span>
+                    'color' => 'blue',
 
-                    <h3>
-                        Pelatihan Keterampilan
-                    </h3>
+                    'description' =>
+                        'Pelatihan keterampilan meracik dan
+                        menyajikan minuman kopi untuk
+                        membekali anak asuh dengan kemampuan
+                        praktis di bidang barista.',
 
-                    <p>
-                        Pelatihan keterampilan praktis untuk membantu
-                        peserta memperoleh kemampuan baru yang dapat
-                        digunakan dalam kehidupan maupun dunia kerja.
-                    </p>
+                    'participants' => 'Anak Asuh',
 
-                    <div class="training-tags">
+                    'tags' => [
+                        'Barista',
+                        'Keterampilan',
+                        'Kesiapan Kerja'
+                    ]
+                ],
 
-                        <span>
-                            Praktis
+
+                [
+                    'title' => 'Pelatihan Make Up Artist',
+
+                    'label' => 'KECANTIKAN',
+
+                    'icon' => 'bi-brush-fill',
+
+                    'color' => 'orange',
+
+                    'description' =>
+                        'Pelatihan keterampilan tata rias
+                        untuk mengembangkan kemampuan
+                        peserta di bidang kecantikan
+                        serta membuka peluang usaha
+                        maupun pekerjaan.',
+
+                    'participants' => 'Orang Tua / Wali dan Anak Asuh',
+
+                    'tags' => [
+                        'Make Up Artist',
+                        'Keterampilan',
+                        'Kewirausahaan'
+                    ]
+                ],
+
+
+                [
+                    'title' => 'Pelatihan Fotografi',
+
+                    'label' => 'KREATIVITAS',
+
+                    'icon' => 'bi-camera-fill',
+
+                    'color' => 'blue',
+
+                    'description' =>
+                        'Pelatihan teknik dasar fotografi
+                        untuk mengembangkan kreativitas,
+                        kemampuan pengambilan gambar,
+                        serta keterampilan anak asuh
+                        di bidang fotografi.',
+
+                    'participants' => 'Anak Asuh',
+
+                    'tags' => [
+                        'Fotografi',
+                        'Kreativitas',
+                        'Keterampilan'
+                    ]
+                ],
+
+
+                [
+                    'title' => 'Talent Mapping',
+
+                    'label' => 'PENGEMBANGAN POTENSI',
+
+                    'icon' => 'bi-person-bounding-box',
+
+                    'color' => 'orange',
+
+                    'description' =>
+                        'Program pemetaan bakat dan potensi
+                        untuk membantu anak asuh mengenali
+                        minat, kemampuan, serta kekuatan
+                        diri sebagai dasar pengembangan
+                        masa depan.',
+
+                    'participants' => 'Anak Asuh',
+
+                    'tags' => [
+                        'Bakat',
+                        'Minat',
+                        'Pengembangan Diri'
+                    ]
+                ],
+
+
+                [
+                    'title' => 'Program Magang Kerja ke Jepang',
+
+                    'label' => 'PENGEMBANGAN KARIER',
+
+                    'icon' => 'bi-airplane-fill',
+
+                    'color' => 'blue',
+
+                    'description' =>
+                        'Program persiapan dan pendampingan
+                        bagi anak asuh untuk memperoleh
+                        kesempatan magang kerja di Jepang
+                        melalui pembekalan bahasa,
+                        budaya, keterampilan, dan
+                        kesiapan kerja.',
+
+                    'participants' => 'Anak Asuh',
+
+                    'tags' => [
+                        'Magang Jepang',
+                        'Bahasa Jepang',
+                        'Kesiapan Kerja'
+                    ]
+                ]
+
+            ];
+
+        @endphp
+
+
+        <div class="row g-4 justify-content-center">
+
+            @foreach ($trainingPrograms as $index => $training)
+
+                <div class="col-lg-4 col-md-6">
+
+                    <article class="training-program-card h-100">
+
+                        <div class="training-card-icon {{ $training['color'] }}">
+
+                            <i class="bi {{ $training['icon'] }}"></i>
+
+                        </div>
+
+
+                        <span class="training-card-number">
+
+                            {{ sprintf('%02d', $index + 1) }}
+
                         </span>
 
-                        <span>
-                            Kompetensi
+
+                        <span class="training-card-label">
+
+                            {{ $training['label'] }}
+
                         </span>
 
-                        <span>
-                            Kesiapan Kerja
-                        </span>
 
-                    </div>
-
-                </article>
-
-            </div>
+                        <h3>
+                            {{ $training['title'] }}
+                        </h3>
 
 
-            {{-- TALENT MAPPING --}}
-            <div class="col-md-6 col-lg-4">
-
-                <article class="training-program-card">
-
-                    <div class="training-card-icon orange">
-                        <i class="bi bi-person-bounding-box"></i>
-                    </div>
-
-                    <span class="training-card-number">
-                        02
-                    </span>
-
-                    <span class="training-card-label">
-                        POTENSI
-                    </span>
-
-                    <h3>
-                        Talent Mapping
-                    </h3>
-
-                    <p>
-                        Membantu peserta mengenali kekuatan, minat,
-                        dan potensi diri sebagai dasar untuk menentukan
-                        arah pengembangan yang lebih tepat.
-                    </p>
-
-                    <div class="training-tags">
-
-                        <span>
-                            Potensi
-                        </span>
-
-                        <span>
-                            Minat
-                        </span>
-
-                        <span>
-                            Pengembangan Diri
-                        </span>
-
-                    </div>
-
-                </article>
-
-            </div>
+                        <p>
+                            {{ $training['description'] }}
+                        </p>
 
 
-            {{-- PENGEMBANGAN KARIER --}}
-            <div class="col-md-6 col-lg-4">
+                        <div class="training-participants">
 
-                <article class="training-program-card">
+                            <i class="bi bi-people-fill"></i>
 
-                    <div class="training-card-icon blue">
-                        <i class="bi bi-briefcase-fill"></i>
-                    </div>
+                            <span>
+                                Peserta:
+                                <strong>
+                                    {{ $training['participants'] }}
+                                </strong>
+                            </span>
 
-                    <span class="training-card-number">
-                        03
-                    </span>
+                        </div>
 
-                    <span class="training-card-label">
-                        KARIER
-                    </span>
 
-                    <h3>
-                        Pengembangan Karier
-                    </h3>
+                        <div class="training-tags">
 
-                    <p>
-                        Mendukung kesiapan peserta untuk memasuki dunia
-                        kerja, mengembangkan kompetensi, dan memanfaatkan
-                        peluang karier yang tersedia.
-                    </p>
+                            @foreach ($training['tags'] as $tag)
 
-                    <div class="training-tags">
+                                <span>
+                                    {{ $tag }}
+                                </span>
 
-                        <span>
-                            Karier
-                        </span>
+                            @endforeach
 
-                        <span>
-                            Kesiapan Kerja
-                        </span>
+                        </div>
 
-                        <span>
-                            Pengembangan
-                        </span>
+                    </article>
 
-                    </div>
+                </div>
 
-                </article>
-
-            </div>
+            @endforeach
 
         </div>
 

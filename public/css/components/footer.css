@@ -319,8 +319,107 @@
 }
 
 
+
 /* =====================================================
-   RESPONSIVE
+   FOOTER COMPANY LOGOS
+===================================================== */
+
+.footer-company-section {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.footer-company-section h5 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   LOGO BERJEJER HORIZONTAL
+===================================================== */
+
+.footer .footer-company-grid,
+.footer .footer-company-grid.yp-grid,
+.footer .footer-company-grid.kai-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 10px;
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+/* =====================================================
+   KOTAK LOGO
+===================================================== */
+
+.footer .footer-company-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 65px;
+
+    width: 65px;
+    height: 55px;
+
+    padding: 7px;
+
+    background: #ffffff;
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   GAMBAR LOGO
+===================================================== */
+
+.footer .footer-company-logo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* =====================================================
+   RESPONSIVE TABLET
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .footer .footer-company-grid {
+        gap: 8px;
+    }
+
+    .footer .footer-company-logo {
+        flex: 0 0 55px;
+        width: 55px;
+        height: 50px;
+        padding: 5px;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE MOBILE
 ===================================================== */
 
 @media (max-width: 767px) {
@@ -329,5 +428,96 @@
         flex-direction: column;
         align-items: flex-start;
     }
+
+    .footer .footer-company-grid {
+        gap: 6px;
+    }
+
+    .footer .footer-company-logo {
+        flex: 0 0 45px;
+        width: 45px;
+        height: 40px;
+        padding: 4px;
+    }
+    
+
+/* =====================================
+   FOOTER LAYOUT
+===================================== */
+
+.footer-top > .row {
+    align-items: flex-start;
+}
+
+/* KOLOM BRAND */
+
+.footer-top > .row > .col-lg-6 {
+    min-width: 0;
+}
+
+/* KOLOM JELAJAHI */
+
+.footer-top > .row > .col-lg-2 {
+    min-width: 0;
+}
+
+/* KOLOM HUBUNGI KAMI */
+
+.footer-top > .row > .col-lg-4 {
+    min-width: 0;
+}
+
+/* DESKRIPSI YAYASAN */
+
+.footer-about {
+    max-width: 520px;
+}
+
+/* LOGO PERUSAHAAN */
+
+.footer-company-grid {
+    max-width: 100%;
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 991px) {
+
+    .footer-top > .row > .col-lg-6 {
+        width: 100%;
+    }
+
+    .footer-top > .row > .col-lg-2,
+    .footer-top > .row > .col-lg-4 {
+        width: 50%;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .footer-top > .row > .col-lg-2,
+    .footer-top > .row > .col-lg-4 {
+        width: 100%;
+    }
+
+}
+
+
+/* LOGO PERUSAHAAN DAPAT DIKLIK */
+
+.footer a.footer-company-logo {
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer a.footer-company-logo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    border: 1px solid #f7941d;
+}
 
 }

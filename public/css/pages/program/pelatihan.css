@@ -709,5 +709,69 @@
     .training-impact-wrapper h2 {
         font-size: 25px;
     }
+    
+/* =====================================
+   INFORMASI PESERTA PELATIHAN
+===================================== */
+
+.training-participants {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 14px 16px;
+
+    background: #f0f6fc;
+    border-radius: 10px;
+
+    color: #475569;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.training-participants i {
+    color: #0a4d8c;
+    font-size: 17px;
+    flex-shrink: 0;
+}
+
+.training-participants strong {
+    color: #17365d;
+    font-weight: 600;
+}
+
+
+/* =====================================
+   PENYESUAIAN KARTU PROGRAM
+===================================== */
+
+.training-program-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.training-program-card > p {
+    flex-grow: 1;
+}
+
+.training-program-card .training-tags {
+    margin-top: 0;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+
+    .training-participants {
+        font-size: 12px;
+        padding: 12px 14px;
+    }
+
+}
 
 }

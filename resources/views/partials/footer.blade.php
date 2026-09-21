@@ -10,14 +10,20 @@
 
             <div class="row g-5">
 
-                {{-- BRAND --}}
-                <div class="col-lg-4">
+                
+                {{-- =========================
+                    BRAND YAYASAN PUSAKA
+                ========================= --}}
+
+                <div class="col-lg-6">
 
                     <div class="footer-brand">
 
                         <div class="footer-brand-logo">
-                            <img src="{{ asset('images/logo-yp.png') }}"
-                                alt="Logo Yayasan Pusaka">
+                            <img
+                                src="{{ asset('images/logo-yp.png') }}"
+                                alt="Logo Yayasan Pusaka"
+                            >
                         </div>
 
                         <div>
@@ -32,20 +38,167 @@
 
                     </div>
 
+
+                    {{-- =========================
+                        LOGO ANAK USAHA YP
+                    ========================= --}}
+
+                    @php
+                        $anakUsahaYP = [
+                            [
+                                'name' => 'Anak Usaha YP 1',
+                                'logo' => 'images/perusahaan/pn.png',
+                                'url' => 'https://pt-pusaka-nusantara.com/',
+
+                            ],
+                            [
+                                'name' => 'Anak Usaha YP 2',
+                                'logo' => 'images/perusahaan/btp.png',
+                                'url' => '',
+                            ],
+                            [
+                                'name' => 'Anak Usaha YP 3',
+                                'logo' => 'images/perusahaan/transmikons.png',
+                                'url' => 'https://transmikons-bk.co.id/',
+                            ],
+                            [
+                                'name' => 'Anak Usaha YP 4',
+                                'logo' => 'images/perusahaan/bprs.png',
+                                'url' => 'https://baiturridhapusaka.co.id/',
+                            ],
+                            [
+                                'name' => 'Anak Usaha YP 5',
+                                'logo' => 'images/perusahaan/wtp.png',
+                                'url' => 'https://wahanatranspusaka.com/',
+                            ],
+                        ];
+                    @endphp
+
+                    <div class="footer-company-section">
+
+                        <h5>
+                            Badan Usaha Yayasan Pusaka
+                        </h5>
+
+                        <div class="footer-company-grid yp-grid">
+
+                            
+                            @foreach ($anakUsahaYP as $company)
+
+                                <a
+                                    href="{{ $company['url'] }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="footer-company-logo"
+                                    title="Kunjungi website {{ $company['name'] }}"
+                                    aria-label="Kunjungi website {{ $company['name'] }}"
+                                >
+
+                                    <img
+                                        src="{{ asset($company['logo']) }}"
+                                        alt="{{ $company['name'] }}"
+                                        loading="lazy"
+                                    >
+
+                                </a>
+
+                            @endforeach
+
+                        </div>
+
+                    </div>
+
+
+                    {{-- =========================
+                        DESKRIPSI YAYASAN
+                    ========================= --}}
+
                     <p class="footer-about">
-                        Sejak 1967, Yayasan Pusaka hadir membawa semangat kepedulian bagi keluarga besar
-                        PT Kereta Api Indonesia (Persero) melalui program pendidikan, sosial, pemberdayaan, dan
-                        pengembangan yang berkelanjutan.
+
+                        Sejak 1967, Yayasan Pusaka hadir membawa
+                        semangat kepedulian bagi keluarga besar
+                        PT Kereta Api Indonesia (Persero) melalui
+                        program pendidikan, sosial, pemberdayaan,
+                        dan pengembangan yang berkelanjutan.
+
                     </p>
+
+
+                    {{-- =========================
+                        LOGO PT KAI DAN ANAK USAHA
+                    ========================= --}}
+
+                    @php
+                        $kaiGroup = [
+                            [
+                                'name' => 'PT Kereta Api Indonesia',
+                                'logo' => 'images/perusahaan/kai.png',
+                            ],
+                            [
+                                'name' => 'Anak Usaha KAI 1',
+                                'logo' => 'images/perusahaan/kai-service.png',
+                            ],
+                            [
+                                'name' => 'Anak Usaha KAI 2',
+                                'logo' => 'images/perusahaan/kai-wisata.png',
+                            ],
+                            [
+                                'name' => 'Anak Usaha KAI 3',
+                                'logo' => 'images/perusahaan/kai-commuter.png',
+                            ],
+                            [
+                                'name' => 'Anak Usaha KAI 4',
+                                'logo' => 'images/perusahaan/kai-logistik.png',
+                            ],
+                            [
+                                'name' => 'Anak Usaha KAI 5',
+                                'logo' => 'images/perusahaan/kai-properti.png',
+                            ],
+                        ];
+                    @endphp
+
+
+                    <div class="footer-company-section">
+
+                        {{-- <h5>
+                            PT KAI dan Anak Usahanya
+                        </h5> --}}
+
+                        <div class="footer-company-grid kai-grid">
+
+                            @foreach ($kaiGroup as $company)
+
+                                <div class="footer-company-logo">
+
+                                    <img
+                                        src="{{ asset($company['logo']) }}"
+                                        alt="{{ $company['name'] }}"
+                                        loading="lazy"
+                                    >
+
+                                </div>
+
+                            @endforeach
+
+                        </div>
+
+                    </div>
+
+
+                    {{-- =========================
+                        MEDIA SOSIAL
+                    ========================= --}}
 
                     <div class="footer-social">
 
                         @if (!empty($footerSettings['instagram_url']))
 
-                            <a href="{{ $footerSettings['instagram_url'] }}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram">
+                            <a
+                                href="{{ $footerSettings['instagram_url'] }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Instagram"
+                            >
 
                                 <i class="bi bi-instagram"></i>
 
@@ -53,23 +206,13 @@
 
                         @endif
 
-                        {{-- 
-                        <a href="#" aria-label="YouTube">
-                            <i class="bi bi-youtube"></i>
-                        </a>
-
-                        <a href="#" aria-label="Facebook">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                        --}}
-
                     </div>
 
                 </div>
 
 
                 {{-- MENU --}}
-                <div class="col-6 col-md-4 col-lg-2">
+                <div class="col-lg-2 col-md-6">
 
                     <h5>
                         Jelajahi
@@ -112,7 +255,7 @@
                 </div>
 
 
-                {{-- TRANSPARANSI --}}
+                {{-- TRANSPARANSI
                 <div class="col-6 col-md-4 col-lg-2">
 
                     <h5>
@@ -147,11 +290,11 @@
 
                     </ul>
 
-                </div>
+                </div> --}}
 
 
                 {{-- CONTACT --}}
-                <div class="col-md-4 col-lg-4">
+                <div class="col-lg-4 col-md-6">
 
                     <h5>
                         Hubungi Kami

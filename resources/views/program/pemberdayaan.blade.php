@@ -77,7 +77,7 @@
                     @else
 
                         <img
-                            src="{{ asset('images/program-pemberdayaan.jpg') }}"
+                            src="{{ asset('images/bantuan-umkm.jpg') }}"
                             alt="{{ $program->name }}"
                         >
 
@@ -129,39 +129,50 @@
                         {!! nl2br(e($program->description)) !!}
                     </div>
 
+                
                 @else
 
                     <p class="section-description">
-                        Pemberdayaan menjadi salah satu pendekatan Yayasan Pusaka
-                        untuk membantu penerima manfaat tidak hanya menerima
-                        dukungan, tetapi juga memiliki kesempatan untuk
-                        mengembangkan kemampuan dan kemandirian.
+                        Program Pemberdayaan UMKM Yayasan Pusaka
+                        merupakan upaya untuk mendukung kemandirian
+                        ekonomi keluarga asuh melalui pengembangan
+                        usaha mikro, kecil, dan menengah (UMKM).
                     </p>
 
                     <p class="section-description">
-                        Program dijalankan melalui pengembangan keterampilan,
-                        kewirausahaan, penguatan UMKM, serta pendampingan
-                        sesuai kebutuhan penerima manfaat.
+                        Program ini ditujukan bagi keluarga asuh
+                        Yayasan Pusaka yang memiliki usaha, baik
+                        yang dijalankan oleh orang tua, wali,
+                        maupun anak asuh.
+                    </p>
+
+                    <p class="section-description">
+                        Melalui bantuan pengembangan usaha dan
+                        pelatihan UMKM, Yayasan Pusaka berupaya
+                        meningkatkan kemampuan keluarga asuh
+                        dalam mengelola dan mengembangkan usaha
+                        secara berkelanjutan.
                     </p>
 
                 @endif
 
 
+                
                 <div class="empowerment-points">
 
                     <div>
                         <i class="bi bi-check-circle-fill"></i>
-                        Pengembangan keterampilan
+                        Pemberdayaan ekonomi keluarga asuh
                     </div>
 
                     <div>
                         <i class="bi bi-check-circle-fill"></i>
-                        Dukungan kewirausahaan
+                        Bantuan pengembangan usaha
                     </div>
 
                     <div>
                         <i class="bi bi-check-circle-fill"></i>
-                        Pendampingan menuju kemandirian
+                        Pelatihan dan peningkatan keterampilan UMKM
                     </div>
 
                 </div>
@@ -175,8 +186,9 @@
 </section>
 
 
+
 {{-- =========================
-     PROGRAM LIST
+     BENTUK PEMBERDAYAAN UMKM
 ========================= --}}
 
 <section class="empowerment-programs section-padding">
@@ -188,20 +200,22 @@
             <div>
 
                 <span class="section-label">
-                    PROGRAM PEMBERDAYAAN
+                    PEMBERDAYAAN UMKM
                 </span>
 
                 <h2 class="section-title">
-                    Membuka Jalan Menuju
-                    <span>Kemandirian.</span>
+                    Dukungan untuk
+                    <span>Usaha Keluarga Asuh.</span>
                 </h2>
 
             </div>
 
             <p>
-                Program dirancang untuk membantu penerima manfaat
-                mengembangkan potensi ekonomi dan peluang usaha
-                secara lebih berkelanjutan.
+                Yayasan Pusaka memberikan dukungan
+                bagi keluarga asuh untuk membantu
+                mengembangkan usaha, meningkatkan
+                keterampilan, dan mendorong
+                kemandirian ekonomi keluarga.
             </p>
 
         </div>
@@ -209,10 +223,11 @@
 
         <div class="row g-4">
 
-            {{-- UMKM --}}
+            {{-- BANTUAN PENGEMBANGAN USAHA --}}
+
             <div class="col-lg-6">
 
-                <article class="empowerment-program-card">
+                <article class="empowerment-program-card h-100">
 
                     <div class="empowerment-card-header">
 
@@ -227,34 +242,45 @@
                     </div>
 
                     <span class="empowerment-card-label">
-                        PEMBERDAYAAN EKONOMI
+                        DUKUNGAN USAHA
                     </span>
 
                     <h3>
-                        Pengembangan UMKM
+                        Bantuan Pengembangan Usaha
                     </h3>
 
                     <p>
-                        Mendukung penerima manfaat dalam mengembangkan usaha,
-                        meningkatkan kemampuan pengelolaan, serta membuka
-                        peluang untuk memperluas pasar.
+                        Yayasan Pusaka memberikan bantuan
+                        pengembangan usaha kepada keluarga
+                        asuh yang memiliki dan menjalankan
+                        usaha mikro, kecil, dan menengah
+                        (UMKM).
+                    </p>
+
+                    <p>
+                        Bantuan ini bertujuan untuk mendukung
+                        pengembangan usaha yang dijalankan
+                        oleh orang tua, wali, maupun anak asuh
+                        agar dapat terus berkembang dan
+                        memberikan manfaat ekonomi bagi
+                        keluarga.
                     </p>
 
                     <div class="empowerment-card-features">
 
                         <span>
                             <i class="bi bi-check2"></i>
-                            Pengembangan produk
+                            Pengembangan usaha keluarga asuh
                         </span>
 
                         <span>
                             <i class="bi bi-check2"></i>
-                            Pemasaran
+                            Dukungan bagi UMKM binaan
                         </span>
 
                         <span>
                             <i class="bi bi-check2"></i>
-                            Pengelolaan usaha
+                            Mendorong kemandirian ekonomi
                         </span>
 
                     </div>
@@ -264,15 +290,16 @@
             </div>
 
 
-            {{-- KEWIRAUSAHAAN --}}
+            {{-- PELATIHAN UMKM --}}
+
             <div class="col-lg-6">
 
-                <article class="empowerment-program-card">
+                <article class="empowerment-program-card h-100">
 
                     <div class="empowerment-card-header">
 
                         <div class="empowerment-card-icon orange">
-                            <i class="bi bi-briefcase-fill"></i>
+                            <i class="bi bi-mortarboard-fill"></i>
                         </div>
 
                         <span>
@@ -282,34 +309,45 @@
                     </div>
 
                     <span class="empowerment-card-label">
-                        KEMANDIRIAN
+                        PENGEMBANGAN KETERAMPILAN
                     </span>
 
                     <h3>
-                        Kewirausahaan
+                        Pelatihan UMKM
                     </h3>
 
                     <p>
-                        Mendorong penerima manfaat untuk mengembangkan
-                        ide usaha, kemampuan kewirausahaan, serta kesiapan
-                        untuk membangun sumber penghasilan yang mandiri.
+                        Yayasan Pusaka menyelenggarakan
+                        pelatihan UMKM bagi keluarga asuh
+                        untuk meningkatkan pengetahuan,
+                        keterampilan, dan kemampuan
+                        dalam mengelola usaha.
+                    </p>
+
+                    <p>
+                        Melalui kegiatan pelatihan,
+                        peserta mendapatkan kesempatan
+                        untuk mengembangkan wawasan
+                        kewirausahaan dan meningkatkan
+                        kemampuan dalam menjalankan
+                        serta mengembangkan usaha.
                     </p>
 
                     <div class="empowerment-card-features">
 
                         <span>
                             <i class="bi bi-check2"></i>
-                            Ide bisnis
+                            Peningkatan keterampilan usaha
                         </span>
 
                         <span>
                             <i class="bi bi-check2"></i>
-                            Keterampilan usaha
+                            Pengembangan wawasan kewirausahaan
                         </span>
 
                         <span>
                             <i class="bi bi-check2"></i>
-                            Pendampingan
+                            Penguatan kemampuan pengelolaan usaha
                         </span>
 
                     </div>
@@ -325,167 +363,112 @@
 </section>
 
 
+
 {{-- =========================
-     PROCESS
+     SASARAN PROGRAM
 ========================= --}}
 
-<section class="empowerment-process section-padding">
+<section class="empowerment-target section-padding">
 
     <div class="container">
 
-        <div class="empowerment-process-heading text-center">
+        <div class="empowerment-target-heading text-center">
 
             <span class="section-label">
-                PROSES PEMBERDAYAAN
+                SASARAN PROGRAM
             </span>
 
             <h2 class="section-title">
-                Bertumbuh melalui
-                <span>Proses yang Berkelanjutan.</span>
+                Siapa yang Dapat Mengikuti
+                <span>Program Pemberdayaan UMKM?</span>
             </h2>
 
             <p>
-                Pemberdayaan tidak berhenti pada pelatihan,
-                tetapi perlu melalui proses pendampingan dan evaluasi.
+                Program ini ditujukan bagi keluarga
+                asuh Yayasan Pusaka yang memiliki
+                dan menjalankan usaha.
             </p>
 
         </div>
 
 
-        <div class="empowerment-process-grid">
+        <div class="row g-4 justify-content-center">
 
-            <div class="empowerment-process-item">
+            {{-- ORANG TUA --}}
 
-                <div class="empowerment-process-number">
-                    01
+            <div class="col-lg-4 col-md-6">
+
+                <div class="empowerment-target-card">
+
+                    <div class="empowerment-target-icon blue">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+
+                    <h3>
+                        Orang Tua
+                    </h3>
+
+                    <p>
+                        Orang tua dari anak asuh Yayasan
+                        Pusaka yang memiliki dan menjalankan
+                        usaha untuk mendukung perekonomian
+                        keluarga.
+                    </p>
+
                 </div>
-
-                <div class="empowerment-process-icon">
-                    <i class="bi bi-search"></i>
-                </div>
-
-                <h3>
-                    Identifikasi Potensi
-                </h3>
-
-                <p>
-                    Memahami kebutuhan, kemampuan, dan potensi
-                    penerima manfaat.
-                </p>
 
             </div>
 
 
-            <div class="empowerment-process-item">
+            {{-- WALI --}}
 
-                <div class="empowerment-process-number">
-                    02
+            <div class="col-lg-4 col-md-6">
+
+                <div class="empowerment-target-card">
+
+                    <div class="empowerment-target-icon orange">
+                        <i class="bi bi-person-heart"></i>
+                    </div>
+
+                    <h3>
+                        Wali
+                    </h3>
+
+                    <p>
+                        Wali dari anak asuh Yayasan Pusaka
+                        yang memiliki usaha dan ingin
+                        mengembangkan kegiatan usahanya.
+                    </p>
+
                 </div>
-
-                <div class="empowerment-process-icon orange">
-                    <i class="bi bi-lightbulb-fill"></i>
-                </div>
-
-                <h3>
-                    Pengembangan
-                </h3>
-
-                <p>
-                    Memberikan pelatihan, pengetahuan, serta
-                    penguatan kemampuan.
-                </p>
 
             </div>
 
 
-            <div class="empowerment-process-item">
+            {{-- ANAK ASUH --}}
 
-                <div class="empowerment-process-number">
-                    03
+            <div class="col-lg-4 col-md-6">
+
+                <div class="empowerment-target-card">
+
+                    <div class="empowerment-target-icon blue">
+                        <i class="bi bi-person-workspace"></i>
+                    </div>
+
+                    <h3>
+                        Anak Asuh
+                    </h3>
+
+                    <p>
+                        Anak asuh Yayasan Pusaka yang
+                        memiliki dan menjalankan usaha
+                        serta ingin mengembangkan
+                        kemampuan kewirausahaannya.
+                    </p>
+
                 </div>
-
-                <div class="empowerment-process-icon">
-                    <i class="bi bi-people-fill"></i>
-                </div>
-
-                <h3>
-                    Pendampingan
-                </h3>
-
-                <p>
-                    Mendampingi penerima manfaat dalam menerapkan
-                    kemampuan yang telah dikembangkan.
-                </p>
 
             </div>
-
-
-            <div class="empowerment-process-item">
-
-                <div class="empowerment-process-number">
-                    04
-                </div>
-
-                <div class="empowerment-process-icon orange">
-                    <i class="bi bi-graph-up-arrow"></i>
-                </div>
-
-                <h3>
-                    Kemandirian
-                </h3>
-
-                <p>
-                    Mendorong penerima manfaat agar mampu
-                    berkembang secara lebih mandiri.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-{{-- =========================
-     CLOSING CTA
-========================= --}}
-
-<section class="empowerment-impact">
-
-    <div class="container">
-
-        <div class="empowerment-impact-wrapper">
-
-            <div>
-
-                <span>
-                    DAMPAK PEMBERDAYAAN
-                </span>
-
-                <h2>
-                    Keberhasilan Bukan Hanya Tentang Bantuan,
-                    Tetapi <strong>Kemampuan untuk Mandiri.</strong>
-                </h2>
-
-                <p>
-                    Data capaian dan penerima manfaat program pemberdayaan
-                    nantinya dapat ditampilkan dari aplikasi internal
-                    Yayasan Pusaka melalui API.
-                </p>
-
-            </div>
-
-
-            <a href="{{ route('impact') }}"
-               class="profile-commitment-btn">
-
-                Lihat Dampak Kami
-
-                <i class="bi bi-arrow-right"></i>
-
-            </a>
 
         </div>
 

@@ -19,7 +19,7 @@
             </span>
 
             <h1>
-                Perjalanan Kepedulian<span>Sejak 1967.</span>
+                Perjalanan Kepedulian <span>Sejak 1967.</span>
             </h1>
 
             <p>

@@ -91,12 +91,12 @@
                                 </a>
                             </li>
 
-                            <li>
+                            {{-- <li>
                                 <a class="dropdown-item"
                                    href="{{ route('about.values') }}">
                                     Nilai-Nilai Yayasan
                                 </a>
-                            </li>
+                            </li> --}}
 
                             <li>
                                 <a class="dropdown-item"
