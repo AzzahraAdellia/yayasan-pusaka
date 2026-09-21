@@ -687,5 +687,174 @@
     .social-impact-wrapper h2 {
         font-size: 25px;
     }
-
 }   
+
+
+/* =====================================================
+   PERSYARATAN DAN PENGAJUAN BANTUAN SOSIAL
+===================================================== */
+
+.social-requirements {
+    position: relative;
+    background: linear-gradient(
+        180deg,
+        #f8fbfe 0%,
+        #ffffff 100%
+    );
+}
+
+.social-requirements-heading {
+    max-width: 850px;
+    margin: 0 auto 44px;
+    text-align: center;
+}
+
+.social-requirements-heading .section-label {
+    display: inline-block;
+    margin-bottom: 14px;
+}
+
+.social-requirements-heading .section-title {
+    margin-bottom: 18px;
+}
+
+.social-requirements-heading .section-description {
+    max-width: 780px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   KARTU PERSYARATAN DAN PENGAJUAN
+===================================================== */
+
+.social-requirement-card {
+    height: 100%;
+    padding: 34px 30px;
+
+    background: #ffffff;
+    border: 1px solid #e6edf5;
+    border-radius: 22px;
+
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.05);
+}
+
+.social-requirement-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+
+    border-bottom: 1px solid #edf1f5;
+}
+
+.social-requirement-icon {
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    border-radius: 14px;
+    font-size: 21px;
+}
+
+.social-requirement-icon.blue {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.social-requirement-icon.orange {
+    background: var(--secondary-light);
+    color: var(--secondary);
+}
+
+.social-requirement-header > div:last-child {
+    min-width: 0;
+}
+
+.social-requirement-header > div:last-child > span {
+    display: block;
+    margin-bottom: 6px;
+
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.social-requirement-header h3 {
+    margin: 0;
+
+    color: var(--dark);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+
+/* =====================================================
+   DESKRIPSI DAN DAFTAR PERSYARATAN
+===================================================== */
+
+.social-requirement-card > p {
+    margin-bottom: 22px;
+
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   DAFTAR PERSYARATAN
+===================================================== */
+
+.social-requirement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.social-requirement-list > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.social-requirement-list > div > i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 18px;
+
+    width: 18px;
+    height: 21px;
+    margin: 0;
+    padding: 0;
+
+    color: var(--primary);
+    font-size: 16px;
+    line-height: 1;
+}
+
+.social-requirement-list > div > span {
+    display: block;
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+
+    color: var(--text);
+    font-size: 13px;
+    line-height: 21px;
+}

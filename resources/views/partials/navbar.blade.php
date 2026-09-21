@@ -133,18 +133,18 @@
 
                         <ul class="dropdown-menu">
 
-                            <li>
+                            {{-- <li>
                                 <a class="dropdown-item"
                                 href="{{ route('programs.index') }}">
 
                                     Semua Program
 
                                 </a>
-                            </li>
+                            </li> --}}
 
-                            <li>
+                            {{-- <li>
                                 <hr class="dropdown-divider">
-                            </li>
+                            </li> --}}
 
                             <li>
                                 <a class="dropdown-item"
@@ -217,7 +217,7 @@
 
                         <ul class="dropdown-menu">
 
-                            <li>
+                            {{-- <li>
                                 <a class="dropdown-item"
                                 href="{{ route('information.index') }}">
                                     Semua Informasi
@@ -226,7 +226,7 @@
 
                             <li>
                                 <hr class="dropdown-divider">
-                            </li>
+                            </li> --}}
 
                             <li>
                                 <a class="dropdown-item"

@@ -588,6 +588,7 @@
 
                     </div>
 
+                    <br>
 
                     <div class="social-submission-note">
 

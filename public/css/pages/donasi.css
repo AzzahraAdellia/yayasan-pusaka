@@ -594,6 +594,7 @@
 }
 
 
+
 /* =====================================================
    RESPONSIVE
 ===================================================== */
@@ -609,7 +610,6 @@
     }
 
 }
-
 
 @media (max-width: 576px) {
 
@@ -631,12 +631,169 @@
     }
 
     .donation-amount-options {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .donation-submit-btn {
         width: 100%;
+    }
+
+} /* MEDIA QUERY DITUTUP DI SINI */
+
+
+
+/* =====================================
+   QRIS DONASI
+===================================== */
+
+.donation-qris-card {
+    width: 100%;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 42px 36px;
+    background: #ffffff;
+    border: 1px solid #e8edf3;
+    border-radius: 22px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+    text-align: center;
+}
+
+.donation-qris-card .section-label {
+    display: inline-block;
+}
+
+.donation-qris-card h2 {
+    margin: 14px 0;
+    color: var(--dark);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.donation-qris-card h2 span {
+    color: var(--primary);
+}
+
+.donation-qris-description {
+    max-width: 580px;
+    margin: 0 auto;
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =====================================
+   GAMBAR QRIS
+===================================== */
+
+.donation-qris-image {
+    width: 100%;
+    max-width: 330px;
+    margin: 28px auto;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e8edf3;
+    border-radius: 16px;
+}
+
+.donation-qris-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* =====================================
+   LANGKAH DONASI
+===================================== */
+
+.donation-qris-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin: 30px 0 22px;
+}
+
+.donation-qris-step {
+    padding: 18px 14px;
+    background: #f5f9fd;
+    border: 1px solid #e8edf3;
+    border-radius: 14px;
+}
+
+.donation-qris-step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 12px;
+    background: var(--primary);
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.donation-qris-step p {
+    margin: 0;
+    color: var(--text);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.donation-qris-note {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* =====================================
+   KOMITMEN KAMI
+===================================== */
+
+.donation-commitment-wrapper {
+    width: 100%;
+    max-width: 780px;
+    margin: 32px auto 0;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 767px) {
+
+    .donation-qris-card {
+        padding: 30px 20px;
+    }
+
+    .donation-qris-card h2 {
+        font-size: 26px;
+    }
+
+    .donation-qris-image {
+        max-width: 300px;
+        padding: 8px;
+    }
+
+    .donation-qris-steps {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .donation-qris-step {
+        padding: 16px;
+    }
+
+    .donation-commitment-wrapper {
+        margin-top: 24px;
     }
 
 }

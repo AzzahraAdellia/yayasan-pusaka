@@ -282,7 +282,7 @@
                 </div>
 
                 <a
-                    href="{{ asset('images/struktur-organisasi.PNG') }}"
+                    href="{{ asset('images/struktur-organisasi.png') }}"
                     target="_blank"
                     class="organization-chart-button"
                 >
@@ -299,7 +299,7 @@
             <div class="organization-chart-image">
 
                 <img
-                    src="{{ asset('images/struktur-organisasi.PNG') }}"
+                    src="{{ asset('images/struktur-organisasi.png') }}"
                     alt="Struktur Organisasi Yayasan Pusaka"
                 >
 

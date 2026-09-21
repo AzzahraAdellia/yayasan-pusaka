@@ -46,28 +46,28 @@
                     @php
                         $anakUsahaYP = [
                             [
-                                'name' => 'Anak Usaha YP 1',
+                                'name' => 'PT Pusaka Nusantara',
                                 'logo' => 'images/perusahaan/pn.png',
                                 'url' => 'https://pt-pusaka-nusantara.com/',
 
                             ],
                             [
-                                'name' => 'Anak Usaha YP 2',
+                                'name' => 'PT Bangun Trans Pusaka',
                                 'logo' => 'images/perusahaan/btp.png',
                                 'url' => '',
                             ],
                             [
-                                'name' => 'Anak Usaha YP 3',
+                                'name' => 'Transmikons Brahmanakurda',
                                 'logo' => 'images/perusahaan/transmikons.png',
                                 'url' => 'https://transmikons-bk.co.id/',
                             ],
                             [
-                                'name' => 'Anak Usaha YP 4',
+                                'name' => 'BPRS Baiturridha Pusaka',
                                 'logo' => 'images/perusahaan/bprs.png',
                                 'url' => 'https://baiturridhapusaka.co.id/',
                             ],
                             [
-                                'name' => 'Anak Usaha YP 5',
+                                'name' => 'Wahanatrans Pusaka',
                                 'logo' => 'images/perusahaan/wtp.png',
                                 'url' => 'https://wahanatranspusaka.com/',
                             ],
@@ -133,31 +133,38 @@
                             [
                                 'name' => 'PT Kereta Api Indonesia',
                                 'logo' => 'images/perusahaan/kai.png',
+                                'url' => 'https://www.kai.id/'
                             ],
                             [
-                                'name' => 'Anak Usaha KAI 1',
+                                'name' => 'KAI Service',
                                 'logo' => 'images/perusahaan/kai-service.png',
+                                'url' => 'https://karir.reska.id/'
                             ],
                             [
-                                'name' => 'Anak Usaha KAI 2',
+                                'name' => 'KAI Wisata',
                                 'logo' => 'images/perusahaan/kai-wisata.png',
+                                'url' => 'https://kaiwisata.id/'
                             ],
                             [
-                                'name' => 'Anak Usaha KAI 3',
+                                'name' => 'KAI Commuter',
                                 'logo' => 'images/perusahaan/kai-commuter.png',
+                                'url' => 'https://www.kci.id/'
                             ],
                             [
-                                'name' => 'Anak Usaha KAI 4',
+                                'name' => 'KAI Logistik',
                                 'logo' => 'images/perusahaan/kai-logistik.png',
+                                'url' => 'https://kailogistik.id/'
                             ],
                             [
-                                'name' => 'Anak Usaha KAI 5',
+                                'name' => 'KAI Properti',
                                 'logo' => 'images/perusahaan/kai-properti.png',
+                                'url' => 'https://kaiproperti.id/'
                             ],
                         ];
                     @endphp
 
 
+                    
                     <div class="footer-company-section">
 
                         {{-- <h5>
@@ -168,7 +175,14 @@
 
                             @foreach ($kaiGroup as $company)
 
-                                <div class="footer-company-logo">
+                                <a
+                                    href="{{ $company['url'] }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="footer-company-logo"
+                                    title="Kunjungi website {{ $company['name'] }}"
+                                    aria-label="Kunjungi website {{ $company['name'] }}"
+                                >
 
                                     <img
                                         src="{{ asset($company['logo']) }}"
@@ -176,35 +190,11 @@
                                         loading="lazy"
                                     >
 
-                                </div>
+                                </a>
 
                             @endforeach
 
                         </div>
-
-                    </div>
-
-
-                    {{-- =========================
-                        MEDIA SOSIAL
-                    ========================= --}}
-
-                    <div class="footer-social">
-
-                        @if (!empty($footerSettings['instagram_url']))
-
-                            <a
-                                href="{{ $footerSettings['instagram_url'] }}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Instagram"
-                            >
-
-                                <i class="bi bi-instagram"></i>
-
-                            </a>
-
-                        @endif
 
                     </div>
 
@@ -356,6 +346,37 @@
                         <i class="bi bi-arrow-right"></i>
 
                     </a>
+                    
+                    {{-- =========================
+                        INSTAGRAM
+                    ========================= --}}
+
+                    @if (!empty($footerSettings['instagram_url']))
+
+                        <div class="footer-social footer-social-contact">
+
+                            <a
+                                href="{{ $footerSettings['instagram_url'] }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Instagram Yayasan Pusaka"
+                                title="Instagram Yayasan Pusaka"
+                            >
+                                <i class="bi bi-instagram"></i>
+                            </a>
+
+                            <a
+                                href="{{ $footerSettings['instagram_url'] }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="footer-instagram-text"
+                            >
+                                
+                            </a>
+
+                        </div>
+
+                    @endif
 
                 </div>
 

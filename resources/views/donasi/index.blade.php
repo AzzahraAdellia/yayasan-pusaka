@@ -1,12 +1,13 @@
+
 @extends('layouts.app')
 
 @section('title', 'Donasi | Yayasan Pusaka')
 
 @section('content')
 
-{{-- =========================
+{{-- =====================================
      PAGE HERO
-========================= --}}
+===================================== --}}
 
 <section class="donation-page-hero">
 
@@ -37,9 +38,7 @@
 
                 <i class="bi bi-chevron-right"></i>
 
-                <span>
-                    Donasi
-                </span>
+                <span>Donasi</span>
 
             </div>
 
@@ -50,9 +49,9 @@
 </section>
 
 
-{{-- =========================
-     INTRO
-========================= --}}
+{{-- =====================================
+     PENGANTAR DONASI
+===================================== --}}
 
 <section class="donation-page-intro section-padding">
 
@@ -73,18 +72,18 @@
 
             </div>
 
-
             <div class="col-lg-7">
 
                 <p class="section-description">
-                    Donasi menjadi salah satu bentuk partisipasi masyarakat
-                    dalam mendukung keberlanjutan program Yayasan Pusaka.
+                    Donasi menjadi salah satu bentuk partisipasi
+                    masyarakat dalam mendukung keberlanjutan
+                    program Yayasan Pusaka.
                 </p>
 
                 <p class="section-description">
-                    Dana yang diterima akan digunakan sesuai dengan
-                    program dan kebutuhan penerima manfaat serta dikelola
-                    secara bertanggung jawab.
+                    Anda dapat menyalurkan donasi dengan memindai
+                    QRIS resmi Yayasan Pusaka menggunakan aplikasi
+                    pembayaran yang mendukung QRIS.
                 </p>
 
             </div>
@@ -96,300 +95,169 @@
 </section>
 
 
-{{-- =========================
-     DONATION FORM
-========================= --}}
+{{-- =====================================
+     DONASI MELALUI QRIS
+===================================== --}}
 
 <section class="donation-form-section section-padding">
 
     <div class="container">
 
-        <div class="row g-5 align-items-start">
+        <div class="donation-qris-card">
 
-            <div class="col-lg-7">
+            <span class="section-label">
+                DONASI MELALUI QRIS
+            </span>
 
-                <div class="donation-form-card">
+            <h2>
+                Scan QRIS untuk
+                <span>Berdonasi.</span>
+            </h2>
 
-                    <span class="section-label">
-                        FORM DONASI
+            <p class="donation-qris-description">
+                Buka aplikasi pembayaran yang mendukung QRIS,
+                lalu pindai kode berikut untuk menyalurkan
+                donasi kepada Yayasan Pusaka.
+            </p>
+
+            <div class="donation-qris-image">
+
+                <img
+                    src="{{ asset('images/qris-yp.png') }}"
+                    alt="QRIS Donasi Yayasan Pusaka"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="donation-qris-steps">
+
+                <div class="donation-qris-step">
+
+                    <span class="donation-qris-step-number">
+                        1
                     </span>
 
-                    <h2>
-                        Pilih Bentuk
-                        <span>Dukungan Anda.</span>
-                    </h2>
-
-                    <p class="donation-form-description">
-                        Untuk sekarang formulir ini masih berupa tampilan.
-                        Nantinya dapat dihubungkan dengan metode pembayaran
-                        yang digunakan Yayasan Pusaka.
+                    <p>
+                        Buka aplikasi bank atau dompet digital
+                        yang mendukung QRIS.
                     </p>
 
+                </div>
 
-                    <form action="#" method="POST">
+                <div class="donation-qris-step">
 
-                        {{-- PROGRAM --}}
-                        <div class="donation-form-group">
+                    <span class="donation-qris-step-number">
+                        2
+                    </span>
 
-                            <label>
-                                Tujuan Donasi
-                            </label>
+                    <p>
+                        Pindai QRIS Yayasan Pusaka dan
+                        masukkan nominal donasi.
+                    </p>
 
-                            <div class="donation-program-options">
+                </div>
 
-                                <label class="donation-option-card">
+                <div class="donation-qris-step">
 
-                                    <input
-                                        type="radio"
-                                        name="program"
-                                        value="umum"
-                                        checked
-                                    >
+                    <span class="donation-qris-step-number">
+                        3
+                    </span>
 
-                                    <span class="donation-option-icon blue">
-                                        <i class="bi bi-heart-fill"></i>
-                                    </span>
-
-                                    <strong>
-                                        Donasi Umum
-                                    </strong>
-
-                                    <small>
-                                        Digunakan sesuai prioritas kebutuhan.
-                                    </small>
-
-                                </label>
-
-
-                                <label class="donation-option-card">
-
-                                    <input
-                                        type="radio"
-                                        name="program"
-                                        value="pendidikan"
-                                    >
-
-                                    <span class="donation-option-icon orange">
-                                        <i class="bi bi-mortarboard-fill"></i>
-                                    </span>
-
-                                    <strong>
-                                        Pendidikan
-                                    </strong>
-
-                                    <small>
-                                        Mendukung program pendidikan.
-                                    </small>
-
-                                </label>
-
-
-                                <label class="donation-option-card">
-
-                                    <input
-                                        type="radio"
-                                        name="program"
-                                        value="sosial"
-                                    >
-
-                                    <span class="donation-option-icon blue">
-                                        <i class="bi bi-people-fill"></i>
-                                    </span>
-
-                                    <strong>
-                                        Sosial
-                                    </strong>
-
-                                    <small>
-                                        Mendukung kegiatan sosial.
-                                    </small>
-
-                                </label>
-
-                            </div>
-
-                        </div>
-
-
-                        {{-- AMOUNT --}}
-                        <div class="donation-form-group">
-
-                            <label>
-                                Nominal Donasi
-                            </label>
-
-                            <div class="donation-amount-options">
-
-                                <button type="button">
-                                    Rp50.000
-                                </button>
-
-                                <button type="button">
-                                    Rp100.000
-                                </button>
-
-                                <button type="button">
-                                    Rp250.000
-                                </button>
-
-                                <button type="button">
-                                    Rp500.000
-                                </button>
-
-                            </div>
-
-
-                            <div class="donation-custom-amount">
-
-                                <span>
-                                    Rp
-                                </span>
-
-                                <input
-                                    type="number"
-                                    name="amount"
-                                    placeholder="Nominal lainnya"
-                                >
-
-                            </div>
-
-                        </div>
-
-
-                        {{-- DONOR --}}
-                        <div class="donation-form-group">
-
-                            <label>
-                                Informasi Donatur
-                            </label>
-
-                            <div class="row g-3">
-
-                                <div class="col-md-6">
-
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        class="contact-form-control"
-                                        placeholder="Nama lengkap"
-                                    >
-
-                                </div>
-
-                                <div class="col-md-6">
-
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        class="contact-form-control"
-                                        placeholder="Email"
-                                    >
-
-                                </div>
-
-                                <div class="col-md-12">
-
-                                    <input
-                                        type="text"
-                                        name="phone"
-                                        class="contact-form-control"
-                                        placeholder="Nomor telepon"
-                                    >
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <button
-                            type="submit"
-                            class="donation-submit-btn"
-                        >
-
-                            <i class="bi bi-heart-fill"></i>
-
-                            Lanjutkan Donasi
-
-                        </button>
-
-                    </form>
+                    <p>
+                        Periksa identitas penerima,
+                        lalu selesaikan pembayaran.
+                    </p>
 
                 </div>
 
             </div>
 
+            <p class="donation-qris-note">
+                Pastikan nama penerima pembayaran sesuai
+                dengan identitas resmi Yayasan Pusaka
+                sebelum menyelesaikan donasi.
+            </p>
 
-            <div class="col-lg-5">
-
-                <div class="donation-side-card">
-
-                    <div class="donation-side-icon">
-                        <i class="bi bi-shield-check"></i>
-                    </div>
-
-                    <span>
-                        KOMITMEN KAMI
-                    </span>
-
-                    <h3>
-                        Dukungan Anda Kami Jaga dengan Tanggung Jawab.
-                    </h3>
-
-                    <p>
-                        Yayasan Pusaka berkomitmen mengelola setiap dukungan
-                        secara tertib dan sesuai tujuan program.
-                    </p>
+        </div>
 
 
-                    <div class="donation-side-points">
+        {{-- =====================================
+             KOMITMEN KAMI
+        ===================================== --}}
 
-                        <div>
+        <div class="donation-commitment-wrapper">
 
-                            <i class="bi bi-check-circle-fill"></i>
+            <div class="donation-side-card">
 
-                            <span>
-                                Digunakan untuk mendukung program yayasan
-                            </span>
+                <div class="donation-side-icon">
+                    <i class="bi bi-shield-check"></i>
+                </div>
 
-                        </div>
+                <span>
+                    KOMITMEN KAMI
+                </span>
 
-                        <div>
+                <h3>
+                    Dukungan Anda Kami Jaga
+                    dengan Tanggung Jawab.
+                </h3>
 
-                            <i class="bi bi-check-circle-fill"></i>
+                <p>
+                    Yayasan Pusaka berkomitmen mengelola
+                    setiap dukungan secara tertib dan
+                    sesuai tujuan program.
+                </p>
 
-                            <span>
-                                Dikelola secara bertanggung jawab
-                            </span>
+                <div class="donation-side-points">
 
-                        </div>
+                    <div>
 
-                        <div>
-
-                            <i class="bi bi-check-circle-fill"></i>
-
-                            <span>
-                                Informasi program tersedia secara terbuka
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="donation-side-help">
+                        <i class="bi bi-check-circle-fill"></i>
 
                         <span>
-                            Butuh bantuan mengenai donasi?
+                            Digunakan untuk mendukung
+                            program yayasan
                         </span>
 
-                        <a href="{{ route('contact') }}">
-                            Hubungi Kami
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                    </div>
+
+                    <div>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <span>
+                            Dikelola secara bertanggung jawab
+                        </span>
 
                     </div>
+
+                    <div>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <span>
+                            Informasi program tersedia
+                            secara terbuka
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="donation-side-help">
+
+                    <span>
+                        Butuh bantuan mengenai donasi?
+                    </span>
+
+                    <a href="{{ route('contact') }}">
+
+                        Hubungi Kami
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
 
                 </div>
 
@@ -402,9 +270,9 @@
 </section>
 
 
-{{-- =========================
-     DONATION IMPACT
-========================= --}}
+{{-- =====================================
+     PROGRAM YANG DIDUKUNG
+===================================== --}}
 
 <section class="donation-impact-section section-padding">
 
@@ -422,14 +290,16 @@
             </h2>
 
             <p>
-                Donasi dapat membantu berbagai bidang program
-                Yayasan Pusaka.
+                Donasi dapat membantu berbagai bidang
+                program Yayasan Pusaka.
             </p>
 
         </div>
 
 
         <div class="row g-4">
+
+            {{-- PENDIDIKAN --}}
 
             <div class="col-md-6 col-lg-3">
 
@@ -439,9 +309,7 @@
                         <i class="bi bi-mortarboard-fill"></i>
                     </div>
 
-                    <h3>
-                        Pendidikan
-                    </h3>
+                    <h3>Pendidikan</h3>
 
                     <p>
                         Membantu keberlanjutan pendidikan
@@ -453,6 +321,8 @@
             </div>
 
 
+            {{-- SOSIAL --}}
+
             <div class="col-md-6 col-lg-3">
 
                 <div class="donation-impact-card">
@@ -461,19 +331,19 @@
                         <i class="bi bi-heart-fill"></i>
                     </div>
 
-                    <h3>
-                        Sosial
-                    </h3>
+                    <h3>Sosial</h3>
 
                     <p>
-                        Mendukung program sosial dan
-                        kemanusiaan.
+                        Mendukung program sosial
+                        dan kemanusiaan.
                     </p>
 
                 </div>
 
             </div>
 
+
+            {{-- PEMBERDAYAAN --}}
 
             <div class="col-md-6 col-lg-3">
 
@@ -483,9 +353,7 @@
                         <i class="bi bi-shop"></i>
                     </div>
 
-                    <h3>
-                        Pemberdayaan
-                    </h3>
+                    <h3>Pemberdayaan</h3>
 
                     <p>
                         Mendukung pengembangan potensi
@@ -497,6 +365,8 @@
             </div>
 
 
+            {{-- PELATIHAN --}}
+
             <div class="col-md-6 col-lg-3">
 
                 <div class="donation-impact-card">
@@ -505,9 +375,7 @@
                         <i class="bi bi-lightbulb-fill"></i>
                     </div>
 
-                    <h3>
-                        Pelatihan
-                    </h3>
+                    <h3>Pelatihan</h3>
 
                     <p>
                         Membantu meningkatkan keterampilan
