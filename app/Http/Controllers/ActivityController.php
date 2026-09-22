@@ -3,96 +3,140 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ActivityController extends Controller
 {
     /**
-     * Daftar kegiatan publik.
+     * Halaman kegiatan berdasarkan tahun.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $featuredActivity = Activity::where('status', 'published')
+        $driver = DB::connection()->getDriverName();
+
+        $yearExpression = $driver === 'sqlite'
+            ? "strftime('%Y', activity_date)"
+            : 'YEAR(activity_date)';
+
+        /*
+        |--------------------------------------------------------------------------
+        | DAFTAR TAHUN KEGIATAN
+        |--------------------------------------------------------------------------
+        */
+
+        $activityYears = Activity::query()
+            ->where('status', 'published')
+            ->whereNotNull('activity_date')
+            ->selectRaw("{$yearExpression} AS year")
+            ->selectRaw('COUNT(*) AS total')
+            ->groupByRaw($yearExpression)
+            ->orderByDesc('year')
+            ->get();
+
+        /*
+        |--------------------------------------------------------------------------
+        | TAHUN YANG DIPILIH
+        |--------------------------------------------------------------------------
+        */
+
+        $selectedYear = $request->query('tahun');
+
+        if ($selectedYear !== null) {
+            abort_unless(
+                is_string($selectedYear)
+                && preg_match('/^\d{4}$/', $selectedYear),
+                404
+            );
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | DAFTAR KEGIATAN PER TAHUN
+        |--------------------------------------------------------------------------
+        */
+
+        $activities = null;
+
+        if ($selectedYear !== null) {
+            $activities = Activity::query()
+                ->where('status', 'published')
+                ->whereYear('activity_date', $selectedYear)
+                ->orderByDesc('activity_date')
+                ->orderByDesc('published_at')
+                ->paginate(9)
+                ->withQueryString();
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | KEGIATAN UNGGULAN
+        |--------------------------------------------------------------------------
+        */
+
+        $featuredActivity = Activity::query()
+            ->where('status', 'published')
             ->where('is_featured', true)
             ->orderByDesc('activity_date')
             ->orderByDesc('published_at')
             ->first();
 
-        /*
-        |--------------------------------------------------------------------------
-        | FALLBACK FEATURED
-        |--------------------------------------------------------------------------
-        */
-
         if (!$featuredActivity) {
-
-            $featuredActivity = Activity::where('status', 'published')
+            $featuredActivity = Activity::query()
+                ->where('status', 'published')
                 ->orderByDesc('activity_date')
                 ->orderByDesc('published_at')
                 ->first();
         }
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | DAFTAR KEGIATAN
-        |--------------------------------------------------------------------------
-        */
-
-        $activities = Activity::where('status', 'published')
-            ->when(
-                $featuredActivity,
-                fn ($query) =>
-                    $query->where('id', '!=', $featuredActivity->id)
-            )
-            ->orderByDesc('activity_date')
-            ->orderByDesc('published_at')
-            ->paginate(6);
-
-
-        return view(
-            'informasi.kegiatan',
-            compact(
-                'featuredActivity',
-                'activities'
-            )
-        );
+        return view('informasi.kegiatan', compact(
+            'activityYears',
+            'selectedYear',
+            'activities',
+            'featuredActivity'
+        ));
     }
 
-
     /**
-     * Detail kegiatan publik.
+     * Halaman detail kegiatan beserta foto dokumentasi.
      */
     public function show(string $slug)
     {
-        $activity = Activity::where('slug', $slug)
-            ->where('status', 'published')
-            ->firstOrFail();
-
-
         /*
         |--------------------------------------------------------------------------
-        | KEGIATAN LAINNYA
+        | DETAIL KEGIATAN + FOTO DOKUMENTASI
         |--------------------------------------------------------------------------
         */
 
-        $relatedActivities = Activity::where('status', 'published')
+        $activity = Activity::query()
+            ->with('photos')
+            ->where('slug', $slug)
+            ->where('status', 'published')
+            ->firstOrFail();
+
+        /*
+        |--------------------------------------------------------------------------
+        | KEGIATAN TERKAIT
+        |--------------------------------------------------------------------------
+        */
+
+        $relatedActivities = Activity::query()
+            ->where('status', 'published')
             ->where('id', '!=', $activity->id)
             ->when(
                 $activity->category,
-                fn ($query) =>
-                    $query->where('category', $activity->category)
+                fn ($query) => $query->where(
+                    'category',
+                    $activity->category
+                )
             )
             ->orderByDesc('activity_date')
             ->limit(3)
             ->get();
 
-
-        return view(
-            'informasi.kegiatan-detail',
-            compact(
-                'activity',
-                'relatedActivities'
-            )
-        );
+        return view('informasi.kegiatan-detail', compact(
+            'activity',
+            'relatedActivities'
+        ));
     }
 }

@@ -1,9 +1,9 @@
+
 @extends('layouts.app')
 
 @section('title', $activity->title . ' | Yayasan Pusaka')
 
 @section('content')
-
 
 {{-- =====================================================
      HERO / HEADER
@@ -22,7 +22,6 @@
             <h1>
                 {{ $activity->title }}
             </h1>
-
 
             <div class="profile-breadcrumb">
 
@@ -44,9 +43,7 @@
 
                 <i class="bi bi-chevron-right"></i>
 
-                <span>
-                    Detail
-                </span>
+                <span>Detail</span>
 
             </div>
 
@@ -57,12 +54,11 @@
 </section>
 
 
-
 {{-- =====================================================
-     DETAIL
+     DETAIL KEGIATAN
 ===================================================== --}}
 
-<section class="section-padding">
+<section class="activity-detail-section section-padding">
 
     <div class="container">
 
@@ -70,8 +66,8 @@
 
             <div class="col-lg-9">
 
+                {{-- FOTO UTAMA --}}
 
-                {{-- IMAGE --}}
                 @if ($activity->thumbnail)
 
                     <div class="activity-detail-image">
@@ -86,7 +82,8 @@
                 @endif
 
 
-                {{-- META --}}
+                {{-- INFORMASI KEGIATAN --}}
+
                 <div class="activities-meta">
 
                     @if ($activity->activity_date)
@@ -94,12 +91,10 @@
                         <span>
                             <i class="bi bi-calendar3"></i>
 
-                            {{ $activity->activity_date
-                                ->translatedFormat('d F Y') }}
+                            {{ $activity->activity_date->translatedFormat('d F Y') }}
                         </span>
 
                     @endif
-
 
                     @if ($activity->location)
 
@@ -110,7 +105,6 @@
                         </span>
 
                     @endif
-
 
                     @if ($activity->category)
 
@@ -125,7 +119,8 @@
                 </div>
 
 
-                {{-- CONTENT --}}
+                {{-- DESKRIPSI KEGIATAN --}}
+
                 <article class="activity-detail-content">
 
                     @if ($activity->excerpt)
@@ -136,19 +131,95 @@
 
                     @endif
 
+                    @if ($activity->content)
 
-                    <div class="activity-detail-body">
-                        {!! nl2br(e($activity->content)) !!}
-                    </div>
+                        <div class="activity-detail-body">
+                            {!! nl2br(e($activity->content)) !!}
+                        </div>
+
+                    @endif
 
                 </article>
 
 
-                {{-- BACK --}}
+                {{-- =====================================================
+                     GALERI DOKUMENTASI
+                ===================================================== --}}
+
+                @if ($activity->photos->isNotEmpty())
+
+                    <div class="activity-documentation">
+
+                        <div class="activity-documentation-heading">
+
+                            <span class="section-label">
+                                DOKUMENTASI
+                            </span>
+
+                            <h2 class="section-title">
+                                Galeri
+                                <span>Kegiatan.</span>
+                            </h2>
+
+                            <p>
+                                Dokumentasi foto dari kegiatan
+                                {{ $activity->title }}.
+                            </p>
+
+                        </div>
+
+                        <div class="row g-4">
+
+                            @foreach ($activity->photos as $photo)
+
+                                <div class="col-md-6 col-lg-4">
+
+                                    <figure class="activity-documentation-card">
+
+                                        <a
+                                            href="{{ asset('storage/' . $photo->image) }}"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="Lihat foto dokumentasi {{ $activity->title }}"
+                                        >
+
+                                            <img
+                                                src="{{ asset('storage/' . $photo->image) }}"
+                                                alt="{{ $photo->caption ?: 'Dokumentasi ' . $activity->title }}"
+                                                loading="lazy"
+                                            >
+
+                                        </a>
+
+                                        @if (filled($photo->caption))
+
+                                            <figcaption>
+                                                {{ $photo->caption }}
+                                            </figcaption>
+
+                                        @endif
+
+                                    </figure>
+
+                                </div>
+
+                            @endforeach
+
+                        </div>
+
+                    </div>
+
+                @endif
+
+
+                {{-- KEMBALI KE DAFTAR KEGIATAN --}}
+
                 <div class="activity-detail-back">
 
                     <a
-                        href="{{ route('information.activities') }}"
+                        href="{{ route('information.activities', [
+                            'tahun' => $activity->activity_date?->format('Y')
+                        ]) }}"
                         class="activities-detail-btn"
                     >
                         <i class="bi bi-arrow-left"></i>
@@ -166,20 +237,17 @@
 </section>
 
 
-
 {{-- =====================================================
-     RELATED ACTIVITIES
+     KEGIATAN TERKAIT
 ===================================================== --}}
 
 @if ($relatedActivities->count())
 
-<section class="activities-list-section section-padding">
+    <section class="activities-list-section section-padding">
 
-    <div class="container">
+        <div class="container">
 
-        <div class="activities-list-heading">
-
-            <div>
+            <div class="activities-section-heading">
 
                 <span class="section-label">
                     KEGIATAN LAINNYA
@@ -192,101 +260,103 @@
 
             </div>
 
-        </div>
+            <div class="row g-4">
 
+                @foreach ($relatedActivities as $related)
 
-        <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
 
-            @foreach ($relatedActivities as $related)
+                        <article class="activity-card">
 
-                <div class="col-md-6 col-lg-4">
+                            <a
+                                href="{{ route('information.activities.show', $related->slug) }}"
+                                class="activity-card-image"
+                            >
 
-                    <article class="activity-card">
+                                @if ($related->thumbnail)
 
-                        <div class="activity-card-image">
+                                    <img
+                                        src="{{ asset('storage/' . $related->thumbnail) }}"
+                                        alt="{{ $related->title }}"
+                                        loading="lazy"
+                                    >
 
-                            @if ($related->thumbnail)
+                                @else
 
-                                <img
-                                    src="{{ asset('storage/' . $related->thumbnail) }}"
-                                    alt="{{ $related->title }}"
-                                >
+                                    <div class="activity-image-placeholder">
+                                        <i class="bi bi-image"></i>
+                                    </div>
 
-                            @else
+                                @endif
 
-                                <div class="activity-image-placeholder">
-                                    <i class="bi bi-image"></i>
+                                <span class="activity-category">
+                                    {{ strtoupper($related->category ?: 'KEGIATAN') }}
+                                </span>
+
+                            </a>
+
+                            <div class="activity-card-content">
+
+                                <div class="activity-card-meta">
+
+                                    @if ($related->activity_date)
+
+                                        <span>
+                                            <i class="bi bi-calendar3"></i>
+
+                                            {{ $related->activity_date->translatedFormat('d M Y') }}
+                                        </span>
+
+                                    @endif
+
+                                    @if ($related->location)
+
+                                        <span>
+                                            <i class="bi bi-geo-alt"></i>
+
+                                            {{ $related->location }}
+                                        </span>
+
+                                    @endif
+
                                 </div>
 
-                            @endif
+                                <h3>
+                                    <a href="{{ route('information.activities.show', $related->slug) }}">
+                                        {{ $related->title }}
+                                    </a>
+                                </h3>
 
+                                <p>
+                                    {{ \Illuminate\Support\Str::limit(
+                                        $related->excerpt
+                                            ?: strip_tags($related->content ?? ''),
+                                        120
+                                    ) }}
+                                </p>
 
-                            <span>
-                                {{ strtoupper($related->category ?: 'KEGIATAN') }}
-                            </span>
-
-                        </div>
-
-
-                        <div class="activity-card-content">
-
-                            <div class="activity-card-meta">
-
-                                <span>
-                                    <i class="bi bi-calendar3"></i>
-
-                                    {{ $related->activity_date
-                                        ? $related->activity_date->translatedFormat('d M Y')
-                                        : '-' }}
-                                </span>
-
-                                <span>
-                                    <i class="bi bi-geo-alt"></i>
-
-                                    {{ $related->location ?: '-' }}
-                                </span>
+                                <a
+                                    href="{{ route('information.activities.show', $related->slug) }}"
+                                    class="activity-card-detail"
+                                >
+                                    Lihat Kegiatan
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
 
                             </div>
 
+                        </article>
 
-                            <h3>
-                                {{ $related->title }}
-                            </h3>
+                    </div>
 
+                @endforeach
 
-                            <p>
-                                {{ $related->excerpt
-                                    ?: \Illuminate\Support\Str::limit(
-                                        strip_tags($related->content),
-                                        120
-                                    )
-                                }}
-                            </p>
-
-
-                            <a href="{{ route(
-                                'information.activities.show',
-                                $related->slug
-                            ) }}">
-                                Lihat Kegiatan
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            @endforeach
+            </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 @endif
-
 
 @endsection

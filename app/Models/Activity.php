@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Activity extends Model
 {
@@ -25,4 +26,14 @@ class Activity extends Model
         'published_at' => 'datetime',
         'is_featured' => 'boolean',
     ];
+
+    /**
+     * Satu kegiatan memiliki banyak foto dokumentasi.
+     */
+    public function photos(): HasMany
+    {
+        return $this->hasMany(ActivityPhoto::class)
+            ->orderBy('sort_order')
+            ->orderBy('id');
+    }
 }

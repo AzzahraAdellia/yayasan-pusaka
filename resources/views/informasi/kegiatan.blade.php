@@ -9,14 +9,10 @@
 ========================= --}}
 
 <section class="activities-hero">
-
     <div class="container">
-
         <div class="activities-hero-content">
 
-            <span class="section-label">
-                KEGIATAN
-            </span>
+            <span class="section-label">KEGIATAN</span>
 
             <h1>
                 Aktivitas Nyata,
@@ -30,10 +26,7 @@
             </p>
 
             <div class="profile-breadcrumb">
-
-                <a href="{{ route('home') }}">
-                    Beranda
-                </a>
+                <a href="{{ route('home') }}">Beranda</a>
 
                 <i class="bi bi-chevron-right"></i>
 
@@ -43,337 +36,273 @@
 
                 <i class="bi bi-chevron-right"></i>
 
-                <span>
-                    Kegiatan
-                </span>
+                @if ($selectedYear)
+                    <a href="{{ route('information.activities') }}">
+                        Kegiatan
+                    </a>
 
+                    <i class="bi bi-chevron-right"></i>
+
+                    <span>{{ $selectedYear }}</span>
+                @else
+                    <span>Kegiatan</span>
+                @endif
             </div>
 
         </div>
-
     </div>
-
 </section>
 
 
-{{-- =========================
-     FEATURED ACTIVITY
-========================= --}}
+@if (!$selectedYear)
 
-<section class="activities-featured section-padding">
+    {{-- =========================
+         DAFTAR TAHUN KEGIATAN
+    ========================= --}}
 
-    <div class="container">
+    <section class="activities-years-section section-padding">
+        <div class="container">
 
-        <div class="activities-heading">
-
-            <div>
-
+            <div class="activities-section-heading">
                 <span class="section-label">
-                    KEGIATAN TERBARU
+                    DOKUMENTASI KEGIATAN
                 </span>
 
                 <h2 class="section-title">
-                    Melihat Lebih Dekat
-                    <span>Aktivitas Kami.</span>
+                    Jelajahi Kegiatan
+                    <span>Setiap Tahun.</span>
                 </h2>
 
+                <p>
+                    Pilih tahun untuk melihat dokumentasi kegiatan
+                    Yayasan Pusaka yang telah dilaksanakan.
+                </p>
             </div>
 
-            <p>
-                Berbagai kegiatan Yayasan Pusaka dalam menjalankan
-                program dan memberikan manfaat kepada para penerima manfaat.
-            </p>
+            @if ($activityYears->count())
 
-        </div>
+                <div class="row g-4">
 
+                    @foreach ($activityYears as $year)
 
-        @if ($featuredActivity)
+                        <div class="col-md-6 col-lg-4">
 
-            <article class="activities-featured-card">
+                            <a
+                                href="{{ route('information.activities', ['tahun' => $year->year]) }}"
+                                class="activity-year-card"
+                            >
 
-                <div class="activities-featured-image">
+                                <div class="activity-year-icon">
+                                    <i class="bi bi-calendar2-event"></i>
+                                </div>
 
-                    @if ($featuredActivity->thumbnail)
+                                <span class="activity-year-label">
+                                    DOKUMENTASI TAHUN
+                                </span>
 
-                        <img
-                            src="{{ asset('storage/' . $featuredActivity->thumbnail) }}"
-                            alt="{{ $featuredActivity->title }}"
-                        >
+                                <h3>{{ $year->year }}</h3>
 
-                    @else
+                                <p>
+                                    {{ $year->total }}
+                                    kegiatan terdokumentasi
+                                </p>
 
-                        <div class="activity-image-placeholder">
-                            <i class="bi bi-image"></i>
+                                <span class="activity-year-link">
+                                    Lihat Kegiatan
+                                    <i class="bi bi-arrow-right"></i>
+                                </span>
+
+                            </a>
+
                         </div>
 
-                    @endif
-
-
-                    <span>
-                        {{ strtoupper($featuredActivity->category ?: 'KEGIATAN') }}
-                    </span>
+                    @endforeach
 
                 </div>
 
+            @else
 
-                <div class="activities-featured-content">
+                <div class="activities-empty">
+                    <i class="bi bi-calendar2-event"></i>
 
-                    <div class="activities-meta">
-
-                        <span>
-
-                            <i class="bi bi-calendar3"></i>
-
-                            @if ($featuredActivity->activity_date)
-
-                                {{ $featuredActivity->activity_date
-                                    ->translatedFormat('d F Y') }}
-
-                            @else
-
-                                Tanggal belum ditentukan
-
-                            @endif
-
-                        </span>
-
-
-                        <span>
-
-                            <i class="bi bi-geo-alt-fill"></i>
-
-                            {{ $featuredActivity->location ?: 'Lokasi belum ditentukan' }}
-
-                        </span>
-
-                    </div>
-
-
-                    <h2>
-                        {{ $featuredActivity->title }}
-                    </h2>
-
+                    <h3>Belum Ada Kegiatan</h3>
 
                     <p>
-                    {{ $featuredActivity->excerpt
-                        ?: \Illuminate\Support\Str::limit(
-                            strip_tags($featuredActivity->content),
-                            220
-                        )
-                    }}
-                </p>
-
-                <div class="activities-featured-footer">
-
-                    <a
-                        href="{{ route('information.activities.show', $featuredActivity->slug) }}"
-                        class="activities-detail-btn"
-                    >
-                        Lihat Detail Kegiatan
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-
-                    @if ($featuredActivity->is_featured)
-
-                        <span>
-                            <i class="bi bi-star-fill"></i>
-                            Kegiatan Unggulan
-                        </span>
-
-                    @endif
-
+                        Dokumentasi kegiatan Yayasan Pusaka akan
+                        ditampilkan setelah kegiatan dipublikasikan.
+                    </p>
                 </div>
 
-                </div>
+            @endif
 
-            </article>
+        </div>
+    </section>
 
+@else
 
-        @else
+    {{-- =========================
+         DAFTAR KEGIATAN PER TAHUN
+    ========================= --}}
 
-            <div class="activities-empty">
+    <section class="activities-list-section section-padding">
+        <div class="container">
 
-                <i class="bi bi-calendar2-event"></i>
+            <div class="activities-section-heading">
 
-                <h3>
-                    Belum Ada Kegiatan
-                </h3>
-
-                <p>
-                    Informasi kegiatan Yayasan Pusaka akan
-                    ditampilkan pada bagian ini.
-                </p>
-
-            </div>
-
-        @endif
-
-    </div>
-
-</section>
-
-
-
-{{-- =========================
-     ACTIVITY LIST
-========================= --}}
-
-<section class="activities-list-section section-padding">
-
-    <div class="container">
-
-        <div class="activities-list-heading">
-
-            <div>
+                <a
+                    href="{{ route('information.activities') }}"
+                    class="activities-back-link"
+                >
+                    <i class="bi bi-arrow-left"></i>
+                    Kembali ke Pilihan Tahun
+                </a>
 
                 <span class="section-label">
                     DOKUMENTASI KEGIATAN
                 </span>
 
                 <h2 class="section-title">
-                    Kegiatan
-                    <span>Yayasan Pusaka.</span>
+                    Kegiatan Tahun
+                    <span>{{ $selectedYear }}</span>
                 </h2>
 
-            </div>
-
-        </div>
-
-
-        @if ($activities->count())
-
-            <div class="row g-4">
-
-                @foreach ($activities as $activity)
-
-                    <div class="col-md-6 col-lg-4">
-
-                        <article class="activity-card">
-
-                            <div class="activity-card-image">
-
-                                @if ($activity->thumbnail)
-
-                                    <img
-                                        src="{{ asset('storage/' . $activity->thumbnail) }}"
-                                        alt="{{ $activity->title }}"
-                                    >
-
-                                @else
-
-                                    <div class="activity-image-placeholder">
-                                        <i class="bi bi-image"></i>
-                                    </div>
-
-                                @endif
-
-
-                                <span>
-                                    {{ strtoupper($activity->category ?: 'KEGIATAN') }}
-                                </span>
-
-                            </div>
-
-
-                            <div class="activity-card-content">
-
-                                <div class="activity-card-meta">
-
-                                    <span>
-
-                                        <i class="bi bi-calendar3"></i>
-
-                                        @if ($activity->activity_date)
-
-                                            {{ $activity->activity_date
-                                                ->translatedFormat('d M Y') }}
-
-                                        @else
-
-                                            -
-
-                                        @endif
-
-                                    </span>
-
-
-                                    <span>
-
-                                        <i class="bi bi-geo-alt"></i>
-
-                                        {{ $activity->location ?: '-' }}
-
-                                    </span>
-
-                                </div>
-
-
-                                <h3>
-                                    {{ $activity->title }}
-                                </h3>
-
-
-                                <p>
-                                    {{ $activity->excerpt
-                                        ?: \Illuminate\Support\Str::limit(
-                                            strip_tags($activity->content),
-                                            120
-                                        )
-                                    }}
-                                </p>
-
-                            </div>
-
-                        </article>
-
-                    </div>
-
-                @endforeach
-
-            </div>
-
-
-            {{-- PAGINATION --}}
-
-            @if ($activities->hasPages())
-
-                <div class="activities-pagination">
-                    {{ $activities->links() }}
-                </div>
-
-            @endif
-
-
-        @elseif (!$featuredActivity)
-
-            <div class="activities-empty">
-
-                <i class="bi bi-calendar2-event"></i>
-
-                <h3>
-                    Belum Ada Dokumentasi Kegiatan
-                </h3>
-
                 <p>
-                    Dokumentasi kegiatan akan tampil setelah
-                    dipublikasikan melalui CMS.
+                    Berikut dokumentasi kegiatan Yayasan Pusaka
+                    pada tahun {{ $selectedYear }}.
                 </p>
 
             </div>
 
-        @endif
+            @if ($activities && $activities->count())
 
-    </div>
+                <div class="row g-4">
 
-</section>
+                    @foreach ($activities as $activity)
+
+                        <div class="col-md-6 col-lg-4">
+
+                            <article class="activity-card">
+
+                                <a
+                                    href="{{ route('information.activities.show', $activity->slug) }}"
+                                    class="activity-card-image"
+                                    aria-label="Lihat detail {{ $activity->title }}"
+                                >
+
+                                    @if ($activity->thumbnail)
+
+                                        <img
+                                            src="{{ asset('storage/' . $activity->thumbnail) }}"
+                                            alt="{{ $activity->title }}"
+                                            loading="lazy"
+                                        >
+
+                                    @else
+
+                                        <div class="activity-image-placeholder">
+                                            <i class="bi bi-image"></i>
+                                        </div>
+
+                                    @endif
+
+                                    <span class="activity-category">
+                                        {{ strtoupper($activity->category ?: 'KEGIATAN') }}
+                                    </span>
+
+                                </a>
+
+                                <div class="activity-card-content">
+
+                                    <div class="activity-card-meta">
+
+                                        <span>
+                                            <i class="bi bi-calendar3"></i>
+
+                                            {{ $activity->activity_date
+                                                ? $activity->activity_date->translatedFormat('d F Y')
+                                                : 'Tanggal belum ditentukan' }}
+                                        </span>
+
+                                        @if ($activity->location)
+                                            <span>
+                                                <i class="bi bi-geo-alt"></i>
+                                                {{ $activity->location }}
+                                            </span>
+                                        @endif
+
+                                    </div>
+
+                                    <h3>
+                                        <a href="{{ route('information.activities.show', $activity->slug) }}">
+                                            {{ $activity->title }}
+                                        </a>
+                                    </h3>
+
+                                    <p>
+                                        {{ \Illuminate\Support\Str::limit(
+                                            $activity->excerpt
+                                                ?: strip_tags($activity->content ?? ''),
+                                            130
+                                        ) }}
+                                    </p>
+
+                                    <a
+                                        href="{{ route('information.activities.show', $activity->slug) }}"
+                                        class="activity-card-detail"
+                                    >
+                                        Lihat Detail
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+
+                                </div>
+
+                            </article>
+
+                        </div>
+
+                    @endforeach
+
+                </div>
+
+                @if ($activities->hasPages())
+                    <div class="activities-pagination">
+                        {{ $activities->links() }}
+                    </div>
+                @endif
+
+            @else
+
+                <div class="activities-empty">
+                    <i class="bi bi-calendar2-event"></i>
+
+                    <h3>Belum Ada Kegiatan pada Tahun Ini</h3>
+
+                    <p>
+                        Belum ada kegiatan yang dipublikasikan
+                        untuk tahun {{ $selectedYear }}.
+                    </p>
+
+                    <a
+                        href="{{ route('information.activities') }}"
+                        class="activities-back-button"
+                    >
+                        Lihat Tahun Lain
+                    </a>
+                </div>
+
+            @endif
+
+        </div>
+    </section>
+
+@endif
 
 
 {{-- =========================
-     GALLERY CTA
+     GALERI CTA
 ========================= --}}
 
 <section class="activities-gallery-cta">
-
     <div class="container">
 
         <div class="activities-gallery-wrapper">
@@ -382,10 +311,9 @@
                 <i class="bi bi-images"></i>
             </div>
 
-            <div>
-                <span>
-                    DOKUMENTASI
-                </span>
+            <div class="activities-gallery-text">
+
+                <span>DOKUMENTASI</span>
 
                 <h2>
                     Lihat Lebih Banyak Dokumentasi di
@@ -393,24 +321,23 @@
                 </h2>
 
                 <p>
-                    Galeri menampilkan kumpulan foto dan dokumentasi
-                    dari berbagai program dan kegiatan.
+                    Jelajahi kumpulan foto dari berbagai
+                    program dan kegiatan Yayasan Pusaka.
                 </p>
+
             </div>
 
-            <a href="{{ route('information.gallery') }}"
-               class="profile-commitment-btn">
-
+            <a
+                href="https://galeri.yayasanpusakakai.org"
+                class="activities-gallery-button"
+            >
                 Buka Galeri
-
                 <i class="bi bi-arrow-right"></i>
-
             </a>
 
         </div>
 
     </div>
-
 </section>
 
 @endsection
