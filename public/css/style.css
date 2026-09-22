@@ -92,3 +92,50 @@
 ===================================================== */
 
 @import url('./pages/donasi.css');
+
+/* =========================================
+   CMS KEGIATAN — THUMBNAIL TABEL
+========================================= */
+
+.admin-table .admin-content-cell {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 260px;
+}
+
+.admin-table .admin-content-thumbnail {
+    width: 96px;
+    height: 72px;
+    min-width: 96px;
+    flex: 0 0 96px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-table .admin-content-thumbnail img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.admin-table .admin-content-info {
+    min-width: 0;
+}
+
+.admin-table .admin-content-info strong,
+.admin-table .admin-content-info span {
+    display: block;
+}
+
+.admin-table .admin-content-info span {
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.5;
+}
