@@ -1928,3 +1928,176 @@
 
     font-size: 7px;
 }
+
+/* =========================================
+   CMS — TABEL DAFTAR MITRA
+   Logo kecil, utuh, dan baris tabel rapi
+========================================= */
+
+.admin-table-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+}
+
+.admin-table td {
+    vertical-align: middle;
+}
+
+/* Kolom logo */
+.admin-table td:has(> .admin-partner-logo) {
+    width: 130px;
+    min-width: 130px;
+}
+
+/* Pembungkus logo mitra */
+.admin-table .admin-partner-logo {
+    width: 110px !important;
+    height: 80px !important;
+    min-width: 110px !important;
+    max-width: 110px !important;
+    min-height: 80px !important;
+    max-height: 80px !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    padding: 6px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+/* Gambar logo mitra */
+.admin-table .admin-partner-logo img {
+    display: block !important;
+
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+
+    object-fit: contain !important;
+    object-position: center;
+}
+
+/* Tampilan saat mitra belum memiliki logo */
+.admin-table .admin-partner-logo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Nama dan deskripsi mitra */
+.admin-table .admin-table-title {
+    min-width: 180px;
+}
+
+.admin-table .admin-table-title strong,
+.admin-table .admin-table-title span {
+    display: block;
+}
+
+.admin-table .admin-table-title span {
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* =========================================
+   CMS KEGIATAN — THUMBNAIL TABEL
+========================================= */
+
+.admin-table .admin-content-cell {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 260px;
+}
+
+.admin-table .admin-content-thumbnail {
+    width: 96px !important;
+    height: 72px !important;
+    min-width: 96px !important;
+    max-width: 96px !important;
+    min-height: 72px !important;
+    max-height: 72px !important;
+    flex: 0 0 96px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-table .admin-content-thumbnail img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover;
+}
+
+.admin-table .admin-content-info {
+    min-width: 0;
+}
+
+.admin-table .admin-content-info strong,
+.admin-table .admin-content-info span {
+    display: block;
+}
+
+.admin-table td {
+    vertical-align: middle;
+}
+
+/* =========================================
+   CMS KEGIATAN — FOTO DOKUMENTASI
+========================================= */
+
+.admin-documentation-item {
+    margin: 16px 0;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+}
+
+.admin-documentation-item .admin-form-group + .admin-form-group {
+    margin-top: 12px;
+}
+
+.admin-documentation-item .admin-checkbox {
+    margin-top: 12px;
+}
+
+.admin-documentation-preview {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    height: 150px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.admin-documentation-subtitle {
+    margin: 24px 0 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #0f3156;
+}
+
+#documentation-photo-list:empty {
+    display: none;
+}

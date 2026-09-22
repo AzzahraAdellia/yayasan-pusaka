@@ -405,6 +405,99 @@
 
             </div>
 
+            
+{{-- DOKUMENTASI KEGIATAN --}}
+<div class="admin-panel">
+
+    <div class="admin-panel-header">
+        <div>
+            <span>MEDIA</span>
+            <h3>Dokumentasi Kegiatan</h3>
+        </div>
+    </div>
+
+    <div class="admin-form-body">
+
+        <p class="admin-form-help">
+            Foto berikut tampil pada galeri halaman detail kegiatan.
+            Kamu bisa mengubah caption, menghapus foto tertentu,
+            atau menambahkan foto baru.
+        </p>
+
+        {{-- FOTO YANG SUDAH TERSIMPAN --}}
+        @forelse ($activity->photos as $photo)
+
+            <div class="admin-documentation-item">
+
+                <img
+                    src="{{ asset('storage/' . $photo->image) }}"
+                    alt="{{ $photo->caption ?: $activity->title }}"
+                    class="admin-documentation-preview"
+                >
+
+                <div class="admin-form-group">
+                    <label for="existing-caption-{{ $photo->id }}">
+                        Caption (Opsional)
+                    </label>
+
+                    <textarea
+                        id="existing-caption-{{ $photo->id }}"
+                        name="existing_captions[{{ $photo->id }}]"
+                        class="admin-form-control"
+                        rows="2"
+                        maxlength="500"
+                    >{{ old('existing_captions.' . $photo->id, $photo->caption) }}</textarea>
+                </div>
+
+                <label class="admin-checkbox">
+                    <input
+                        type="checkbox"
+                        name="delete_photos[]"
+                        value="{{ $photo->id }}"
+                        {{ in_array(
+                            $photo->id,
+                            old('delete_photos', [])
+                        ) ? 'checked' : '' }}
+                    >
+
+                    <span>
+                        <strong>Hapus foto ini</strong>
+                        <small>
+                            Foto akan dihapus saat kamu menekan
+                            Simpan Perubahan.
+                        </small>
+                    </span>
+                </label>
+
+            </div>
+
+        @empty
+
+            <p class="admin-form-help">
+                Belum ada foto dokumentasi untuk kegiatan ini.
+            </p>
+
+        @endforelse
+
+        {{-- FOTO BARU --}}
+        <h4 class="admin-documentation-subtitle">
+            Tambah Foto Baru
+        </h4>
+
+        <div id="documentation-photo-list"></div>
+
+        <button
+            type="button"
+            id="add-documentation-photo"
+            class="admin-secondary-button"
+        >
+            <i class="bi bi-plus-lg"></i>
+            Tambah Foto Dokumentasi
+        </button>
+
+    </div>
+
+</div>
 
             {{-- ACTION --}}
             <div class="admin-form-actions">
@@ -433,3 +526,68 @@
 </form>
 
 @endsection
+
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const list = document.getElementById('documentation-photo-list');
+    const addButton = document.getElementById('add-documentation-photo');
+
+    if (!list || !addButton) return;
+
+    let photoIndex = 0;
+
+    addButton.addEventListener('click', function () {
+        if (list.children.length >= 20) {
+            alert('Maksimal 20 foto baru dalam satu penyimpanan.');
+            return;
+        }
+
+        const index = photoIndex++;
+
+        const item = document.createElement('div');
+        item.className = 'admin-documentation-item';
+
+        item.innerHTML = `
+            <div class="admin-form-group">
+                <label>Foto Dokumentasi Baru</label>
+                <input
+                    type="file"
+                    name="documentation_photos[${index}]"
+                    class="admin-form-control"
+                    accept=".jpg,.jpeg,.png,.webp"
+                    required
+                >
+            </div>
+
+            <div class="admin-form-group">
+                <label>Caption (Opsional)</label>
+                <textarea
+                    name="documentation_captions[${index}]"
+                    class="admin-form-control"
+                    rows="2"
+                    maxlength="500"
+                    placeholder="Keterangan foto..."
+                ></textarea>
+            </div>
+
+            <button
+                type="button"
+                class="admin-secondary-button remove-documentation-photo"
+            >
+                <i class="bi bi-trash3"></i>
+                Batalkan Foto
+            </button>
+        `;
+
+        item.querySelector('.remove-documentation-photo')
+            .addEventListener('click', function () {
+                item.remove();
+            });
+
+        list.appendChild(item);
+    });
+});
+</script>
+@endpush
