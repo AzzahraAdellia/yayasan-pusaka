@@ -126,43 +126,58 @@
 
 
         
+        
         @if ($partners->count())
 
-            <div class="row g-4 justify-content-center">
+            <div class="row g-4 justify-content-center partners-page-grid">
 
                 @foreach ($partners as $partner)
 
-                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="col-12 col-md-6 col-lg-4 d-flex">
 
                         <article class="partners-page-detail-card">
 
+                            {{-- LOGO MITRA --}}
                             <div class="partners-page-detail-logo">
 
                                 @if ($partner->logo)
-
                                     <img
                                         src="{{ asset('storage/' . $partner->logo) }}"
                                         alt="Logo {{ $partner->name }}"
                                         loading="lazy"
                                     >
-
                                 @else
-
                                     <i class="bi bi-building"></i>
-
                                 @endif
 
                             </div>
 
+                            {{-- INFORMASI MITRA --}}
                             <div class="partners-page-detail-content">
 
                                 <h3>{{ $partner->name }}</h3>
 
                                 @if ($partner->description)
 
-                                    <p class="partners-page-detail-description">
-                                        {{ $partner->description }}
-                                    </p>
+                                    <div class="partners-page-description-wrap">
+
+                                        <p
+                                            class="partners-page-detail-description"
+                                            id="partner-description-{{ $partner->id }}"
+                                        >{{ $partner->description }}</p>
+
+                                        <button
+                                            type="button"
+                                            class="partners-page-read-more"
+                                            aria-expanded="false"
+                                            aria-controls="partner-description-{{ $partner->id }}"
+                                            hidden
+                                        >
+                                            Baca Selengkapnya
+                                            <i class="bi bi-chevron-down"></i>
+                                        </button>
+
+                                    </div>
 
                                 @else
 
@@ -508,3 +523,52 @@
 </section>
 
 @endsection
+
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const cards = document.querySelectorAll(
+        '.partners-page-detail-card'
+    );
+
+    cards.forEach(function (card) {
+        const description = card.querySelector(
+            '.partners-page-detail-description'
+        );
+
+        const button = card.querySelector(
+            '.partners-page-read-more'
+        );
+
+        if (!description || !button) {
+            return;
+        }
+
+        const isLongDescription =
+            description.scrollHeight > description.clientHeight + 2;
+
+        if (!isLongDescription) {
+            return;
+        }
+
+        button.hidden = false;
+
+        button.addEventListener('click', function () {
+            const isExpanded = description.classList.toggle(
+                'is-expanded'
+            );
+
+            button.setAttribute(
+                'aria-expanded',
+                isExpanded ? 'true' : 'false'
+            );
+
+            button.innerHTML = isExpanded
+                ? 'Tampilkan Lebih Sedikit <i class="bi bi-chevron-up"></i>'
+                : 'Baca Selengkapnya <i class="bi bi-chevron-down"></i>';
+        });
+    });
+});
+</script>
+@endpush
