@@ -188,7 +188,7 @@ class ActivityController extends Controller
                 'required',
                 'image',
                 'mimes:jpg,jpeg,png,webp',
-                'max:2048',
+                'max:10240',
             ],
 
             // Caption mengikuti urutan foto yang diunggah.

@@ -385,7 +385,7 @@
         <p class="admin-form-help">
             Tambahkan foto untuk galeri pada halaman detail kegiatan.
             Caption boleh dikosongkan. Maksimal 20 foto dalam satu
-            penyimpanan, masing-masing maksimal 2 MB.
+            penyimpanan, masing-masing maksimal 10 MB.
         </p>
 
         <div id="documentation-photo-list"></div>
@@ -432,18 +432,93 @@
 @endsection 
 
 
+
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const list = document.getElementById('documentation-photo-list');
     const addButton = document.getElementById('add-documentation-photo');
+    const form = list?.closest('form');
+    const thumbnail = document.getElementById('thumbnail');
 
-    if (!list || !addButton) return;
+    if (!list || !addButton || !form) return;
+
+    const MAX_PHOTOS = 20;
+    const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
+    const ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp'];
+    const ALLOWED_TYPES = [
+        'image/jpeg',
+        'image/png',
+        'image/webp'
+    ];
 
     let photoIndex = 0;
 
-    addButton.addEventListener('click', function () {
-        if (list.children.length >= 20) {
+    function validateFile(file) {
+        if (!file) {
+            return 'Silakan pilih foto terlebih dahulu.';
+        }
+
+        const extension = file.name
+            .split('.')
+            .pop()
+            .toLowerCase();
+
+        if (
+            !ALLOWED_EXTENSIONS.includes(extension) ||
+            (file.type && !ALLOWED_TYPES.includes(file.type))
+        ) {
+            return 'Format foto harus JPG, JPEG, PNG, atau WEBP.';
+        }
+
+        if (file.size > MAX_FILE_SIZE) {
+            return `Ukuran foto "${file.name}" melebihi 10 MB. Silakan ganti atau hapus foto ini.`;
+        }
+
+        return '';
+    }
+
+    function showFileError(input, message) {
+        const group = input.closest('.admin-form-group');
+
+        if (!group) return;
+
+        let error = group.querySelector('.yp-photo-file-error');
+
+        if (!error) {
+            error = document.createElement('small');
+            error.className = 'yp-photo-file-error';
+            error.style.display = 'block';
+            error.style.marginTop = '7px';
+            error.style.color = '#b91c1c';
+            error.style.fontWeight = '600';
+
+            group.appendChild(error);
+        }
+
+        error.textContent = message;
+        error.style.display = message ? 'block' : 'none';
+
+        input.style.borderColor = message ? '#dc2626' : '';
+    }
+
+    function checkInput(input) {
+        const file = input.files?.[0];
+
+        const message = file
+            ? validateFile(file)
+            : (input.required
+                ? 'Silakan pilih foto atau hapus bagian foto ini.'
+                : '');
+
+        showFileError(input, message);
+
+        return message === '';
+    }
+
+    function createPhotoItem() {
+        if (list.children.length >= MAX_PHOTOS) {
             alert('Maksimal 20 foto dalam satu penyimpanan.');
             return;
         }
@@ -456,17 +531,23 @@ document.addEventListener('DOMContentLoaded', function () {
         item.innerHTML = `
             <div class="admin-form-group">
                 <label>Foto Dokumentasi</label>
+
                 <input
                     type="file"
                     name="documentation_photos[${index}]"
-                    class="admin-form-control"
+                    class="admin-form-control yp-documentation-file"
                     accept=".jpg,.jpeg,.png,.webp"
                     required
                 >
+
+                <small class="admin-form-help">
+                    Maksimal 10 MB per foto.
+                </small>
             </div>
 
             <div class="admin-form-group">
                 <label>Caption (Opsional)</label>
+
                 <textarea
                     name="documentation_captions[${index}]"
                     class="admin-form-control"
@@ -485,12 +566,68 @@ document.addEventListener('DOMContentLoaded', function () {
             </button>
         `;
 
-        item.querySelector('.remove-documentation-photo')
-            .addEventListener('click', function () {
-                item.remove();
-            });
+        const fileInput = item.querySelector('.yp-documentation-file');
+        const removeButton = item.querySelector(
+            '.remove-documentation-photo'
+        );
+
+        fileInput.addEventListener('change', function () {
+            checkInput(fileInput);
+        });
+
+        removeButton.addEventListener('click', function () {
+            item.remove();
+        });
 
         list.appendChild(item);
+    }
+
+    addButton.addEventListener('click', createPhotoItem);
+
+    if (thumbnail) {
+        thumbnail.addEventListener('change', function () {
+            const file = thumbnail.files?.[0];
+
+            showFileError(
+                thumbnail,
+                file ? validateFile(file) : ''
+            );
+        });
+    }
+
+    form.addEventListener('submit', function (event) {
+        let firstInvalidInput = null;
+
+        if (thumbnail?.files?.length) {
+            const thumbnailIsValid = checkInput(thumbnail);
+
+            if (!thumbnailIsValid) {
+                firstInvalidInput = thumbnail;
+            }
+        }
+
+        const photoInputs = list.querySelectorAll(
+            '.yp-documentation-file'
+        );
+
+        photoInputs.forEach(function (input) {
+            const isValid = checkInput(input);
+
+            if (!isValid && !firstInvalidInput) {
+                firstInvalidInput = input;
+            }
+        });
+
+        if (firstInvalidInput) {
+            event.preventDefault();
+
+            firstInvalidInput.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+
+            firstInvalidInput.focus();
+        }
     });
 });
 </script>
