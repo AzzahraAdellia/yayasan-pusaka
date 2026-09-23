@@ -210,217 +210,88 @@
 
         </div>
 
+        
+        @if ($trainings->isNotEmpty())
 
-        @php
+            <div class="row g-4 justify-content-center">
 
-            $trainingPrograms = [
+                @foreach ($trainings as $index => $training)
 
-                [
-                    'title' => 'Pelatihan Barista',
+                    @php
+                        $icons = [
+                            'pelatihan-barista' => 'bi-cup-hot-fill',
+                            'pelatihan-make-up-artist' => 'bi-brush-fill',
+                            'pelatihan-fotografi' => 'bi-camera-fill',
+                            'talent-mapping' => 'bi-person-bounding-box',
+                            'program-magang-kerja-ke-jepang' => 'bi-airplane-fill',
+                        ];
 
-                    'label' => 'KETERAMPILAN',
+                        $icon = $icons[$training->slug] ?? 'bi-mortarboard-fill';
+                        $color = $index % 2 === 0 ? 'blue' : 'orange';
+                    @endphp
 
-                    'icon' => 'bi-cup-hot-fill',
+                    <div class="col-lg-4 col-md-6">
 
-                    'color' => 'blue',
+                        <article class="training-program-card h-100">
 
-                    'description' =>
-                        'Pelatihan keterampilan meracik dan
-                        menyajikan minuman kopi untuk
-                        membekali anak asuh dengan kemampuan
-                        praktis di bidang barista.',
+                            <div class="training-card-icon {{ $color }}">
+                                <i class="bi {{ $icon }}"></i>
+                            </div>
 
-                    'participants' => 'Anak Asuh',
-
-                    'tags' => [
-                        'Barista',
-                        'Keterampilan',
-                        'Kesiapan Kerja'
-                    ]
-                ],
-
-
-                [
-                    'title' => 'Pelatihan Make Up Artist',
-
-                    'label' => 'KECANTIKAN',
-
-                    'icon' => 'bi-brush-fill',
-
-                    'color' => 'orange',
-
-                    'description' =>
-                        'Pelatihan keterampilan tata rias
-                        untuk mengembangkan kemampuan
-                        peserta di bidang kecantikan
-                        serta membuka peluang usaha
-                        maupun pekerjaan.',
-
-                    'participants' => 'Orang Tua / Wali dan Anak Asuh',
-
-                    'tags' => [
-                        'Make Up Artist',
-                        'Keterampilan',
-                        'Kewirausahaan'
-                    ]
-                ],
-
-
-                [
-                    'title' => 'Pelatihan Fotografi',
-
-                    'label' => 'KREATIVITAS',
-
-                    'icon' => 'bi-camera-fill',
-
-                    'color' => 'blue',
-
-                    'description' =>
-                        'Pelatihan teknik dasar fotografi
-                        untuk mengembangkan kreativitas,
-                        kemampuan pengambilan gambar,
-                        serta keterampilan anak asuh
-                        di bidang fotografi.',
-
-                    'participants' => 'Anak Asuh',
-
-                    'tags' => [
-                        'Fotografi',
-                        'Kreativitas',
-                        'Keterampilan'
-                    ]
-                ],
-
-
-                [
-                    'title' => 'Talent Mapping',
-
-                    'label' => 'PENGEMBANGAN POTENSI',
-
-                    'icon' => 'bi-person-bounding-box',
-
-                    'color' => 'orange',
-
-                    'description' =>
-                        'Program pemetaan bakat dan potensi
-                        untuk membantu anak asuh mengenali
-                        minat, kemampuan, serta kekuatan
-                        diri sebagai dasar pengembangan
-                        masa depan.',
-
-                    'participants' => 'Anak Asuh',
-
-                    'tags' => [
-                        'Bakat',
-                        'Minat',
-                        'Pengembangan Diri'
-                    ]
-                ],
-
-
-                [
-                    'title' => 'Program Magang Kerja ke Jepang',
-
-                    'label' => 'PENGEMBANGAN KARIER',
-
-                    'icon' => 'bi-airplane-fill',
-
-                    'color' => 'blue',
-
-                    'description' =>
-                        'Program persiapan dan pendampingan
-                        bagi anak asuh untuk memperoleh
-                        kesempatan magang kerja di Jepang
-                        melalui pembekalan bahasa,
-                        budaya, keterampilan, dan
-                        kesiapan kerja.',
-
-                    'participants' => 'Anak Asuh',
-
-                    'tags' => [
-                        'Magang Jepang',
-                        'Bahasa Jepang',
-                        'Kesiapan Kerja'
-                    ]
-                ]
-
-            ];
-
-        @endphp
-
-
-        <div class="row g-4 justify-content-center">
-
-            @foreach ($trainingPrograms as $index => $training)
-
-                <div class="col-lg-4 col-md-6">
-
-                    <article class="training-program-card h-100">
-
-                        <div class="training-card-icon {{ $training['color'] }}">
-
-                            <i class="bi {{ $training['icon'] }}"></i>
-
-                        </div>
-
-
-                        <span class="training-card-number">
-
-                            {{ sprintf('%02d', $index + 1) }}
-
-                        </span>
-
-
-                        <span class="training-card-label">
-
-                            {{ $training['label'] }}
-
-                        </span>
-
-
-                        <h3>
-                            {{ $training['title'] }}
-                        </h3>
-
-
-                        <p>
-                            {{ $training['description'] }}
-                        </p>
-
-
-                        <div class="training-participants">
-
-                            <i class="bi bi-people-fill"></i>
-
-                            <span>
-                                Peserta:
-                                <strong>
-                                    {{ $training['participants'] }}
-                                </strong>
+                            <span class="training-card-number">
+                                {{ sprintf('%02d', $index + 1) }}
                             </span>
 
-                        </div>
+                            <span class="training-card-label">
+                                PROGRAM PELATIHAN
+                            </span>
 
+                            <h3>{{ $training->name }}</h3>
 
-                        <div class="training-tags">
+                            <p>
+                                {{ $training->short_description
+                                    ?: 'Informasi pelatihan akan segera tersedia.' }}
+                            </p>
 
-                            @foreach ($training['tags'] as $tag)
+                            @if ($training->target_participants)
+                                <div class="training-participants">
+                                    <i class="bi bi-people"></i>
 
-                                <span>
-                                    {{ $tag }}
-                                </span>
+                                    <span class="training-participants-label">
+                                        Peserta
+                                    </span>
 
-                            @endforeach
+                                    <span class="training-participants-value">
+                                        {{ $training->target_participants }}
+                                    </span>
+                                </div>
+                            @endif
 
-                        </div>
+                            <a
+                                href="{{ route('programs.training.show', $training) }}"
+                                class="training-detail-button"
+                            >
+                                Selengkapnya
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
 
-                    </article>
+                        </article>
 
-                </div>
+                    </div>
 
-            @endforeach
+                @endforeach
 
-        </div>
+            </div>
+
+        @else
+
+            <div class="text-center py-5">
+                <p class="mb-0">
+                    Informasi pelatihan akan segera tersedia.
+                </p>
+            </div>
+
+        @endif
 
     </div>
 

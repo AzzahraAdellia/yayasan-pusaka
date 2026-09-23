@@ -21,6 +21,9 @@ use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\SettingController;   
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\TrainingController as AdminTrainingController;
+use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\Admin\TrainingBatchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,6 +102,11 @@ Route::prefix('program')->name('programs.')->group(function () {
         '/pelatihan-pengembangan',
         [ProgramController::class, 'training']
     )->name('training');
+
+    Route::get(
+        '/pelatihan-pengembangan/{training:slug}',
+        [TrainingController::class, 'show']
+    )->name('training.show');
 });
 
 
@@ -252,6 +260,39 @@ Route::middleware(['auth', 'verified'])
             '/program/{program}',
             [AdminProgramController::class, 'update']
         )->name('programs.update');
+
+        /*
+        |--------------------------------------------------------------------------
+        | KELOLA PELATIHAN
+        |--------------------------------------------------------------------------
+        */
+
+        Route::resource('pelatihan', AdminTrainingController::class)
+            ->parameters([
+                'pelatihan' => 'training',
+            ])
+            ->except(['show'])
+            ->names('trainings');
+
+        Route::post(
+            'pelatihan/{training}/batch',
+            [TrainingBatchController::class, 'store']
+        )->name('trainings.batches.store');
+
+        Route::put(
+            'pelatihan/{training}/batch/{batch}',
+            [TrainingBatchController::class, 'update']
+        )->name('trainings.batches.update');
+
+        Route::delete(
+            'pelatihan/{training}/batch/{batch}',
+            [TrainingBatchController::class, 'destroy']
+        )->name('trainings.batches.destroy');
+
+        Route::delete(
+            'pelatihan/{training}/batch/{batch}/foto/{photo}',
+            [TrainingBatchController::class, 'destroyPhoto']
+        )->name('trainings.batches.photos.destroy');
 
         /*
         |--------------------------------------------------------------------------

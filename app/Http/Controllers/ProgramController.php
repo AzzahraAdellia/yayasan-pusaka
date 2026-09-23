@@ -70,6 +70,7 @@ class ProgramController extends Controller
     }
 
 
+    
     /**
      * Program Pelatihan & Pengembangan.
      */
@@ -79,9 +80,15 @@ class ProgramController extends Controller
             ->where('is_active', true)
             ->firstOrFail();
 
+        $trainings = $program->trainings()
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->get();
+
         return view(
             'program.pelatihan',
-            compact('program')
+            compact('program', 'trainings')
         );
     }
 }

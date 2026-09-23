@@ -40,7 +40,7 @@
 @endif
 
 
-<div class="admin-panel">
+<div class="admin-panel admin-programs-page">
 
     <div class="admin-panel-header">
 
