@@ -175,7 +175,7 @@ class ActivityController extends Controller
                 'nullable',
                 'image',
                 'mimes:jpg,jpeg,png,webp',
-                'max:2048',
+                'max:10240',
             ],
             'activity_date' => ['nullable', 'date'],
             'location' => ['nullable', 'string', 'max:255'],

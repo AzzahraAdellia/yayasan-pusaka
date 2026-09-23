@@ -1,596 +1,341 @@
+
 @extends('admin.layouts.app')
 
 @section('title', 'Dashboard')
-@section('page-title', 'Dashboard')
 
 @section('content')
+<div class="yp-dashboard">
 
-{{-- =========================================================
-    PAGE HEADER
-========================================================= --}}
-<div class="admin-page-header">
-
-    <div>
-        <span class="admin-page-label">
-            OVERVIEW
-        </span>
-
-        <h2>
-            Selamat Datang,
-            <span>{{ auth()->user()->name }}</span>
-        </h2>
-
-        <p>
-            Kelola konten dan informasi website Yayasan Pusaka
-            melalui Content Management System.
-        </p>
-    </div>
-
-</div>
-
-
-{{-- =========================================================
-    STATISTIC CARDS
-========================================================= --}}
-<div class="admin-stats-grid">
-
-    {{-- TOTAL BERITA --}}
-    <div class="admin-stat-card">
-
-        <div class="admin-stat-icon blue">
-            <i class="bi bi-newspaper"></i>
-        </div>
-
-        <div class="admin-stat-info">
-
-            <span>
-                Total Berita
-            </span>
-
-            <strong>
-                {{ $newsCount }}
-            </strong>
-
-            <small>
-                Seluruh berita
-            </small>
-
-        </div>
-
-    </div>
-
-
-    {{-- BERITA TERBIT --}}
-    <div class="admin-stat-card">
-
-        <div class="admin-stat-icon orange">
-            <i class="bi bi-check-circle-fill"></i>
-        </div>
-
-        <div class="admin-stat-info">
-
-            <span>
-                Berita Terbit
-            </span>
-
-            <strong>
-                {{ $publishedNewsCount }}
-            </strong>
-
-            <small>
-                Sudah dipublikasikan
-            </small>
-
-        </div>
-
-    </div>
-
-
-    {{-- DRAFT --}}
-    <div class="admin-stat-card">
-
-        <div class="admin-stat-icon blue">
-            <i class="bi bi-file-earmark-text"></i>
-        </div>
-
-        <div class="admin-stat-info">
-
-            <span>
-                Draft Berita
-            </span>
-
-            <strong>
-                {{ $draftNewsCount }}
-            </strong>
-
-            <small>
-                Belum dipublikasikan
-            </small>
-
-        </div>
-
-    </div>
-
-
-    {{-- USER / ROLE --}}
-    <div class="admin-stat-card">
-
-        <div class="admin-stat-icon orange">
-            <i class="bi bi-people-fill"></i>
-        </div>
-
-        <div class="admin-stat-info">
-
-            @if (auth()->user()->role === 'admin')
-
-                <span>
-                    Total User
-                </span>
-
-                <strong>
-                    {{ $userCount }}
-                </strong>
-
-                <small>
-                    {{ $staffCount }} akun staff
-                </small>
-
-            @else
-
-                <span>
-                    Role Akun
-                </span>
-
-                <strong class="admin-stat-role">
-                    Staff
-                </strong>
-
-                <small>
-                    Pengguna CMS
-                </small>
-
-            @endif
-
-        </div>
-
-    </div>
-
-</div>
-
-
-{{-- =========================================================
-    MAIN DASHBOARD
-========================================================= --}}
-<div class="admin-dashboard-grid">
-
-
-    {{-- =====================================================
-        KONTEN TERBARU
-    ====================================================== --}}
-    <div class="admin-panel">
-
-        <div class="admin-panel-header">
-
-            <div>
-
-                <span>
-                    KONTEN TERBARU
-                </span>
-
-                <h3>
-                    Berita Terbaru
-                </h3>
-
-            </div>
-
-            <a href="{{ route('admin.news.index') }}">
-                Lihat Semua
-                <i class="bi bi-arrow-right"></i>
-            </a>
-
-        </div>
-
-
-        @if ($latestNews->count())
-
-            <div class="admin-dashboard-news-list">
-
-                @foreach ($latestNews as $item)
-
-                    <a
-                        href="{{ route('admin.news.edit', $item) }}"
-                        class="admin-dashboard-news-item"
-                    >
-
-                        {{-- THUMBNAIL --}}
-                        <div class="admin-dashboard-news-thumbnail">
-
-                            @if ($item->thumbnail)
-
-                                <img
-                                    src="{{ asset('storage/' . $item->thumbnail) }}"
-                                    alt="{{ $item->title }}"
-                                >
-
-                            @else
-
-                                <i class="bi bi-image"></i>
-
-                            @endif
-
-                        </div>
-
-
-                        {{-- INFORMATION --}}
-                        <div class="admin-dashboard-news-content">
-
-                            <strong>
-                                {{ $item->title }}
-                            </strong>
-
-                            <span>
-
-                                {{ $item->category ?: 'Umum' }}
-
-                                <b>•</b>
-
-                                {{ $item->created_at->format('d/m/Y') }}
-
-                            </span>
-
-                        </div>
-
-
-                        {{-- STATUS --}}
-                        <div>
-
-                            @if ($item->status === 'published')
-
-                                <span class="admin-status published">
-                                    <i class="bi bi-check-circle-fill"></i>
-                                    Terbit
-                                </span>
-
-                            @else
-
-                                <span class="admin-status draft">
-                                    <i class="bi bi-clock-fill"></i>
-                                    Draft
-                                </span>
-
-                            @endif
-
-                        </div>
-
-                    </a>
-
-                @endforeach
-
-            </div>
-
-        @else
-
-            <div class="admin-empty-state">
-
-                <div class="admin-empty-icon">
-                    <i class="bi bi-folder2-open"></i>
-                </div>
-
-                <h4>
-                    Belum Ada Berita
-                </h4>
-
-                <p>
-                    Berita yang dibuat melalui CMS
-                    akan tampil di bagian ini.
-                </p>
-
-                <a
-                    href="{{ route('admin.news.create') }}"
-                    class="admin-primary-button"
-                >
-                    <i class="bi bi-plus-lg"></i>
-                    Tambah Berita
-                </a>
-
-            </div>
-
-        @endif
-
-    </div>
-
-
-
-    {{-- =====================================================
-        QUICK ACTION
-    ====================================================== --}}
-    <div class="admin-panel">
-
-        <div class="admin-panel-header">
-
-            <div>
-
-                <span>
-                    AKSES CEPAT
-                </span>
-
-                <h3>
-                    Quick Action
-                </h3>
-
-            </div>
-
-        </div>
-
-
-        <div class="admin-quick-actions">
-
-
-            {{-- TAMBAH BERITA --}}
-            <a href="{{ route('admin.news.create') }}">
-
-                <div class="blue">
-                    <i class="bi bi-plus-lg"></i>
-                </div>
-
-                <section>
-
-                    <strong>
-                        Tambah Berita
-                    </strong>
-
-                    <span>
-                        Buat berita baru
-                    </span>
-
-                </section>
-
-                <i class="bi bi-chevron-right"></i>
-
-            </a>
-
-
-            {{-- DAFTAR BERITA --}}
-            <a href="{{ route('admin.news.index') }}">
-
-                <div class="orange">
-                    <i class="bi bi-newspaper"></i>
-                </div>
-
-                <section>
-
-                    <strong>
-                        Kelola Berita
-                    </strong>
-
-                    <span>
-                        Lihat dan edit berita
-                    </span>
-
-                </section>
-
-                <i class="bi bi-chevron-right"></i>
-
-            </a>
-
-
-            {{-- KELOLA USER - ADMIN ONLY --}}
-            @if (auth()->user()->role === 'admin')
-
-                <a href="{{ route('admin.users.index') }}">
-
-                    <div class="blue">
-                        <i class="bi bi-person-gear"></i>
-                    </div>
-
-                    <section>
-
-                        <strong>
-                            Kelola User
-                        </strong>
-
-                        <span>
-                            Atur akun dan role pengguna
-                        </span>
-
-                    </section>
-
-                    <i class="bi bi-chevron-right"></i>
-
-                </a>
-
-            @endif
-
-
-            {{-- WEBSITE PUBLIK --}}
-            <a
-                href="{{ route('home') }}"
-                target="_blank"
-            >
-
-                <div class="orange">
-                    <i class="bi bi-globe2"></i>
-                </div>
-
-                <section>
-
-                    <strong>
-                        Lihat Website
-                    </strong>
-
-                    <span>
-                        Buka website publik
-                    </span>
-
-                </section>
-
-                <i class="bi bi-box-arrow-up-right"></i>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-{{-- =========================================================
-    CMS INFORMATION
-========================================================= --}}
-
-<div class="admin-panel admin-dashboard-info-panel">
-
-    <div class="admin-panel-header">
-
+    <div class="yp-dashboard-heading">
         <div>
+            <h1>Dashboard</h1>
+            <p>Ringkasan pengelolaan konten dan kunjungan website Yayasan Pusaka.</p>
+        </div>
+    </div>
 
-            <span>
-                CMS YAYASAN PUSAKA
-            </span>
+    {{-- STATISTIK CMS DAN ANALITIK --}}
+    <div class="yp-dashboard-summary">
 
-            <h3>
-                Pengelolaan Website
-            </h3>
+        {{-- STATISTIK CMS --}}
+        <section class="yp-dashboard-panel">
+            <div class="yp-panel-heading">
+                <div>
+                    <span class="yp-panel-eyebrow">PENGELOLAAN WEBSITE</span>
+                    <h2>Statistik CMS</h2>
+                </div>
+            </div>
 
+            <div class="yp-summary-cards">
+                <div class="yp-summary-card">
+                    <span>Total Berita</span>
+                    <strong>{{ number_format($newsCount) }}</strong>
+                </div>
+
+                <div class="yp-summary-card">
+                    <span>Berita Terbit</span>
+                    <strong>{{ number_format($publishedNewsCount) }}</strong>
+                </div>
+
+                <div class="yp-summary-card">
+                    <span>Draft Berita</span>
+                    <strong>{{ number_format($draftNewsCount) }}</strong>
+                </div>
+
+                <div class="yp-summary-card">
+                    @if(auth()->user()?->role === 'admin')
+                        <span>Total User</span>
+                        <strong>{{ number_format($userCount) }}</strong>
+                    @else
+                        <span>Total Staff</span>
+                        <strong>{{ number_format($staffCount) }}</strong>
+                    @endif
+                </div>
+            </div>
+        </section>
+
+        {{-- ANALITIK WEBSITE --}}
+        <section class="yp-dashboard-panel">
+            <div class="yp-panel-heading">
+                <div>
+                    <span class="yp-panel-eyebrow">KUNJUNGAN WEBSITE</span>
+                    <h2>Analitik Website</h2>
+                </div>
+            </div>
+
+            <form method="GET"
+                  action="{{ route('admin.dashboard') }}"
+                  class="yp-analytics-filter">
+
+                <label for="analytics-period">Periode</label>
+
+                <div class="yp-filter-controls">
+                    <select name="period"
+                            id="analytics-period"
+                            onchange="this.form.submit()">
+                        <option value="7" {{ $period === '7' ? 'selected' : '' }}>
+                            7 hari terakhir
+                        </option>
+                        <option value="30" {{ $period === '30' ? 'selected' : '' }}>
+                            30 hari terakhir
+                        </option>
+                        <option value="90" {{ $period === '90' ? 'selected' : '' }}>
+                            90 hari terakhir
+                        </option>
+                        <option value="all" {{ $period === 'all' ? 'selected' : '' }}>
+                            Semua data
+                        </option>
+                        <option value="custom" {{ $period === 'custom' ? 'selected' : '' }}>
+                            Rentang tanggal
+                        </option>
+                    </select>
+
+                    <button type="submit">Terapkan</button>
+                </div>
+
+                @if($period === 'custom')
+                    <div class="yp-custom-dates">
+                        <div>
+                            <label for="start_date">Dari tanggal</label>
+                            <input type="date"
+                                   id="start_date"
+                                   name="start_date"
+                                   value="{{ request('start_date', $startDate?->format('Y-m-d')) }}"
+                                   required>
+                        </div>
+
+                        <div>
+                            <label for="end_date">Sampai tanggal</label>
+                            <input type="date"
+                                   id="end_date"
+                                   name="end_date"
+                                   value="{{ request('end_date', $endDate?->format('Y-m-d')) }}"
+                                   required>
+                        </div>
+
+                        <button type="submit">Tampilkan</button>
+                    </div>
+                @endif
+            </form>
+
+            @if($errors->any())
+                <p class="yp-filter-error">{{ $errors->first() }}</p>
+            @endif
+
+            <div class="yp-summary-cards">
+                <div class="yp-summary-card">
+                    <span>Pengunjung Unik</span>
+                    <strong>{{ number_format($uniqueVisitors) }}</strong>
+                </div>
+
+                <div class="yp-summary-card">
+                    <span>Tayangan Halaman</span>
+                    <strong>{{ number_format($totalPageViews) }}</strong>
+                </div>
+
+                <div class="yp-summary-card">
+                    <span>Negara Terdeteksi</span>
+                    <strong>{{ number_format($countriesDetected) }}</strong>
+                </div>
+
+                <div class="yp-summary-card">
+                    <span>Jenis Perangkat</span>
+                    <strong>{{ number_format($devices->count()) }}</strong>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    {{-- GRAFIK KUNJUNGAN --}}
+    <section class="yp-dashboard-panel yp-dashboard-chart-panel">
+        <div class="yp-panel-heading">
+            <div>
+                <span class="yp-panel-eyebrow">RIWAYAT KUNJUNGAN</span>
+                <h2>Grafik Kunjungan Website</h2>
+                <p>
+                    {{ $startDate?->format('d M Y') ?? 'Sejak pencatatan dimulai' }}
+                    –
+                    {{ $endDate->format('d M Y') }}
+                </p>
+            </div>
         </div>
 
+        <div class="yp-chart-container">
+            <canvas id="ypVisitChart"></canvas>
+        </div>
+
+        <p class="yp-chart-note">
+            Grafik menunjukkan jumlah tayangan halaman per hari.
+            Pencatatan dimulai sejak fitur analitik website diaktifkan.
+        </p>
+    </section>
+
+    {{-- RINCIAN ANALITIK --}}
+    <div class="yp-dashboard-details">
+
+        <section class="yp-dashboard-panel">
+            <div class="yp-panel-heading">
+                <h2>Asal Negara Pengunjung</h2>
+            </div>
+
+            <div class="yp-table-scroll">
+                <table class="yp-analytics-table">
+                    <thead>
+                        <tr>
+                            <th>Negara</th>
+                            <th class="yp-number-column">Tayangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($countries as $country)
+                            <tr>
+                                <td>
+                                    {{ $country->country_name ?: $country->country_code }}
+                                </td>
+                                <td class="yp-number-column">
+                                    {{ number_format($country->total) }}
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="2" class="yp-empty-state">
+                                    Data negara belum tersedia.
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="yp-dashboard-panel">
+            <div class="yp-panel-heading">
+                <h2>Jenis Perangkat</h2>
+            </div>
+
+            <div class="yp-table-scroll">
+                <table class="yp-analytics-table">
+                    <thead>
+                        <tr>
+                            <th>Perangkat</th>
+                            <th class="yp-number-column">Tayangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($devices as $device)
+                            <tr>
+                                <td>
+                                    {{ ucfirst($device->device_type ?: 'Tidak diketahui') }}
+                                </td>
+                                <td class="yp-number-column">
+                                    {{ number_format($device->total) }}
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="2" class="yp-empty-state">
+                                    Belum ada data perangkat.
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
     </div>
 
+    <section class="yp-dashboard-panel">
+        <div class="yp-panel-heading">
+            <h2>Halaman yang Paling Banyak Dikunjungi</h2>
+        </div>
 
-    <div class="admin-dashboard-modules">
-
-        {{-- BERITA --}}
-        <a
-            href="{{ route('admin.news.index') }}"
-            class="admin-dashboard-module"
-        >
-
-            <div class="admin-dashboard-module-icon blue">
-                <i class="bi bi-newspaper"></i>
-            </div>
-
-            <div>
-
-                <strong>
-                    Berita
-                </strong>
-
-                <span>
-                    Kelola berita dan informasi terbaru.
-                </span>
-
-            </div>
-
-        </a>
-
-
-        {{-- KEGIATAN --}}
-        <a
-            href="{{ route('admin.activities.index') }}"
-            class="admin-dashboard-module"
-        >
-
-            <div class="admin-dashboard-module-icon orange">
-                <i class="bi bi-calendar-event"></i>
-            </div>
-
-            <div>
-
-                <strong>
-                    Kegiatan
-                </strong>
-
-                <span>
-                    Kelola kegiatan Yayasan Pusaka.
-                </span>
-
-            </div>
-
-        </a>
-
-
-        {{-- PROGRAM --}}
-        <a
-            href="{{ route('admin.programs.index') }}"
-            class="admin-dashboard-module"
-        >
-
-            <div class="admin-dashboard-module-icon blue">
-                <i class="bi bi-grid"></i>
-            </div>
-
-            <div>
-
-                <strong>
-                    Program
-                </strong>
-
-                <span>
-                    Kelola informasi program Yayasan Pusaka.
-                </span>
-
-            </div>
-
-        </a>
-
-
-        {{-- MITRA --}}
-        <a
-            href="{{ route('admin.partners.index') }}"
-            class="admin-dashboard-module"
-        >
-
-            <div class="admin-dashboard-module-icon orange">
-                <i class="bi bi-people"></i>
-            </div>
-
-            <div>
-
-                <strong>
-                    Mitra
-                </strong>
-
-                <span>
-                    Kelola mitra dan logo kolaborasi Yayasan Pusaka.
-                </span>
-
-            </div>
-
-        </a>
-
-
-        {{-- USER --}}
-        @if (auth()->user()->role === 'admin')
-
-            <a
-                href="{{ route('admin.users.index') }}"
-                class="admin-dashboard-module"
-            >
-
-                <div class="admin-dashboard-module-icon blue">
-                    <i class="bi bi-person-gear"></i>
-                </div>
-
-                <div>
-
-                    <strong>
-                        User CMS
-                    </strong>
-
-                    <span>
-                        Kelola akun Admin dan Staff.
-                    </span>
-
-                </div>
-
-            </a>
-
-        @endif
-
-    </div>
+        <div class="yp-table-scroll">
+            <table class="yp-analytics-table">
+                <thead>
+                    <tr>
+                        <th>Halaman</th>
+                        <th class="yp-number-column">Tayangan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($popularPages as $page)
+                        <tr>
+                            <td>{{ $page->path }}</td>
+                            <td class="yp-number-column">
+                                {{ number_format($page->total) }}
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="2" class="yp-empty-state">
+                                Belum ada data kunjungan halaman.
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </section>
 
 </div>
-
 @endsection
+
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const chartElement = document.getElementById('ypVisitChart');
+
+    if (!chartElement || typeof Chart === 'undefined') {
+        return;
+    }
+
+    const visitData = @json($visitChart);
+
+    new Chart(chartElement, {
+        type: 'line',
+        data: {
+            labels: visitData.map(item => item.date),
+            datasets: [{
+                label: 'Tayangan Halaman',
+                data: visitData.map(item => item.total),
+                borderColor: '#0A4D8C',
+                backgroundColor: 'rgba(10, 77, 140, 0.10)',
+                borderWidth: 2,
+                pointRadius: visitData.length > 60 ? 0 : 3,
+                pointHoverRadius: 5,
+                tension: 0.25,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0
+                    }
+                },
+                x: {
+                    ticks: {
+                        maxTicksLimit: 10
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+@endpush

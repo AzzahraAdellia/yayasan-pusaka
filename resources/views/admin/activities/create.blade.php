@@ -360,7 +360,7 @@
                         >
 
                         <small class="admin-form-help">
-                            JPG, JPEG, PNG atau WEBP. Maksimal 2 MB.
+                            JPG, JPEG, PNG atau WEBP. Maksimal 10 MB.
                         </small>
 
                     </div>

@@ -2101,3 +2101,441 @@
 #documentation-photo-list:empty {
     display: none;
 }
+
+
+/* =========================================
+   DASHBOARD ANALITIK WEBSITE
+========================================= */
+
+.admin-analytics-panel {
+    margin-top: 24px;
+}
+
+.admin-analytics-description {
+    margin: 0 0 18px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.admin-analytics-chart-wrap {
+    position: relative;
+    width: 100%;
+    height: 320px;
+}
+
+.admin-analytics-two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.admin-analytics-two-columns > .admin-analytics-panel {
+    min-width: 0;
+}
+
+.admin-analytics-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.admin-analytics-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.admin-analytics-table th,
+.admin-analytics-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e8edf3;
+    text-align: left;
+}
+
+.admin-analytics-table th {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.admin-analytics-table td {
+    color: #334155;
+}
+
+.admin-analytics-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.admin-analytics-table .admin-analytics-number {
+    text-align: right;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.admin-analytics-page-path {
+    overflow-wrap: anywhere;
+}
+
+.admin-analytics-device-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 4px 0;
+}
+
+.admin-analytics-device-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    color: #334155;
+    font-size: 14px;
+}
+
+.admin-analytics-device-heading > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.admin-analytics-device-heading i {
+    color: #0a4d8c;
+    font-size: 18px;
+}
+
+.admin-analytics-device-heading strong {
+    white-space: nowrap;
+}
+
+.admin-analytics-device-heading strong small {
+    color: #64748b;
+    font-weight: 400;
+}
+
+.admin-analytics-progress {
+    height: 9px;
+    background: #e8edf3;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.admin-analytics-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #0a4d8c, #f28c28);
+    border-radius: inherit;
+}
+
+.admin-analytics-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 170px;
+    padding: 24px;
+    text-align: center;
+    color: #94a3b8;
+}
+
+.admin-analytics-empty i {
+    margin-bottom: 12px;
+    font-size: 34px;
+}
+
+.admin-analytics-empty p {
+    margin: 0 0 5px;
+    color: #475569;
+    font-weight: 600;
+}
+
+.admin-analytics-empty small,
+.admin-analytics-footnote {
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.admin-analytics-footnote {
+    margin: 18px 0 0;
+}
+
+.admin-analytics-footer-note {
+    margin-top: 22px;
+}
+
+@media (max-width: 991px) {
+    .admin-analytics-two-columns {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .admin-analytics-chart-wrap {
+        height: 260px;
+    }
+
+    .admin-analytics-table th,
+    .admin-analytics-table td {
+        padding: 12px 8px;
+    }
+
+    .admin-analytics-device-heading {
+        align-items: flex-start;
+    }
+}
+
+
+/* =====================================================
+   DASHBOARD CMS + ANALITIK YAYASAN PUSAKA
+   ===================================================== */
+
+.yp-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    min-width: 0;
+}
+
+.yp-dashboard-heading h1 {
+    margin: 0 0 6px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #17324d;
+}
+
+.yp-dashboard-heading p,
+.yp-panel-heading p {
+    margin: 0;
+    color: #718096;
+    font-size: 13px;
+}
+
+.yp-dashboard-summary,
+.yp-dashboard-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+.yp-dashboard-panel {
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid #e5ebf1;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 3px 12px rgba(20, 50, 80, 0.035);
+}
+
+.yp-panel-heading {
+    margin-bottom: 16px;
+}
+
+.yp-panel-heading h2 {
+    margin: 3px 0 5px;
+    color: #17324d;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.yp-panel-eyebrow {
+    color: #0a4d8c;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.yp-summary-cards {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+}
+
+.yp-summary-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    min-width: 0;
+    min-height: 92px;
+    padding: 15px;
+    border: 1px solid #e7eef5;
+    border-radius: 10px;
+    background: #f7fafd;
+}
+
+.yp-summary-card span {
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.yp-summary-card strong {
+    color: #0a4d8c;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.yp-analytics-filter {
+    margin-bottom: 16px;
+}
+
+.yp-analytics-filter label {
+    display: block;
+    margin-bottom: 6px;
+    color: #526579;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.yp-filter-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.yp-filter-controls select {
+    flex: 1;
+    min-width: 0;
+}
+
+.yp-analytics-filter select,
+.yp-analytics-filter input {
+    min-height: 37px;
+    padding: 8px 10px;
+    border: 1px solid #d8e2ec;
+    border-radius: 8px;
+    background: #fff;
+    color: #334155;
+    font-size: 12px;
+}
+
+.yp-analytics-filter button {
+    min-height: 37px;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 8px;
+    background: #0a4d8c;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.yp-custom-dates {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.yp-custom-dates > div {
+    min-width: 0;
+}
+
+.yp-custom-dates input {
+    width: 100%;
+    min-width: 0;
+}
+
+.yp-custom-dates button {
+    grid-column: 1 / -1;
+}
+
+.yp-filter-error {
+    margin: 8px 0;
+    color: #b91c1c;
+    font-size: 12px;
+}
+
+.yp-chart-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+.yp-chart-note {
+    margin: 12px 0 0;
+    color: #718096;
+    font-size: 12px;
+}
+
+.yp-table-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.yp-analytics-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.yp-analytics-table th,
+.yp-analytics-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #edf1f5;
+    text-align: left;
+}
+
+.yp-analytics-table th {
+    color: #64748b;
+    background: #f8fafc;
+    font-weight: 600;
+}
+
+.yp-analytics-table td {
+    color: #334155;
+    overflow-wrap: anywhere;
+}
+
+.yp-analytics-table .yp-number-column {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.yp-analytics-table .yp-empty-state {
+    padding: 22px 10px;
+    color: #94a3b8;
+    text-align: center;
+}
+
+@media (max-width: 1100px) {
+    .yp-dashboard-summary,
+    .yp-dashboard-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .yp-dashboard-panel {
+        padding: 14px;
+    }
+
+    .yp-summary-card {
+        padding: 12px;
+    }
+
+    .yp-summary-card strong {
+        font-size: 22px;
+    }
+
+    .yp-filter-controls {
+        flex-wrap: wrap;
+    }
+
+    .yp-filter-controls select {
+        flex-basis: 100%;
+    }
+
+    .yp-filter-controls button {
+        width: 100%;
+    }
+
+    .yp-chart-container {
+        height: 240px;
+    }
+}

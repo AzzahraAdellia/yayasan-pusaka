@@ -125,58 +125,70 @@
         </div>
 
 
+        
         @if ($partners->count())
 
             <div class="row g-4 justify-content-center">
 
                 @foreach ($partners as $partner)
 
-                    <div class="col-6 col-md-4 col-lg-3">
+                    <div class="col-12 col-md-6 col-lg-4">
 
-                        @if ($partner->website)
+                        <article class="partners-page-detail-card">
 
-                            <a
-                                href="{{ $partner->website }}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="partners-page-logo-link"
-                                title="{{ $partner->name }}"
-                            >
+                            <div class="partners-page-detail-logo">
 
-                        @endif
+                                @if ($partner->logo)
 
+                                    <img
+                                        src="{{ asset('storage/' . $partner->logo) }}"
+                                        alt="Logo {{ $partner->name }}"
+                                        loading="lazy"
+                                    >
 
-                        <div class="partners-page-logo-card">
-
-                            @if ($partner->logo)
-
-                                <img
-                                    src="{{ asset('storage/' . $partner->logo) }}"
-                                    alt="{{ $partner->name }}"
-                                >
-
-                            @else
-
-                                <div class="partners-page-logo-placeholder">
+                                @else
 
                                     <i class="bi bi-building"></i>
 
-                                    <span>
-                                        {{ $partner->name }}
-                                    </span>
+                                @endif
 
-                                </div>
+                            </div>
 
-                            @endif
+                            <div class="partners-page-detail-content">
 
-                        </div>
+                                <h3>{{ $partner->name }}</h3>
 
+                                @if ($partner->description)
 
-                        @if ($partner->website)
+                                    <p class="partners-page-detail-description">
+                                        {{ $partner->description }}
+                                    </p>
 
-                            </a>
+                                @else
 
-                        @endif
+                                    <p class="partners-page-detail-description partners-page-detail-description-empty">
+                                        Informasi kerja sama sedang diperbarui.
+                                    </p>
+
+                                @endif
+
+                                @if ($partner->website)
+
+                                    <a
+                                        href="{{ $partner->website }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="partners-page-detail-link"
+                                    >
+                                        Kunjungi Website
+                                        <i class="bi bi-arrow-up-right"></i>
+                                    </a>
+
+                                @endif
+
+                            </div>
+
+                        </article>
 
                     </div>
 
@@ -190,9 +202,7 @@
 
                 <i class="bi bi-people"></i>
 
-                <h3>
-                    Mitra Segera Hadir
-                </h3>
+                <h3>Mitra Segera Hadir</h3>
 
                 <p>
                     Informasi mitra Yayasan Pusaka sedang diperbarui.

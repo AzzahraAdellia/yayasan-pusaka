@@ -396,7 +396,7 @@
 
                         <small class="admin-form-help">
                             Kosongkan jika tidak ingin mengganti gambar.
-                            Maksimal 2 MB.
+                            Maksimal 10 MB.
                         </small>
 
                     </div>

@@ -577,3 +577,104 @@
 .admin-table td {
     vertical-align: middle;
 }
+
+/* =========================================
+   HALAMAN MITRA — KARTU DETAIL MITRA
+========================================= */
+
+.partners-page-detail-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 26px;
+    background: #fff;
+    border: 1px solid #e3eaf2;
+    border-radius: 18px;
+    box-shadow: 0 8px 28px rgba(10, 54, 94, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.partners-page-detail-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(10, 54, 94, 0.1);
+}
+
+.partners-page-detail-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 130px;
+    margin-bottom: 22px;
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.partners-page-detail-logo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.partners-page-detail-logo > i {
+    font-size: 42px;
+    color: #94a3b8;
+}
+
+.partners-page-detail-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.partners-page-detail-content h3 {
+    margin: 0 0 12px;
+    color: #123e68;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.partners-page-detail-description {
+    margin: 0 0 22px;
+    color: #526477;
+    font-size: 14px;
+    line-height: 1.8;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.partners-page-detail-description-empty {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+.partners-page-detail-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    margin-top: auto;
+    color: #0a4d8c;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.partners-page-detail-link:hover {
+    color: #f28c28;
+}
+
+@media (max-width: 767px) {
+    .partners-page-detail-card {
+        padding: 20px;
+    }
+
+    .partners-page-detail-logo {
+        height: 110px;
+    }
+}

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\TrackWebsiteVisit;
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
@@ -25,6 +27,8 @@ use App\Http\Controllers\HomeController;
 | WEBSITE PUBLIK
 |--------------------------------------------------------------------------
 */
+
+Route::middleware([TrackWebsiteVisit::class])->group(function () {
 
 /* BERANDA */
 Route::get(
@@ -181,6 +185,7 @@ Route::post(
 Route::view('/donasi', 'donasi.index')
     ->name('donation');
 
+});
 
 /*
 |--------------------------------------------------------------------------
