@@ -1,27 +1,33 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Edit Pelatihan')
-@section('page-title', 'Edit Pelatihan')
+@section('title', 'Edit Subkegiatan')
+@section('page-title', 'Edit Subkegiatan')
 
 @section('content')
 
 <div class="admin-page-header">
-    <div>
-        <span class="admin-page-label">KONTEN</span>
 
-        <h2>Edit <span>Pelatihan</span></h2>
+    <div>
+        <span class="admin-page-label">KONTEN PROGRAM</span>
+
+        <h2>
+            Edit <span>{{ $training->name }}</span>
+        </h2>
 
         <p>
-            Perbarui informasi {{ $training->name }} dan kelola
-            pelaksanaan kegiatan pada setiap batch.
+            Program induk: <strong>{{ $program->name }}</strong>.
+            Perbarui informasi subkegiatan dan kelola pelaksanaannya.
         </p>
     </div>
 
-    <a href="{{ route('admin.trainings.index') }}"
-       class="admin-primary-button">
+    <a href="{{ route('admin.programs.edit', $program) }}"
+       class="admin-secondary-button">
+
         <i class="bi bi-arrow-left"></i>
-        Kembali
+        Kembali ke Program
+
     </a>
+
 </div>
 
 @if (session('success'))
@@ -46,13 +52,13 @@
 @endif
 
 {{-- =====================================================
-     FORM EDIT INFORMASI PELATIHAN
+     FORM EDIT INFORMASI SUBKEGIATAN
 ===================================================== --}}
 
 <div class="admin-panel" style="padding: 24px; margin-bottom: 28px;">
 
     <h3 style="margin-top: 0; margin-bottom: 20px;">
-        Informasi Pelatihan
+        Informasi Sub Kegiatan
     </h3>
 
     <form
@@ -67,7 +73,7 @@
 
             <div>
                 <label for="name">
-                    Nama Pelatihan
+                    Nama Sub kegiatan
                     <span style="color: #dc2626;">*</span>
                 </label>
 
@@ -160,7 +166,7 @@
 
             <div style="grid-column: 1 / -1;">
                 <label for="image">
-                    Foto Utama Pelatihan
+                    Foto Utama Sub Kegiatan
                 </label>
 
                 @if ($training->image)
@@ -196,7 +202,7 @@
                         {{ old('is_active', $training->is_active ? '1' : '0') == '1' ? 'checked' : '' }}
                     >
 
-                    Tampilkan pelatihan di website publik
+                    Tampilkan sub kegiatan di website publik
                 </label>
             </div>
 
@@ -304,7 +310,7 @@
                 >
             </div>
 
-            <div>
+            {{-- <div>
                 <label for="batch_start_time">Jam Mulai</label>
 
                 <input
@@ -324,7 +330,7 @@
                     name="end_time"
                     style="display: block; width: 100%; margin-top: 8px;"
                 >
-            </div>
+            </div> --}}
 
             <div>
                 <label for="batch_location">Lokasi Kegiatan</label>
@@ -524,7 +530,7 @@
                         >
                     </div>
 
-                    <div>
+                    {{-- <div>
                         <label for="batch_start_time_{{ $batch->id }}">Jam Mulai</label>
 
                         <input
@@ -546,7 +552,7 @@
                             value="{{ $batch->end_time ? substr($batch->end_time, 0, 5) : '' }}"
                             style="display: block; width: 100%; margin-top: 8px;"
                         >
-                    </div>
+                    </div> --}}
 
                     <div>
                         <label for="batch_location_{{ $batch->id }}">Lokasi Kegiatan</label>

@@ -37,7 +37,7 @@
 
         {{-- DASHBOARD --}}
         <a href="{{ route('admin.dashboard') }}"
-        class="admin-nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+           class="admin-nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
 
             <i class="bi bi-grid-1x2-fill"></i>
 
@@ -50,7 +50,7 @@
 
         {{-- BERITA --}}
         <a href="{{ route('admin.news.index') }}"
-        class="admin-nav-item {{ request()->routeIs('admin.news.*') ? 'active' : '' }}">
+           class="admin-nav-item {{ request()->routeIs('admin.news.*') ? 'active' : '' }}">
 
             <i class="bi bi-newspaper"></i>
 
@@ -63,7 +63,7 @@
 
         {{-- KEGIATAN --}}
         <a href="{{ route('admin.activities.index') }}"
-        class="admin-nav-item {{ request()->routeIs('admin.activities.*') ? 'active' : '' }}">
+           class="admin-nav-item {{ request()->routeIs('admin.activities.*') ? 'active' : '' }}">
 
             <i class="bi bi-calendar-event"></i>
 
@@ -76,7 +76,7 @@
 
         {{-- PROGRAM --}}
         <a href="{{ route('admin.programs.index') }}"
-        class="admin-nav-item {{ request()->routeIs('admin.programs.*') ? 'active' : '' }}">
+           class="admin-nav-item {{ request()->routeIs('admin.programs.*') ? 'active' : '' }}">
 
             <i class="bi bi-grid"></i>
 
@@ -87,9 +87,22 @@
         </a>
 
 
+        {{-- KELOLA PELATIHAN --}}
+        <a href="{{ route('admin.trainings.index') }}"
+           class="admin-nav-item {{ request()->routeIs('admin.trainings.*') ? 'active' : '' }}">
+
+            <i class="bi bi-mortarboard"></i>
+
+            <span>
+                Kelola Pelatihan
+            </span>
+
+        </a>
+
+
         {{-- MITRA --}}
         <a href="{{ route('admin.partners.index') }}"
-        class="admin-nav-item {{ request()->routeIs('admin.partners.*') ? 'active' : '' }}">
+           class="admin-nav-item {{ request()->routeIs('admin.partners.*') ? 'active' : '' }}">
 
             <i class="bi bi-people"></i>
 
@@ -102,7 +115,7 @@
 
         {{-- LEGALITAS --}}
         <a href="{{ route('admin.legalities.index') }}"
-        class="admin-nav-item {{ request()->routeIs('admin.legalities.*') ? 'active' : '' }}">
+           class="admin-nav-item {{ request()->routeIs('admin.legalities.*') ? 'active' : '' }}">
 
             <i class="bi bi-file-earmark-check"></i>
 
@@ -112,9 +125,10 @@
 
         </a>
 
+
         {{-- PESAN MASUK --}}
         <a href="{{ route('admin.messages.index') }}"
-        class="admin-nav-item {{ request()->routeIs('admin.messages.*') ? 'active' : '' }}">
+           class="admin-nav-item {{ request()->routeIs('admin.messages.*') ? 'active' : '' }}">
 
             <i class="bi bi-envelope"></i>
 
@@ -144,7 +158,7 @@
         @if (auth()->user()->role === 'admin')
 
             <a href="{{ route('admin.users.index') }}"
-            class="admin-nav-item {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
+               class="admin-nav-item {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
 
                 <i class="bi bi-person-gear"></i>
 
@@ -159,7 +173,7 @@
 
         {{-- PENGATURAN --}}
         <a href="{{ route('admin.settings.index') }}"
-        class="admin-nav-item {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
+           class="admin-nav-item {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
 
             <i class="bi bi-gear"></i>
 

@@ -12,15 +12,14 @@ use Illuminate\Validation\Rule;
 
 class TrainingController extends Controller
 {
-    private function trainingProgram(): Program
-    {
-        return Program::where('slug', 'pelatihan-pengembangan')
-            ->firstOrFail();
-    }
-
+    /**
+     * Daftar subkegiatan.
+     * Halaman ini masih dipertahankan sementara untuk menu lama.
+     */
     public function index()
     {
-        $program = $this->trainingProgram();
+        $program = Program::where('slug', 'pelatihan-pengembangan')
+            ->firstOrFail();
 
         $trainings = $program->trainings()
             ->withCount('batches')
@@ -28,21 +27,39 @@ class TrainingController extends Controller
             ->orderBy('id')
             ->get();
 
-        return view('admin.trainings.index', compact('program', 'trainings'));
+        return view(
+            'admin.trainings.index',
+            compact('program', 'trainings')
+        );
     }
 
-    public function create()
+    /**
+     * Form tambah subkegiatan.
+     * Program mengikuti kartu Program yang dipilih.
+     */
+    public function create(Request $request)
     {
-        $program = $this->trainingProgram();
+        $program = Program::findOrFail(
+            $request->query('program_id')
+        );
 
-        return view('admin.trainings.create', compact('program'));
+        return view(
+            'admin.trainings.create',
+            compact('program')
+        );
     }
 
+    /**
+     * Simpan subkegiatan ke program yang dipilih.
+     */
     public function store(Request $request)
     {
-        $program = $this->trainingProgram();
-
         $validated = $request->validate([
+            'program_id' => [
+                'required',
+                'integer',
+                Rule::exists('programs', 'id'),
+            ],
             'name' => ['required', 'string', 'max:255'],
             'title' => ['required', 'string', 'max:255'],
             'short_description' => ['nullable', 'string', 'max:500'],
@@ -53,8 +70,10 @@ class TrainingController extends Controller
             'is_active' => ['nullable', 'boolean'],
         ]);
 
+        $program = Program::findOrFail($validated['program_id']);
+
         $slug = Str::slug($validated['name']);
-        $baseSlug = $slug ?: 'pelatihan';
+        $baseSlug = $slug ?: 'subkegiatan';
         $slug = $baseSlug;
         $number = 2;
 
@@ -75,27 +94,30 @@ class TrainingController extends Controller
         $training = Training::create($validated);
 
         return redirect()
-            ->route('admin.trainings.edit', $training)
-            ->with('success', 'Pelatihan berhasil ditambahkan.');
+            ->route('admin.programs.edit', $program)
+            ->with('success', 'Subkegiatan berhasil ditambahkan.');
     }
 
+    /**
+     * Form edit subkegiatan dan batch.
+     */
     public function edit(Training $training)
     {
-        $program = $this->trainingProgram();
-
-        abort_unless($training->program_id === $program->id, 404);
+        $program = $training->program;
 
         $training->load('batches.photos');
 
-        return view('admin.trainings.edit', compact('program', 'training'));
+        return view(
+            'admin.trainings.edit',
+            compact('program', 'training')
+        );
     }
 
+    /**
+     * Perbarui subkegiatan.
+     */
     public function update(Request $request, Training $training)
     {
-        $program = $this->trainingProgram();
-
-        abort_unless($training->program_id === $program->id, 404);
-
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'title' => ['required', 'string', 'max:255'],
@@ -126,21 +148,22 @@ class TrainingController extends Controller
 
         return redirect()
             ->route('admin.trainings.edit', $training)
-            ->with('success', 'Pelatihan berhasil diperbarui.');
+            ->with('success', 'Subkegiatan berhasil diperbarui.');
     }
 
+    /**
+     * Hapus subkegiatan jika belum memiliki batch.
+     */
     public function destroy(Training $training)
     {
-        $program = $this->trainingProgram();
-
-        abort_unless($training->program_id === $program->id, 404);
+        $program = $training->program;
 
         if ($training->batches()->exists()) {
             return redirect()
-                ->route('admin.trainings.index')
+                ->route('admin.programs.edit', $program)
                 ->with(
                     'error',
-                    'Pelatihan masih memiliki batch. Hapus batch terlebih dahulu.'
+                    'Subkegiatan masih memiliki batch. Hapus batch terlebih dahulu.'
                 );
         }
 
@@ -153,7 +176,7 @@ class TrainingController extends Controller
         }
 
         return redirect()
-            ->route('admin.trainings.index')
-            ->with('success', 'Pelatihan berhasil dihapus.');
+            ->route('admin.programs.edit', $program)
+            ->with('success', 'Subkegiatan berhasil dihapus.');
     }
 }

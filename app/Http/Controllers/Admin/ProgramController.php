@@ -25,13 +25,18 @@ class ProgramController extends Controller
 
 
     /**
-     * Form edit program.
+     * Form edit program beserta daftar subkegiatannya.
      */
     public function edit(Program $program)
     {
+        $subactivities = $program->trainings()
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->get();
+
         return view(
             'admin.programs.edit',
-            compact('program')
+            compact('program', 'subactivities')
         );
     }
 

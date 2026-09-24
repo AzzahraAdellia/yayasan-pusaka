@@ -186,6 +186,89 @@
 </section>
 
 
+{{-- =========================
+     SUBKEGIATAN PEMBERDAYAAN
+========================= --}}
+
+@if ($trainings->isNotEmpty())
+
+<section class="empowerment-programs section-padding">
+
+    <div class="container">
+
+        <div class="empowerment-programs-heading">
+
+            <div>
+                <span class="section-label">
+                    KEGIATAN PROGRAM
+                </span>
+
+                <h2 class="section-title">
+                    Subkegiatan
+                    <span>Pemberdayaan.</span>
+                </h2>
+            </div>
+
+            <p>
+                Berbagai kegiatan yang dilaksanakan
+                dalam Program Pemberdayaan Yayasan Pusaka.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            @foreach ($trainings as $subactivity)
+
+                <div class="col-lg-6">
+
+                    <article class="empowerment-program-card h-100">
+
+                        @if ($subactivity->image)
+
+                            <img
+                                src="{{ asset('storage/' . $subactivity->image) }}"
+                                alt="{{ $subactivity->name }}"
+                                style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;"
+                            >
+
+                        @endif
+
+                        <h3>
+                            {{ $subactivity->name }}
+                        </h3>
+
+                        @if ($subactivity->short_description)
+
+                            <p>
+                                {{ $subactivity->short_description }}
+                            </p>
+
+                        @endif
+
+                        <a
+                            href="{{ route('programs.empowerment.show', $subactivity) }}"
+                            class="training-detail-button"
+                        >
+                            Selengkapnya
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                        </article>
+
+                </div>
+
+            @endforeach
+
+        </div>
+
+    </div>
+
+</section>
+
+@endif
+
 
 {{-- =========================
      BENTUK PEMBERDAYAAN UMKM

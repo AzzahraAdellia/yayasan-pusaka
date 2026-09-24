@@ -1,3 +1,4 @@
+
 @extends('admin.layouts.app')
 
 @section('title', 'Edit Program')
@@ -24,7 +25,6 @@
 
     </div>
 
-
     <a href="{{ route('admin.programs.index') }}"
        class="admin-secondary-button">
 
@@ -34,6 +34,26 @@
     </a>
 
 </div>
+
+
+@if (session('success'))
+
+    <div class="admin-alert success">
+        <i class="bi bi-check-circle-fill"></i>
+        <div>{{ session('success') }}</div>
+    </div>
+
+@endif
+
+
+@if (session('error'))
+
+    <div class="admin-alert error">
+        <i class="bi bi-exclamation-circle-fill"></i>
+        <div>{{ session('error') }}</div>
+    </div>
+
+@endif
 
 
 @if ($errors->any())
@@ -67,6 +87,10 @@
 @endif
 
 
+{{-- =========================================================
+     1. FORM EDIT INFORMASI PROGRAM
+========================================================= --}}
+
 <form
     action="{{ route('admin.programs.update', $program) }}"
     method="POST"
@@ -76,12 +100,10 @@
     @csrf
     @method('PUT')
 
-
     <div class="admin-form-layout">
 
-
+        {{-- KOLOM UTAMA --}}
         <div class="admin-form-main">
-
 
             <div class="admin-panel">
 
@@ -103,7 +125,6 @@
 
 
                 <div class="admin-form-body">
-
 
                     <div class="admin-form-group">
 
@@ -155,10 +176,7 @@
                             class="admin-form-control"
                             rows="4"
                             maxlength="500"
-                        >{{ old(
-                            'short_description',
-                            $program->short_description
-                        ) }}</textarea>
+                        >{{ old('short_description', $program->short_description) }}</textarea>
 
                         <small class="admin-form-help">
                             Maksimal 500 karakter.
@@ -178,10 +196,7 @@
                             name="description"
                             class="admin-form-control admin-content-editor"
                             rows="14"
-                        >{{ old(
-                            'description',
-                            $program->description
-                        ) }}</textarea>
+                        >{{ old('description', $program->description) }}</textarea>
 
                     </div>
 
@@ -192,8 +207,8 @@
         </div>
 
 
+        {{-- KOLOM SAMPING --}}
         <div class="admin-form-sidebar">
-
 
             <div class="admin-panel">
 
@@ -215,7 +230,6 @@
 
 
                 <div class="admin-form-body">
-
 
                     <div class="admin-form-group">
 
@@ -267,10 +281,7 @@
                             id="sort_order"
                             name="sort_order"
                             class="admin-form-control"
-                            value="{{ old(
-                                'sort_order',
-                                $program->sort_order
-                            ) }}"
+                            value="{{ old('sort_order', $program->sort_order) }}"
                             min="0"
                             required
                         >
@@ -286,10 +297,7 @@
                                 type="checkbox"
                                 name="is_active"
                                 value="1"
-                                {{ old(
-                                    'is_active',
-                                    $program->is_active
-                                ) ? 'checked' : '' }}
+                                {{ old('is_active', $program->is_active) ? 'checked' : '' }}
                             >
 
                             <span>
@@ -334,15 +342,12 @@
 
                 <div class="admin-form-body">
 
-
                     @if ($program->image)
 
                         <div class="admin-current-image">
 
                             <img
-                                src="{{ asset(
-                                    'storage/' . $program->image
-                                ) }}"
+                                src="{{ asset('storage/' . $program->image) }}"
                                 alt="{{ $program->name }}"
                             >
 
@@ -358,10 +363,7 @@
                     <div class="admin-form-group">
 
                         <label for="image">
-                            {{ $program->image
-                                ? 'Ganti Gambar'
-                                : 'Upload Gambar'
-                            }}
+                            {{ $program->image ? 'Ganti Gambar' : 'Upload Gambar' }}
                         </label>
 
                         <input
@@ -408,5 +410,90 @@
     </div>
 
 </form>
+
+
+{{-- =========================================================
+     2. KELOLA SUBKEGIATAN PROGRAM
+========================================================= --}}
+
+<div class="admin-panel" style="margin-top: 28px;">
+
+    <div class="admin-panel-header">
+
+        <div>
+
+            <span>
+                SUBKEGIATAN PROGRAM
+            </span>
+
+            <h3>
+                Kelola Subkegiatan
+            </h3>
+
+            <p>
+                Daftar subkegiatan untuk program
+                {{ $program->name }}.
+            </p>
+
+        </div>
+
+        <a
+            href="{{ route('admin.trainings.create', ['program_id' => $program->id]) }}"
+            class="admin-primary-button"
+        >
+            <i class="bi bi-plus-lg"></i>
+            Tambah Subkegiatan
+        </a>
+
+    </div>
+
+
+    <div class="admin-form-body">
+
+        @if ($subactivities->isEmpty())
+
+            <p>
+                Belum ada subkegiatan untuk program ini.
+            </p>
+
+        @else
+
+            @foreach ($subactivities as $subactivity)
+
+                <div class="admin-panel" style="margin-bottom: 16px;">
+
+                    <div class="admin-form-body">
+
+                        <h4>
+                            {{ $subactivity->name }}
+                        </h4>
+
+                        @if ($subactivity->short_description)
+
+                            <p>
+                                {{ $subactivity->short_description }}
+                            </p>
+
+                        @endif
+
+                        <a
+                            href="{{ route('admin.trainings.edit', $subactivity) }}"
+                            class="admin-secondary-button"
+                        >
+                            <i class="bi bi-pencil-square"></i>
+                            Edit Subkegiatan
+                        </a>
+
+                    </div>
+
+                </div>
+
+            @endforeach
+
+        @endif
+
+    </div>
+
+</div>
 
 @endsection

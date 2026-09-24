@@ -10,7 +10,7 @@
         <div class="training-hero-content">
 
             <span class="section-label">
-                PROGRAM PELATIHAN & PENGEMBANGAN
+                PROGRAM {{ strtoupper($training->program->name) }}
             </span>
 
             <h1>{{ $training->title }}</h1>
@@ -23,8 +23,14 @@
                 <a href="{{ route('home') }}">Beranda</a>
                 <i class="bi bi-chevron-right"></i>
 
-                <a href="{{ route('programs.training') }}">
-                    Pelatihan & Pengembangan
+                <a href="{{ match ($training->program->slug) {
+                    'pendidikan' => route('programs.education'),
+                    'sosial-kemanusiaan' => route('programs.social'),
+                    'pemberdayaan' => route('programs.empowerment'),
+                    'pelatihan-pengembangan' => route('programs.training'),
+                    default => route('programs.index'),
+                } }}">
+                    {{ $training->program->name }}
                 </a>
                 <i class="bi bi-chevron-right"></i>
 
@@ -43,7 +49,7 @@
             <div class="col-lg-6">
 
                 <span class="section-label">
-                    TENTANG PELATIHAN
+                    TENTANG SUBKEGIATAN
                 </span>
 
                 <h2 class="section-title">
@@ -90,6 +96,8 @@
     </div>
 </section>
 
+@if ($training->batches->isNotEmpty())
+
 <section class="training-programs section-padding">
     <div class="container">
 
@@ -109,8 +117,6 @@
                 dari setiap batch kegiatan.
             </p>
         </div>
-
-        @if ($training->batches->isNotEmpty())
 
             <div class="row g-4">
 
@@ -140,6 +146,27 @@
                                         </span>
                                     </div>
                                 @endif
+
+                                @if ($batch->start_time || $batch->end_time)
+                                <div>
+                                    <i class="bi bi-clock"></i>
+                                    <span>
+                                        @if ($batch->start_time)
+                                            {{ substr($batch->start_time, 0, 5) }}
+                                        @endif
+
+                                        @if ($batch->start_time && $batch->end_time)
+                                            –
+                                        @endif
+
+                                        @if ($batch->end_time)
+                                            {{ substr($batch->end_time, 0, 5) }}
+                                        @endif
+
+                                        WIB
+                                    </span>
+                                </div>
+                            @endif
 
                                 @if ($batch->location)
                                     <div>
@@ -196,18 +223,9 @@
 
             </div>
 
-        @else
-
-            <div class="training-detail-empty">
-                <i class="bi bi-calendar2-event"></i>
-                <p>
-                    Informasi pelaksanaan pelatihan akan segera tersedia.
-                </p>
-            </div>
-
-        @endif
-
-    </div>
+         </div>
 </section>
+
+@endif
 
 @endsection

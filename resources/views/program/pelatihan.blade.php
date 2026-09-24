@@ -180,6 +180,8 @@
      PROGRAM PELATIHAN DAN PENGEMBANGAN
 ========================= --}}
 
+@if ($trainings->isNotEmpty())
+
 <section class="training-programs section-padding">
 
     <div class="container">
@@ -211,8 +213,6 @@
         </div>
 
         
-        @if ($trainings->isNotEmpty())
-
             <div class="row g-4 justify-content-center">
 
                 @foreach ($trainings as $index => $training)
@@ -248,10 +248,9 @@
 
                             <h3>{{ $training->name }}</h3>
 
-                            <p>
-                                {{ $training->short_description
-                                    ?: 'Informasi pelatihan akan segera tersedia.' }}
-                            </p>
+                            @if ($training->short_description)
+                                <p>{{ $training->short_description }}</p>
+                            @endif
 
                             @if ($training->target_participants)
                                 <div class="training-participants">
@@ -283,19 +282,11 @@
 
             </div>
 
-        @else
-
-            <div class="text-center py-5">
-                <p class="mb-0">
-                    Informasi pelatihan akan segera tersedia.
-                </p>
-            </div>
-
-        @endif
-
-    </div>
+         </div>
 
 </section>
+
+@endif
 
 
 {{-- =========================

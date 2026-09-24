@@ -31,9 +31,15 @@ class ProgramController extends Controller
             ->where('is_active', true)
             ->firstOrFail();
 
+        $trainings = $program->trainings()
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->get();
+
         return view(
             'program.pendidikan',
-            compact('program')
+            compact('program', 'trainings')
         );
     }
 
@@ -47,9 +53,15 @@ class ProgramController extends Controller
             ->where('is_active', true)
             ->firstOrFail();
 
+        $trainings = $program->trainings()
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->get();
+
         return view(
             'program.sosial',
-            compact('program')
+            compact('program', 'trainings')
         );
     }
 
@@ -63,14 +75,19 @@ class ProgramController extends Controller
             ->where('is_active', true)
             ->firstOrFail();
 
+        $trainings = $program->trainings()
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->get();
+
         return view(
             'program.pemberdayaan',
-            compact('program')
+            compact('program', 'trainings')
         );
     }
 
 
-    
     /**
      * Program Pelatihan & Pengembangan.
      */

@@ -107,6 +107,21 @@ Route::prefix('program')->name('programs.')->group(function () {
         '/pelatihan-pengembangan/{training:slug}',
         [TrainingController::class, 'show']
     )->name('training.show');
+
+    Route::get(
+        '/pendidikan/{training:slug}',
+        [TrainingController::class, 'show']
+    )->name('education.show');
+
+    Route::get(
+        '/sosial-kemanusiaan/{training:slug}',
+        [TrainingController::class, 'show']
+    )->name('social.show');
+
+    Route::get(
+        '/pemberdayaan/{training:slug}',
+        [TrainingController::class, 'show']
+    )->name('empowerment.show');
 });
 
 
