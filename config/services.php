@@ -14,6 +14,11 @@ return [
     |
     */
 
+
+    'ipinfo' => [
+        'token' => env('IPINFO_TOKEN'),
+    ],
+
     'postmark' => [
         'key' => env('POSTMARK_API_KEY'),
     ],

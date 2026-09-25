@@ -2,6 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
+
 use App\Models\WebsiteVisit;
 use Closure;
 use Illuminate\Http\Request;
@@ -14,7 +17,7 @@ class TrackWebsiteVisit
     {
         $response = $next($request);
 
-        \Illuminate\Support\Facades\Log::info('TRACK WEBSITE VISIT', [
+        Log::info('TRACK WEBSITE VISIT', [
             'path' => $request->path(),
             'status' => $response->getStatusCode(),
             'method' => $request->method(),
@@ -77,13 +80,54 @@ class TrackWebsiteVisit
             $deviceType = 'unknown';
         }
 
+        // Deteksi negara pengunjung berdasarkan IP.
+        // IP hanya digunakan untuk lookup dan tidak disimpan ke database.
+        $countryCode = null;
+        $countryName = null;
+
+        try {
+            $ipAddress = $request->ip();
+
+            // IP lokal tidak dapat dideteksi negaranya.
+            $isLocalIp =
+                $ipAddress === '127.0.0.1' ||
+                $ipAddress === '::1' ||
+                filter_var(
+                    $ipAddress,
+                    FILTER_VALIDATE_IP,
+                    FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE
+                ) === false;
+
+            if (!$isLocalIp && config('services.ipinfo.token')) {
+                $geoResponse = Http::timeout(3)
+                    ->acceptJson()
+                    ->get(
+                        'https://api.ipinfo.io/lite/' . urlencode($ipAddress),
+                        [
+                            'token' => config('services.ipinfo.token'),
+                        ]
+                    );
+
+                if ($geoResponse->successful()) {
+                    $geoData = $geoResponse->json();
+
+                    $countryCode = $geoData['country_code'] ?? null;
+                    $countryName = $geoData['country'] ?? null;
+                }
+            }
+        } catch (\Throwable $e) {
+            Log::warning('IPinfo lookup gagal', [
+                'message' => $e->getMessage(),
+            ]);
+        }
+
         WebsiteVisit::create([
             'visitor_id' => $visitorId,
             'path' => $request->path() === '/'
                 ? '/'
                 : '/' . $request->path(),
-            'country_code' => null,
-            'country_name' => null,
+            'country_code' => $countryCode,
+            'country_name' => $countryName,
             'device_type' => $deviceType,
         ]);
 
