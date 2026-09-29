@@ -143,6 +143,13 @@
                                     {{ $featuredNews->category ?: 'Umum' }}
                                 </span>
 
+                                <span>
+                                    <i class="bi bi-eye"></i>
+
+                                    {{ number_format($featuredNews->view_count ?? 0, 0, ',', '.') }}
+                                    kali dilihat
+                                </span>
+
                             </div>
 
                             <h2>
@@ -266,14 +273,22 @@
 
                             <div class="news-page-card-content">
 
-                                <div class="news-page-card-date">
+                                <div class="news-page-card-meta">
 
-                                    <i class="bi bi-calendar3"></i>
+                                    <span>
+                                        <i class="bi bi-calendar3"></i>
 
-                                    {{ $item->published_at
-                                        ? $item->published_at->translatedFormat('d M Y')
-                                        : $item->created_at->translatedFormat('d M Y')
-                                    }}
+                                        {{ $item->published_at
+                                            ? $item->published_at->translatedFormat('d M Y')
+                                            : $item->created_at->translatedFormat('d M Y')
+                                        }}
+                                    </span>
+
+                                    <span>
+                                        <i class="bi bi-eye"></i>
+
+                                        {{ number_format($item->view_count ?? 0, 0, ',', '.') }}
+                                    </span>
 
                                 </div>
 
