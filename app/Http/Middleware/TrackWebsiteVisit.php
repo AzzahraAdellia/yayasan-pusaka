@@ -88,6 +88,7 @@ class TrackWebsiteVisit
         try {
             $ipAddress = $request->ip();
 
+
             // IP lokal tidak dapat dideteksi negaranya.
             $isLocalIp =
                 $ipAddress === '127.0.0.1' ||

@@ -24,6 +24,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\TrainingController as AdminTrainingController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\Admin\TrainingBatchController;
+use App\Http\Controllers\Admin\ImpactStoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -252,6 +253,20 @@ Route::middleware(['auth', 'verified'])
             ])
             ->except(['show'])
             ->names('activities');
+
+        
+                    /*
+        |--------------------------------------------------------------------------
+        | CERITA DAMPAK
+        |--------------------------------------------------------------------------
+        */
+
+        Route::resource('cerita-dampak', ImpactStoryController::class)
+            ->parameters([
+                'cerita-dampak' => 'impactStory'
+            ])
+            ->except(['show'])
+            ->names('impact-stories');
             
 
 

@@ -74,6 +74,19 @@
         </a>
 
 
+        {{-- CERITA DAMPAK --}}
+        <a href="{{ route('admin.impact-stories.index') }}"
+           class="admin-nav-item {{ request()->routeIs('admin.impact-stories.*') ? 'active' : '' }}">
+
+            <i class="bi bi-chat-heart"></i>
+
+            <span>
+                Cerita Dampak
+            </span>
+
+        </a>
+
+
         {{-- PROGRAM --}}
         <a href="{{ route('admin.programs.index') }}"
            class="admin-nav-item {{ request()->routeIs('admin.programs.*') ? 'active' : '' }}">

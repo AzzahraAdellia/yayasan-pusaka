@@ -970,12 +970,22 @@
     white-space: pre-line;
 }
 
+.training-batch-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+}
+
 .training-batch-gallery {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
+
     margin-top: auto;
-    padding-top: 8px;
+    padding-top: 18px;
+
+    border-top: 1px solid #edf1f5;
 }
 
 .training-batch-gallery img {

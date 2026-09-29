@@ -122,7 +122,7 @@
 
                 @foreach ($training->batches as $batch)
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-6 col-md-6">
 
                         <article class="training-batch-card h-100">
 
@@ -131,6 +131,8 @@
                             </span>
 
                             <h3>{{ $training->name }}</h3>
+
+                            <div class="training-batch-content">
 
                             <div class="training-batch-info">
 
@@ -200,6 +202,8 @@
                                     {{ $batch->description }}
                                 </p>
                             @endif
+
+                            </div>
 
                             @if ($batch->photos->isNotEmpty())
                                 <div class="training-batch-gallery">
