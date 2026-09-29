@@ -1333,6 +1333,8 @@
      IMPACT STORIES
 ========================= --}}
 
+@if ($impactStories->isNotEmpty())
+
 <section class="impact-stories section-padding">
 
     <div class="container">
@@ -1345,15 +1347,16 @@
                 </span>
 
                 <h2 class="section-title">
-                    Setiap Bantuan 
+                    Setiap Bantuan
                     Memiliki <span>Cerita.</span>
                 </h2>
             </div>
 
             <div class="impact-stories-description">
+
                 <p>
                     Di balik setiap program terdapat perjalanan, perjuangan, dan harapan para penerima manfaat.
-                    Kami percaya bahwa bantuan yang tepat tidak hanya membantu seseorang melewati hari ini, 
+                    Kami percaya bahwa bantuan yang tepat tidak hanya membantu seseorang melewati hari ini,
                     tetapi juga dapat membuka jalan menuju masa depan yang lebih baik.
                 </p>
 
@@ -1365,29 +1368,50 @@
                     <i class="bi bi-arrow-right"></i>
 
                 </a>
+
             </div>
 
         </div>
 
 
+        @php
+            $featuredStory = $impactStories->first();
+            $sideStories = $impactStories->skip(1)->take(2);
+        @endphp
+
+
         <div class="row g-4 align-items-stretch">
 
-            {{-- FEATURED STORY --}}
+            {{-- =====================================================
+                 FEATURED STORY
+            ====================================================== --}}
             <div class="col-lg-7">
 
                 <article class="impact-story-featured">
 
                     <div class="impact-story-image">
 
-                        <img
-                            src="{{ asset('images/story-featured.jpg') }}"
-                            alt="Cerita penerima manfaat Yayasan Pusaka"
-                        >
+                        @if ($featuredStory->image)
+
+                            <img
+                                src="{{ asset('storage/' . $featuredStory->image) }}"
+                                alt="{{ $featuredStory->title }}"
+                            >
+
+                        @else
+
+                            <div class="impact-story-image-placeholder">
+                                <i class="bi bi-image"></i>
+                            </div>
+
+                        @endif
+
 
                         <div class="impact-story-overlay"></div>
 
+
                         <div class="impact-story-category">
-                            Pendidikan
+                            {{ $featuredStory->category }}
                         </div>
 
                     </div>
@@ -1399,16 +1423,26 @@
                             CERITA PENERIMA MANFAAT
                         </span>
 
+
                         <h3>
-                            Dukungan yang Membuka Jalan
-                            Menuju Masa Depan Lebih Baik
+                            {{ $featuredStory->title }}
                         </h3>
 
-                        <p>
-                            Program Yayasan Pusaka hadir bukan hanya melalui
-                            bantuan, tetapi juga pendampingan dan kesempatan
-                            bagi penerima manfaat untuk terus berkembang.
-                        </p>
+
+                        @if ($featuredStory->excerpt)
+
+                            <p>
+                                {{ $featuredStory->excerpt }}
+                            </p>
+
+                        @elseif ($featuredStory->subtitle)
+
+                            <p>
+                                {{ $featuredStory->subtitle }}
+                            </p>
+
+                        @endif
+
 
                         <a href="{{ route('impact') }}"
                            class="impact-story-link">
@@ -1426,75 +1460,68 @@
             </div>
 
 
-            {{-- SIDE STORIES --}}
+            {{-- =====================================================
+                 SIDE STORIES
+            ====================================================== --}}
             <div class="col-lg-5">
 
                 <div class="impact-story-list">
 
-                    <article class="impact-story-small">
 
-                        <div class="impact-story-small-image">
+                    @foreach ($sideStories as $story)
 
-                            <img
-                                src="{{ asset('images/story-2.jpg') }}"
-                                alt="Program pemberdayaan Yayasan Pusaka"
-                            >
+                        <article class="impact-story-small">
 
-                        </div>
+                            <div class="impact-story-small-image">
 
-                        <div class="impact-story-small-content">
+                                @if ($story->image)
 
-                            <span>
-                                PEMBERDAYAAN
-                            </span>
+                                    <img
+                                        src="{{ asset('storage/' . $story->image) }}"
+                                        alt="{{ $story->title }}"
+                                    >
 
-                            <h4>
-                                Dari Pelatihan Menjadi
-                                Peluang untuk Mandiri
-                            </h4>
+                                @else
 
-                            <a href="{{ route('impact') }}">
-                                Baca Selengkapnya
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
+                                    <div class="impact-story-image-placeholder">
+                                        <i class="bi bi-image"></i>
+                                    </div>
 
-                        </div>
+                                @endif
 
-                    </article>
+                            </div>
 
 
-                    <article class="impact-story-small">
+                            <div class="impact-story-small-content">
 
-                        <div class="impact-story-small-image">
-
-                            <img
-                                src="{{ asset('images/story-3.jpg') }}"
-                                alt="Program sosial Yayasan Pusaka"
-                            >
-
-                        </div>
-
-                        <div class="impact-story-small-content">
-
-                            <span>
-                                SOSIAL
-                            </span>
-
-                            <h4>
-                                Kepedulian yang Hadir
-                                di Saat Dibutuhkan
-                            </h4>
-
-                            <a href="{{ route('impact') }}">
-                                Baca Selengkapnya
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
-
-                        </div>
-
-                    </article>
+                                <span>
+                                    {{ strtoupper($story->category) }}
+                                </span>
 
 
+                                <h4>
+                                    {{ $story->title }}
+                                </h4>
+
+
+                                <a href="{{ route('impact') }}">
+
+                                    Baca Selengkapnya
+
+                                    <i class="bi bi-arrow-right"></i>
+
+                                </a>
+
+                            </div>
+
+                        </article>
+
+                    @endforeach
+
+
+                    {{-- =================================================
+                         QUOTE
+                    ================================================== --}}
                     <div class="impact-story-quote">
 
                         <div class="impact-story-quote-icon">
@@ -1521,6 +1548,8 @@
     </div>
 
 </section>
+
+@endif
 
 {{-- =========================
      DONATION CTA

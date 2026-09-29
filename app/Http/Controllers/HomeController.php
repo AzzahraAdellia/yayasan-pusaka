@@ -6,6 +6,7 @@ use App\Models\News;
 use App\Models\Activity;
 use App\Models\Program;
 use App\Models\Partner;
+use App\Models\ImpactStory;
 
 class HomeController extends Controller
 {
@@ -59,16 +60,50 @@ class HomeController extends Controller
             ->get();
 
 
+        /*
+        |--------------------------------------------------------------------------
+        | PROGRAM
+        |--------------------------------------------------------------------------
+        */
+
         $programs = Program::where('is_active', true)
             ->orderBy('sort_order')
             ->limit(4)
             ->get();
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | MITRA
+        |--------------------------------------------------------------------------
+        */
 
         $partners = Partner::where('is_active', true)
             ->orderBy('sort_order')
             ->orderBy('name')
             ->limit(6)
             ->get();
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | CERITA DAMPAK
+        |--------------------------------------------------------------------------
+        */
+
+        $impactStories = ImpactStory::where('is_active', true)
+            ->where('show_on_home', true)
+            ->orderBy('sort_order')
+            ->orderByDesc('created_at')
+            ->limit(3)
+            ->get();
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | VIEW
+        |--------------------------------------------------------------------------
+        */
 
         return view(
             'home.index',
@@ -77,7 +112,8 @@ class HomeController extends Controller
                 'latestNews',
                 'latestActivities',
                 'programs',
-                'partners'
+                'partners',
+                'impactStories'
             )
         );
     }
