@@ -15,9 +15,11 @@ class News extends Model
         'thumbnail',
         'status',
         'published_at',
+        'view_count',
     ];
 
     protected $casts = [
         'published_at' => 'datetime',
+        'view_count' => 'integer',
     ];
 }

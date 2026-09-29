@@ -25,6 +25,8 @@ use App\Http\Controllers\Admin\TrainingController as AdminTrainingController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\Admin\TrainingBatchController;
 use App\Http\Controllers\Admin\ImpactStoryController;
+use App\Http\Controllers\ImpactController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -132,8 +134,16 @@ Route::prefix('program')->name('programs.')->group(function () {
 |--------------------------------------------------------------------------
 */
 
-Route::view('/dampak', 'dampak.index')
-    ->name('impact');
+Route::get(
+    '/dampak',
+    [ImpactController::class, 'index']
+)->name('impact');
+
+
+Route::get(
+    '/dampak/cerita/{impactStory:slug}',
+    [ImpactController::class, 'show']
+)->name('impact.show');
 
 
 /*

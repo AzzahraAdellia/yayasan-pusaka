@@ -44,6 +44,21 @@ class NewsController extends Controller
             ->where('status', 'published')
             ->firstOrFail();
 
+        /*
+        |--------------------------------------------------------------------------
+        | TAMBAH JUMLAH VIEW
+        |--------------------------------------------------------------------------
+        */
+
+        $newsItem->increment('view_count');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | BERITA TERKAIT
+        |--------------------------------------------------------------------------
+        */
+
         $relatedNews = News::where('status', 'published')
             ->where('id', '!=', $newsItem->id)
             ->when(
@@ -54,6 +69,7 @@ class NewsController extends Controller
             ->orderByDesc('published_at')
             ->limit(3)
             ->get();
+
 
         return view(
             'informasi.berita-detail',

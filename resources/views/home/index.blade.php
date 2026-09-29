@@ -1444,7 +1444,7 @@
                         @endif
 
 
-                        <a href="{{ route('impact') }}"
+                        <a href="{{ route('impact.show', $featuredStory) }}"
                            class="impact-story-link">
 
                             Baca Cerita
@@ -1504,7 +1504,7 @@
                                 </h4>
 
 
-                                <a href="{{ route('impact') }}">
+                                <a href="{{ route('impact.show', $story) }}">
 
                                     Baca Selengkapnya
 

@@ -2665,3 +2665,27 @@
         flex-direction: column;
     }
 }
+
+/* =====================================================
+   NEWS VIEWS
+===================================================== */
+
+.admin-news-views {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    white-space: nowrap;
+
+    color: #667085;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.admin-news-views i {
+    color: var(--primary, #03447f);
+
+    font-size: 15px;
+}

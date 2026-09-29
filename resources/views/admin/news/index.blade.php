@@ -74,6 +74,7 @@
                         <th>Berita</th>
                         <th>Kategori</th>
                         <th>Status</th>
+                        <th>Views</th>
                         <th>Tanggal</th>
                         <th class="text-end">Aksi</th>
                     </tr>
@@ -85,6 +86,7 @@
 
                         <tr>
 
+                            {{-- BERITA --}}
                             <td>
 
                                 <div class="admin-news-cell">
@@ -123,6 +125,7 @@
                             </td>
 
 
+                            {{-- KATEGORI --}}
                             <td>
 
                                 <span class="admin-category-badge">
@@ -132,6 +135,7 @@
                             </td>
 
 
+                            {{-- STATUS --}}
                             <td>
 
                                 @if ($item->status === 'published')
@@ -157,6 +161,21 @@
                             </td>
 
 
+                            {{-- VIEWS --}}
+                            <td>
+
+                                <span class="admin-news-views">
+
+                                    <i class="bi bi-eye"></i>
+
+                                    {{ number_format($item->view_count ?? 0, 0, ',', '.') }}
+
+                                </span>
+
+                            </td>
+
+
+                            {{-- TANGGAL --}}
                             <td>
 
                                 <span class="admin-table-date">
@@ -166,6 +185,7 @@
                             </td>
 
 
+                            {{-- AKSI --}}
                             <td>
 
                                 <div class="admin-table-actions">

@@ -329,8 +329,12 @@
 </section>
 
 
-{{-- CERITA DAMPAK --}}
+{{-- =========================
+     CERITA DAMPAK
+========================= --}}
+
 <section class="impact-page-stories section-padding">
+
     <div class="container">
 
         <div class="impact-page-stories-heading text-center">
@@ -351,106 +355,113 @@
 
         </div>
 
-        <div class="row g-4">
 
-            <div class="col-lg-4">
-                <article class="impact-page-story-card">
+        @if ($impactStories->isNotEmpty())
 
-                    <img
-                        src="{{ asset('images/impact-story-1.jpg') }}"
-                        alt="Cerita dampak pendidikan"
-                    >
+            <div class="row g-4">
 
-                    <div class="impact-page-story-content">
+                @foreach ($impactStories as $story)
 
-                        <span>PENDIDIKAN</span>
+                    <div class="col-md-6 col-lg-4">
 
-                        <h3>
-                            Kesempatan Belajar untuk Masa Depan
-                        </h3>
+                        <article class="impact-page-story-card">
 
-                        <p>
-                            Cerita penerima manfaat program pendidikan
-                            Yayasan Pusaka.
-                        </p>
+                            {{-- FOTO --}}
+                            @if ($story->image)
 
-                        <a href="#">
-                            Baca Cerita
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                                <img
+                                    src="{{ asset('storage/' . $story->image) }}"
+                                    alt="{{ $story->title }}"
+                                >
 
-                    </div>
+                            @else
 
-                </article>
-            </div>
+                                <div class="impact-story-image-placeholder">
+
+                                    <i class="bi bi-image"></i>
+
+                                </div>
+
+                            @endif
 
 
-            <div class="col-lg-4">
-                <article class="impact-page-story-card">
+                            <div class="impact-page-story-content">
 
-                    <img
-                        src="{{ asset('images/impact-story-2.jpg') }}"
-                        alt="Cerita dampak pemberdayaan"
-                    >
-
-                    <div class="impact-page-story-content">
-
-                        <span>PEMBERDAYAAN</span>
-
-                        <h3>
-                            Dari Pelatihan Menuju Kemandirian
-                        </h3>
-
-                        <p>
-                            Cerita perjalanan penerima manfaat dalam
-                            mengembangkan kemampuan dan usaha.
-                        </p>
-
-                        <a href="#">
-                            Baca Cerita
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-
-                    </div>
-
-                </article>
-            </div>
+                                {{-- KATEGORI --}}
+                                <span>
+                                    {{ strtoupper($story->category) }}
+                                </span>
 
 
-            <div class="col-lg-4">
-                <article class="impact-page-story-card">
+                                {{-- JUDUL --}}
+                                <h3>
+                                    {{ $story->title }}
+                                </h3>
 
-                    <img
-                        src="{{ asset('images/impact-story-3.jpg') }}"
-                        alt="Cerita dampak sosial"
-                    >
 
-                    <div class="impact-page-story-content">
+                                {{-- RINGKASAN --}}
+                                @if ($story->excerpt)
 
-                        <span>SOSIAL</span>
+                                    <p>
+                                        {{ \Illuminate\Support\Str::limit(
+                                            $story->excerpt,
+                                            140
+                                        ) }}
+                                    </p>
 
-                        <h3>
-                            Kepedulian yang Hadir di Saat Dibutuhkan
-                        </h3>
+                                @elseif ($story->subtitle)
 
-                        <p>
-                            Cerita dukungan sosial yang memberikan
-                            manfaat bagi penerima program.
-                        </p>
+                                    <p>
+                                        {{ \Illuminate\Support\Str::limit(
+                                            $story->subtitle,
+                                            140
+                                        ) }}
+                                    </p>
 
-                        <a href="#">
-                            Baca Cerita
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                                @endif
+
+
+                                <a href="{{ route('impact.show', $story) }}">
+                                    Baca Cerita
+
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+
+                            </div>
+
+                        </article>
 
                     </div>
 
-                </article>
+                @endforeach
+
             </div>
 
-        </div>
+        @else
+
+            {{-- BELUM ADA CERITA --}}
+            <div class="text-center py-5">
+
+                <i
+                    class="bi bi-chat-heart"
+                    style="font-size: 42px;"
+                ></i>
+
+                <h3 class="mt-3">
+                    Cerita Dampak Akan Hadir
+                </h3>
+
+                <p>
+                    Cerita perjalanan penerima manfaat
+                    Yayasan Pusaka akan ditampilkan di sini.
+                </p>
+
+            </div>
+
+        @endif
 
     </div>
+
 </section>
 
 
