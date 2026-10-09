@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Program;
+use App\Services\PublicStatisticsService;
+use App\Models\FeaturedUmkm;
 
 class ProgramController extends Controller
 {
@@ -23,9 +25,9 @@ class ProgramController extends Controller
 
 
     /**
-     * Program Pendidikan.
-     */
-    public function education()
+ * Program Pendidikan.
+ */
+    public function education(PublicStatisticsService $statisticsService)
     {
         $program = Program::where('slug', 'pendidikan')
             ->where('is_active', true)
@@ -37,9 +39,12 @@ class ProgramController extends Controller
             ->orderBy('id')
             ->get();
 
+        // Statistik anak asuh aktif dari API internal
+        $publicStats = $statisticsService->get();
+
         return view(
             'program.pendidikan',
-            compact('program', 'trainings')
+            compact('program', 'trainings', 'publicStats')
         );
     }
 
@@ -69,7 +74,7 @@ class ProgramController extends Controller
     /**
      * Program Pemberdayaan.
      */
-    public function empowerment()
+    public function empowerment(PublicStatisticsService $statisticsService)
     {
         $program = Program::where('slug', 'pemberdayaan')
             ->where('is_active', true)
@@ -81,10 +86,19 @@ class ProgramController extends Controller
             ->orderBy('id')
             ->get();
 
-        return view(
-            'program.pemberdayaan',
-            compact('program', 'trainings')
-        );
+        $publicStats = $statisticsService->get();
+
+        $featuredUmkms = FeaturedUmkm::where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->get();
+
+        return view('program.pemberdayaan', compact(
+            'program',
+            'trainings',
+            'publicStats',
+            'featuredUmkms'
+        ));
     }
 
 

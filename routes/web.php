@@ -26,6 +26,7 @@ use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\Admin\TrainingBatchController;
 use App\Http\Controllers\Admin\ImpactStoryController;
 use App\Http\Controllers\ImpactController;
+use App\Http\Controllers\Admin\FeaturedUmkmController;
 
 
 /*
@@ -301,6 +302,20 @@ Route::middleware(['auth', 'verified'])
             [AdminProgramController::class, 'update']
         )->name('programs.update');
 
+
+        /*
+        |--------------------------------------------------------------------------
+        | UMKM UNGGULAN
+        |--------------------------------------------------------------------------
+        */
+
+        Route::resource('umkm-unggulan', FeaturedUmkmController::class)
+            ->parameters([
+                'umkm-unggulan' => 'featuredUmkm',
+            ])
+            ->except(['show'])
+            ->names('featured-umkm');
+            
         /*
         |--------------------------------------------------------------------------
         | KELOLA PELATIHAN

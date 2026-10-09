@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ImpactStory;
+use App\Services\PublicStatisticsService;
 
 class ImpactController extends Controller
 {
@@ -12,16 +13,29 @@ class ImpactController extends Controller
     |--------------------------------------------------------------------------
     */
 
-    public function index()
+    public function index(PublicStatisticsService $statisticsService)
     {
+        /*
+         * Mengambil seluruh Cerita Dampak
+         * yang aktif untuk ditampilkan.
+         */
         $impactStories = ImpactStory::where('is_active', true)
             ->orderBy('sort_order')
             ->orderByDesc('created_at')
             ->get();
 
+        /*
+         * Mengambil statistik dari API
+         * Sistem Informasi Internal Yayasan Pusaka.
+         */
+        $publicStats = $statisticsService->get();
+
         return view(
             'dampak.index',
-            compact('impactStories')
+            compact(
+                'impactStories',
+                'publicStats'
+            )
         );
     }
 

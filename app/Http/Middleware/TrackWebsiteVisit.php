@@ -16,7 +16,7 @@ class TrackWebsiteVisit
     public function handle(Request $request, Closure $next): Response
     {
         $response = $next($request);
-
+        
         Log::info('TRACK WEBSITE VISIT', [
             'path' => $request->path(),
             'status' => $response->getStatusCode(),

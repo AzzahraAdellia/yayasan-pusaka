@@ -7,11 +7,11 @@ use App\Models\Activity;
 use App\Models\Program;
 use App\Models\Partner;
 use App\Models\ImpactStory;
+use App\Services\PublicStatisticsService;
 
 class HomeController extends Controller
 {
-    public function index()
-    {
+    public function index(PublicStatisticsService $statisticsService)    {
         /*
         |--------------------------------------------------------------------------
         | BERITA UTAMA
@@ -105,6 +105,14 @@ class HomeController extends Controller
         |--------------------------------------------------------------------------
         */
 
+        /*
+        |--------------------------------------------------------------------------
+        | STATISTIK DARI SISTEM INFORMASI INTERNAL
+        |--------------------------------------------------------------------------
+        */
+
+$publicStats = $statisticsService->get();
+
         return view(
             'home.index',
             compact(
@@ -113,7 +121,8 @@ class HomeController extends Controller
                 'latestActivities',
                 'programs',
                 'partners',
-                'impactStories'
+                'impactStories',
+                'publicStats'
             )
         );
     }

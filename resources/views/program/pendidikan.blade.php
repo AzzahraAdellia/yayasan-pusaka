@@ -175,6 +175,227 @@
 
 
 {{-- =========================
+     STATISTIK JENJANG PENDIDIKAN
+========================= --}}
+
+@php
+    $jenjangAktif = $publicStats['educationLevels'] ?? [];
+
+    $daftarJenjang = [
+        'Pra Sekolah - TK' => 'Pra Sekolah – TK',
+        'SD' => 'SD',
+        'SMP' => 'SMP',
+        'SMA' => 'SMA / SMK',
+        'D1' => 'D1',
+        'D2' => 'D2',
+        'D3' => 'D3',
+        'D4 - S1' => 'D4 – S1',
+        'S2' => 'S2',
+        'Kursus' => 'Kursus',
+    ];
+
+    $jumlahTerbesar = max(1, ...array_values(
+        array_map(
+            fn ($key) => (int) ($jenjangAktif[$key] ?? 0),
+            array_keys($daftarJenjang)
+        )
+    ));
+@endphp
+
+<section class="education-programs section-padding">
+    <div class="container">
+
+        <div class="education-programs-heading">
+            <div>
+                <span class="section-label">
+                    STATISTIK PENDIDIKAN
+                </span>
+
+                <h2 class="section-title">
+                    Sebaran Anak Asuh Aktif
+                    <span>Berdasarkan Jenjang Pendidikan.</span>
+                </h2>
+            </div>
+
+            <p>
+                Gambaran jumlah anak asuh aktif Yayasan Pusaka
+                berdasarkan jenjang pendidikan yang sedang ditempuh.
+            </p>
+        </div>
+
+        @if (!empty($publicStats['educationLevels']))
+
+            <div class="row g-4 align-items-stretch">
+
+                {{-- TOTAL ANAK ASUH AKTIF --}}
+                <div class="col-lg-4">
+                    <div class="education-program-card h-100">
+
+                        <div class="education-card-icon blue mb-4">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+
+                        <span class="section-label">
+                            ANAK ASUH AKTIF
+                        </span>
+
+                        <h3 style="font-size: 48px; font-weight: 800; margin: 16px 0;">
+                            {{ isset($publicStats['children']['active'])
+                                ? number_format($publicStats['children']['active'], 0, ',', '.')
+                                : '-' }}
+                        </h3>
+
+                        <p>
+                            Anak asuh aktif yang tercatat
+                            dalam Sistem Informasi Internal Yayasan Pusaka.
+                        </p>
+
+                    </div>
+                </div>
+
+                
+
+
+
+                {{-- GRID STATISTIK JENJANG PENDIDIKAN --}}
+                <div class="col-lg-8">
+
+                    <div class="education-program-card education-level-panel">
+
+                        <h3 class="mb-4">
+                            Sebaran Jenjang Pendidikan
+                        </h3>
+
+                        @php
+                            $jenjangDitampilkan = [];
+
+                            $ikonJenjang = [
+                                'Pra Sekolah - TK' => 'bi-backpack2-fill',
+                                'SD' => 'bi-book-fill',
+                                'SMP' => 'bi-journal-bookmark-fill',
+                                'SMA' => 'bi-mortarboard-fill',
+                                'D1' => 'bi-book',
+                                'D2' => 'bi-book',
+                                'D3' => 'bi-buildings-fill',
+                                'D4 - S1' => 'bi-mortarboard-fill',
+                                'S2' => 'bi-mortarboard-fill',
+                                'Kursus' => 'bi-journal-check',
+                            ];
+
+                            foreach ($daftarJenjang as $key => $label) {
+                                $jumlah = (int) ($jenjangAktif[$key] ?? 0);
+
+                                if ($jumlah > 0) {
+                                    $jenjangDitampilkan[] = [
+                                        'label' => $label,
+                                        'jumlah' => $jumlah,
+                                        'icon' => $ikonJenjang[$key] ?? 'bi-book-fill',
+                                    ];
+                                }
+                            }
+                        @endphp
+
+                        @if (count($jenjangDitampilkan) > 0)
+
+                            <div class="education-level-scroll">
+
+                                <div class="row g-3">
+
+                                    @foreach ($jenjangDitampilkan as $jenjang)
+
+                                        <div class="col-6 col-md-4">
+
+                                            <div class="education-level-item">
+
+                                                <div class="education-level-icon">
+                                                    <i class="bi {{ $jenjang['icon'] }}"></i>
+                                                </div>
+
+                                                <strong class="education-level-number">
+                                                    {{ number_format($jenjang['jumlah'], 0, ',', '.') }}
+                                                </strong>
+
+                                                <span class="education-level-name">
+                                                    {{ $jenjang['label'] }}
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    @endforeach
+
+                                </div>
+
+                            </div>
+
+                        @else
+
+                            <p class="text-muted mb-0">
+                                Data jenjang pendidikan belum tersedia.
+                            </p>
+
+                        @endif
+
+                    </div>
+
+                </div>
+
+
+            {{-- KATEGORI ABK --}}
+            <div class="mt-4">
+                <div class="education-program-card">
+
+                    <div class="d-flex align-items-center gap-3">
+
+                        <div class="education-card-icon orange">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="mb-1">
+                                {{ number_format((int) ($jenjangAktif['ABK'] ?? 0), 0, ',', '.') }}
+                                Anak Asuh
+                            </h3>
+
+                            <p class="mb-0">
+                                Kategori Anak Berkebutuhan Khusus (ABK)
+                                dalam data pendidikan aktif.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <p class="education-nominal-note mt-4">
+                <i class="bi bi-info-circle"></i>
+                Data bersumber dari Sistem Informasi Internal Yayasan Pusaka
+                dan diperbarui secara berkala.
+
+                @if (!empty($publicStats['updatedAt']))
+                    Terakhir diperbarui:
+                    {{ \Carbon\Carbon::parse($publicStats['updatedAt'])
+                        ->timezone('Asia/Jakarta')
+                        ->format('d/m/Y H:i') }} WIB.
+                @endif
+            </p>
+
+        @else
+
+            <div class="text-center py-5">
+                <p class="text-muted">
+                    Statistik jenjang pendidikan belum tersedia.
+                </p>
+            </div>
+
+        @endif
+
+    </div>
+</section>
+
+{{-- =========================
      SUBKEGIATAN PENDIDIKAN
 ========================= --}}
 

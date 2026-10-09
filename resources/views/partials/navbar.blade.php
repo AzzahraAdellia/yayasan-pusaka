@@ -168,7 +168,7 @@
                                 <a class="dropdown-item"
                                 href="{{ route('programs.empowerment') }}">
 
-                                    Pemberdayaan
+                                    Pemberdayaan UMKM
 
                                 </a>
                             </li>

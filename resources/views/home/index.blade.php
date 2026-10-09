@@ -328,43 +328,42 @@
 
 
 
+
 {{-- =========================
      IMPACT STATS
 ========================= --}}
 
 <section class="impact-stats">
-
     <div class="container">
-
         <div class="impact-stats-wrapper">
 
             <div class="impact-stats-heading">
-
                 <div>
                     <span class="impact-eyebrow">
                         DAMPAK KAMI
                     </span>
 
                     <h2>
-                        Dari Kepedulian Menjadi 
+                        Dari Kepedulian Menjadi
                         <span>Manfaat Nyata.</span>
                     </h2>
                 </div>
 
                 <p>
-                    Setiap program Yayasan Pusaka berangkat dari kebutuhan nyata para penerima manfaat. 
-                    Dukungan diberikan tidak hanya dalam bentuk bantuan, tetapi juga melalui pendampingan, 
-                    pelatihan, serta kesempatan untuk tumbuh dan menjadi lebih mandiri.
+                    Yayasan Pusaka terus mendampingi keluarga besar
+                    PT Kereta Api Indonesia (Persero) melalui
+                    berbagai program pendidikan, sosial, dan
+                    pemberdayaan. Berikut data penerima manfaat
+                    aktif berdasarkan Sistem Informasi Internal
+                    Yayasan Pusaka.
                 </p>
-
             </div>
 
+            <div class="row g-4 impact-numbers justify-content-center">
 
-            <div class="row g-4 impact-numbers">
-
-                <div class="col-6 col-lg-3">
-
-                    <div class="impact-stat-card">
+                {{-- KELUARGA ASUH AKTIF --}}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="impact-stat-card h-100">
 
                         <div class="impact-stat-icon blue">
                             <i class="bi bi-people-fill"></i>
@@ -372,360 +371,152 @@
 
                         <div class="impact-number">
                             <span class="impact-value">
-                                -
-                            </span>
-
-                            <span class="impact-unit">
-                                +
+                                {{ isset($publicStats['family']['active'])
+                                    ? number_format($publicStats['family']['active'], 0, ',', '.')
+                                    : '-' }}
                             </span>
                         </div>
 
-                        <p>
-                            Penerima Manfaat Senior
-                        </p>
+                        <p>Keluarga Asuh Aktif</p>
 
                         <span class="impact-note">
-                            Pensiunan & keluarga PT KAI yang menderita 
-                            sakit menahun dan ekonomi lemah.
+                            Keluarga penerima manfaat yang masih
+                            tercatat aktif dalam pendampingan
+                            Yayasan Pusaka.
                         </span>
 
                     </div>
-
                 </div>
 
-
-                <div class="col-6 col-lg-3">
-
-                    <div class="impact-stat-card">
+                {{-- ANAK ASUH AKTIF --}}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="impact-stat-card h-100">
 
                         <div class="impact-stat-icon orange">
-                            <i class="bi bi-grid-fill"></i>
+                            <i class="bi bi-mortarboard-fill"></i>
                         </div>
 
                         <div class="impact-number">
                             <span class="impact-value">
-                                -
-                            </span>
-
-                            <span class="impact-unit">
-                                +
+                                {{ isset($publicStats['children']['active'])
+                                    ? number_format($publicStats['children']['active'], 0, ',', '.')
+                                    : '-' }}
                             </span>
                         </div>
 
-                        <p>
-                            Keluarga Asuh
-                        </p>
+                        <p>Anak Asuh Aktif</p>
 
                         <span class="impact-note">
-                            Keluarga yang ditinggal karyawan/karyawati PT KAI
+                            Anak asuh yang tercatat aktif sebagai
+                            penerima manfaat Yayasan Pusaka.
                         </span>
 
-                    </div>
-
-                </div>
-
-
-                <div class="col-6 col-lg-3">
-
-                    <div class="impact-stat-card">
-
-                        <div class="impact-stat-icon blue">
-                            <i class="bi bi-calendar2-check-fill"></i>
-                        </div>
-
-                        <div class="impact-number">
-                            <span class="impact-value">
-                                -
-                            </span>
-
-                            <span class="impact-unit">
-                                +
-                            </span>
-                        </div>
-
-                        <p>
-                            Anak Asuh
-                        </p>
-
-                        <span class="impact-note">
-                            Anak yatim dan/atau piatu karyawan/karyawati PT KAI
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-6 col-lg-3">
-
-                    <div class="impact-stat-card">
-
-                        <div class="impact-stat-icon orange">
-                            <i class="bi bi-geo-alt-fill"></i>
-                        </div>
-
-                        <div class="impact-number">
-                            <span class="impact-value">
-                                -
-                            </span>
-
-                            <span class="impact-unit">
-                                +
-                            </span>
-                        </div>
-
-                        <p>
-                            Alumni
-                        </p>
-
-                        <span class="impact-note">
-                            Anak-anak yang pernah mendapat bantuan pendidikan
-                            dan menjadi peserta program pelatihan Yayasan Pusaka.
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="impact-footer">
-
-                <div class="impact-footer-info">
-
-                    <i class="bi bi-info-circle"></i>
-
-                    <span>
-                        Statistik akan diperbarui berdasarkan data
-                        pada sistem internal Yayasan Pusaka.
-                    </span>
-
-                </div>
-
-                <a href="{{ route('impact') }}"
-                   class="impact-link">
-
-                    Lihat Dampak Selengkapnya
-
-                    <i class="bi bi-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-{{-- =========================
-     PROGRAM HOME
-========================= --}}
-
-<section class="program-home section-padding">
-
-    <div class="container">
-
-        <div class="program-home-heading">
-
-            <div>
-
-                <span class="section-label">
-                    PROGRAM KAMI
-                </span>
-
-                <h2 class="section-title">
-                            Hadir untuk Membuka
-                    <span>Lebih Banyak Kesempatan.</span>
-                </h2>
-
-            </div>
-
-
-            <div class="program-home-description">
-
-                <p>
-                    Yayasan Pusaka mengembangkan berbagai program yang dirancang sesuai kebutuhan penerima manfaat. 
-                    Mulai dari dukungan pendidikan hingga pengembangan keterampilan, setiap program diarahkan untuk 
-                    memberikan manfaat yang nyata dan berkelanjutan.
-                </p>
-
-                <a href="{{ route('programs.index') }}"
-                   class="text-link">
-
-                    Lihat Semua Program
-
-                    <i class="bi bi-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="row g-4 mt-2">
-
-            @foreach ($programs as $program)
-
-                @php
-
-                    $iconColor = in_array(
-                        $program->slug,
-                        [
-                            'pendidikan',
-                            'pemberdayaan'
-                        ]
-                    ) ? 'blue' : 'orange';
-
-
-                    $programRoute = match ($program->slug) {
-
-                        'pendidikan'
-                            => route('programs.education'),
-
-                        'sosial-kemanusiaan'
-                            => route('programs.social'),
-
-                        'pemberdayaan'
-                            => route('programs.empowerment'),
-
-                        'pelatihan-pengembangan'
-                            => route('programs.training'),
-
-                        default
-                            => route('programs.index'),
-                    };
-
-
-                    $programTags = match ($program->slug) {
-
-                        'pendidikan' => [
-                            'Bantuan Pendidikan',
-                            'Anak Asuh',
-                        ],
-
-                        'sosial-kemanusiaan' => [
-                            'Anak Yatim/Piatu',
-                            'Program ABK',
-                        ],
-
-                        'pemberdayaan' => [
-                            'UMKM',
-                            'Kewirausahaan',
-                        ],
-
-                        'pelatihan-pengembangan' => [
-                            'Pelatihan',
-                            'Talent Mapping',
-                        ],
-
-                        default => [],
-                    };
-
-                @endphp
-
-
-                <div class="col-md-6 col-lg-3">
-
-                    <div class="program-feature-card">
-
-                        <div class="program-card-number">
-
-                            {{ str_pad(
-                                $loop->iteration,
-                                2,
-                                '0',
-                                STR_PAD_LEFT
-                            ) }}
-
-                        </div>
-
-
-                        <div class="program-feature-icon {{ $iconColor }}">
-
-                            <i class="bi {{ $program->icon ?: 'bi-grid' }}"></i>
-
-                        </div>
-
-
-                        <h3>
-                            {{ $program->name }}
-                        </h3>
-
-
-                        <p>
-                            {{ $program->short_description
-                                ?: 'Informasi program Yayasan Pusaka.'
-                            }}
-                        </p>
-
-
-                        @if (count($programTags))
-
-                            <div class="program-tags">
-
-                                @foreach ($programTags as $tag)
-
-                                    <span>
-                                        {{ $tag }}
-                                    </span>
-
-                                @endforeach
-
+                        
+                        @if (isset($publicStats['children']))
+                            <div class="mt-4 pt-3 w-100"
+                                style="border-top: 1px solid rgba(255,255,255,0.25);">
+
+                                <div class="mb-3"
+                                    style="color: #ffffff; font-size: 14px; font-weight: 600;">
+                                    Rincian Kategori Anak Asuh
+                                </div>
+
+                                <div class="row g-2">
+
+                                    @foreach ([
+                                        'Yatim' => $publicStats['children']['yatim'] ?? null,
+                                        'Piatu' => $publicStats['children']['piatu'] ?? null,
+                                        'Yatim Piatu' => $publicStats['children']['yatimPiatu'] ?? null,
+                                        'ABK' => $publicStats['children']['abk'] ?? null,
+                                    ] as $label => $jumlah)
+
+                                        <div class="col-6">
+                                            <div class="d-flex justify-content-between align-items-center gap-2 px-3 py-2"
+                                                style="background: rgba(255,255,255,0.10);
+                                                        border: 1px solid rgba(255,255,255,0.12);
+                                                        border-radius: 10px;
+                                                        min-height: 42px;">
+
+                                                <span style="color: #e5edf7; font-size: 13px;">
+                                                    {{ $label }}
+                                                </span>
+
+                                                <strong style="color: #ffffff; font-size: 15px;">
+                                                    {{ $jumlah !== null
+                                                        ? number_format($jumlah, 0, ',', '.')
+                                                        : '-' }}
+                                                </strong>
+
+                                            </div>
+                                        </div>
+
+                                    @endforeach
+
+                                </div>
                             </div>
-
                         @endif
 
 
-                        <a href="{{ $programRoute }}"
-                           class="program-card-link">
-
-                            Selengkapnya
-
-                            <i class="bi bi-arrow-up-right"></i>
-
-                        </a>
-
                     </div>
-
                 </div>
 
-            @endforeach
+                {{-- UMKM AKTIF --}}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="impact-stat-card h-100">
 
-        </div>
+                        <div class="impact-stat-icon blue">
+                            <i class="bi bi-shop"></i>
+                        </div>
 
+                        <div class="impact-number">
+                            <span class="impact-value">
+                                {{ isset($publicStats['umkm']['active'])
+                                    ? number_format($publicStats['umkm']['active'], 0, ',', '.')
+                                    : '-' }}
+                            </span>
+                        </div>
 
-        <div class="program-home-bottom">
+                        <p>UMKM Aktif</p>
 
-            <div class="program-home-bottom-icon">
+                        <span class="impact-note">
+                            Usaha mikro, kecil, dan menengah
+                            yang tercatat aktif dalam
+                            Sistem Informasi Internal
+                            Yayasan Pusaka.
+                        </span>
 
-                <i class="bi bi-stars"></i>
+                    </div>
+                </div>
 
             </div>
 
-            <div>
+            <div class="impact-footer">
+                <div class="impact-footer-info">
+                    <i class="bi bi-info-circle"></i>
 
-                <strong>
-                    Program terus berkembang.
-                </strong>
+                    <span>
+                        Statistik bersumber dari Sistem Informasi
+                        Internal Yayasan Pusaka dan diperbarui
+                        secara berkala.
 
-                <span>
-                    Program Yayasan Pusaka disesuaikan dengan kebutuhan
-                    dan perkembangan penerima manfaat.
-                </span>
+                        @if (!empty($publicStats['updatedAt']))
+                            Pembaruan data:
+                            {{ \Carbon\Carbon::parse($publicStats['updatedAt'])->timezone('Asia/Jakarta')->format('d/m/Y H:i') }}
+                            WIB.
+                        @endif
+                    </span>
+                </div>
 
+                <a href="{{ route('impact') }}" class="impact-link">
+                    Lihat Dampak Selengkapnya
+                    <i class="bi bi-arrow-right"></i>
+                </a>
             </div>
 
         </div>
-
     </div>
-
 </section>
+
 
 {{-- =========================
      NEWS & ACTIVITIES

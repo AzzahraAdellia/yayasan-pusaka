@@ -99,6 +99,18 @@
 
         </a>
 
+        {{-- UMKM UNGGULAN --}}
+        <a href="{{ route('admin.featured-umkm.index') }}"
+        class="admin-nav-item {{ request()->routeIs('admin.featured-umkm.*') ? 'active' : '' }}">
+
+            <i class="bi bi-shop"></i>
+
+            <span>
+                UMKM Unggulan
+            </span>
+
+        </a>
+
 
         {{-- KELOLA PELATIHAN --}}
         <a href="{{ route('admin.trainings.index') }}"

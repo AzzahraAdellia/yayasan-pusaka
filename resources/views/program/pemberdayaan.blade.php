@@ -205,13 +205,13 @@
 
                 <h2 class="section-title">
                     Subkegiatan
-                    <span>Pemberdayaan.</span>
+                    <span>Pemberdayaan UMKM.</span>
                 </h2>
             </div>
 
             <p>
                 Berbagai kegiatan yang dilaksanakan
-                dalam Program Pemberdayaan Yayasan Pusaka.
+                dalam Program Pemberdayaan UMKM Yayasan Pusaka.
             </p>
 
         </div>
@@ -256,6 +256,205 @@
                         </a>
 
                         </article>
+
+                </div>
+
+            @endforeach
+
+        </div>
+
+    </div>
+
+</section>
+
+@endif
+
+
+{{-- =========================
+     STATISTIK UMKM AKTIF
+========================= --}}
+
+<section class="empowerment-programs section-padding">
+    <div class="container">
+
+        <div class="text-center mb-4">
+            <span class="section-label">
+                PEMBERDAYAAN EKONOMI
+            </span>
+
+            <h2 class="section-title">
+                UMKM Keluarga Asuh
+                <span>Yayasan Pusaka.</span>
+            </h2>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+
+                <div class="empowerment-program-card text-center">
+
+                    <div class="empowerment-card-icon blue mx-auto mb-3">
+                        <i class="bi bi-shop"></i>
+                    </div>
+
+                    <h3 style="
+                        font-size: 56px;
+                        font-weight: 800;
+                        color: #0A4D8C;
+                        margin-bottom: 10px;
+                    ">
+                        {{ isset($publicStats['umkm']['active'])
+                            ? number_format($publicStats['umkm']['active'], 0, ',', '.')
+                            : '-' }}
+                    </h3>
+
+                    <h3>UMKM Aktif</h3>
+
+                    <p class="mb-0">
+                        UMKM keluarga asuh yang tercatat aktif
+                        dalam Sistem Informasi Internal Yayasan Pusaka.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+{{-- =========================
+     KATALOG UMKM UNGGULAN
+========================= --}}
+
+@if (isset($featuredUmkms) && $featuredUmkms->isNotEmpty())
+
+<section class="empowerment-programs section-padding">
+
+    <div class="container">
+
+        <div class="empowerment-programs-heading">
+
+            <div>
+                <span class="section-label">
+                    PRODUK KELUARGA ASUH
+                </span>
+
+                <h2 class="section-title">
+                    UMKM Unggulan
+                    <span>Yayasan Pusaka.</span>
+                </h2>
+            </div>
+
+            <p>
+                Dukung kemandirian ekonomi keluarga asuh
+                dengan mengenal dan membeli produk-produk
+                unggulan UMKM binaan Yayasan Pusaka.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            @foreach ($featuredUmkms as $umkm)
+
+                <div class="col-lg-4 col-md-6">
+
+                    <article class="empowerment-program-card h-100 d-flex flex-column">
+
+                        {{-- FOTO PRODUK --}}
+                        @if ($umkm->image)
+
+                            <img
+                                src="{{ asset('storage/' . $umkm->image) }}"
+                                alt="{{ $umkm->product_name }}"
+                                style="
+                                    width: 100%;
+                                    height: 220px;
+                                    object-fit: cover;
+                                    border-radius: 14px;
+                                    margin-bottom: 20px;
+                                "
+                            >
+
+                        @else
+
+                            <div style="
+                                height: 220px;
+                                background: #f1f6fc;
+                                border-radius: 14px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 20px;
+                                color: #0A4D8C;
+                                font-size: 48px;
+                            ">
+                                <i class="bi bi-shop"></i>
+                            </div>
+
+                        @endif
+
+                        {{-- NAMA UMKM --}}
+                        <span class="empowerment-card-label">
+                            {{ $umkm->business_name }}
+                        </span>
+
+                        {{-- NAMA PRODUK --}}
+                        <h3 class="mt-2">
+                            {{ $umkm->product_name }}
+                        </h3>
+
+                        {{-- DESKRIPSI --}}
+                        @if ($umkm->description)
+
+                            <p>
+                                {{ $umkm->description }}
+                            </p>
+
+                        @endif
+
+                        {{-- ALAMAT --}}
+                        @if ($umkm->address)
+
+                            <p class="mb-3">
+                                <i class="bi bi-geo-alt-fill"
+                                   style="color: #0A4D8C;"></i>
+
+                                {{ $umkm->address }}
+                            </p>
+
+                        @endif
+
+                        {{-- WHATSAPP --}}
+                        @if ($umkm->whatsapp)
+
+                            @php
+                                $nomor = preg_replace(
+                                    '/\D+/',
+                                    '',
+                                    $umkm->whatsapp
+                                );
+
+                                if (str_starts_with($nomor, '0')) {
+                                    $nomor = '62' . substr($nomor, 1);
+                                }
+                            @endphp
+
+                            <a
+                                href="https://wa.me/{{ $nomor }}?text={{ rawurlencode('Halo, saya melihat produk ' . $umkm->product_name . ' di website Yayasan Pusaka. Saya ingin bertanya mengenai pemesanan.') }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="training-detail-button mt-auto"
+                            >
+                                <i class="bi bi-whatsapp"></i>
+                                Pesan via WhatsApp
+                            </a>
+
+                        @endif
+
+                    </article>
 
                 </div>
 
