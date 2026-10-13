@@ -70,8 +70,8 @@
 
                 <div class="yp-filter-controls">
                     <select name="period"
-                            id="analytics-period"
-                            onchange="this.form.submit()">
+                        id="analytics-period"
+                        onchange="handlePeriodChange(this)">
                         <option value="7" {{ $period === '7' ? 'selected' : '' }}>
                             7 hari terakhir
                         </option>
@@ -90,31 +90,54 @@
                     </select>
 
                     <button type="submit">Terapkan</button>
+                    
+                    <button
+                        type="submit"
+                        formaction="{{ route('admin.reports.website-visits.pdf') }}"
+                        formmethod="GET"
+                        style="
+                            background: #0A4D8C;
+                            color: white;
+                            border: none;
+                            border-radius: 8px;
+                            padding: 10px 16px;
+                            font-weight: 600;
+                            cursor: pointer;
+                        "
+                    >
+                        Export PDF
+                    </button>
+
                 </div>
 
-                @if($period === 'custom')
-                    <div class="yp-custom-dates">
-                        <div>
-                            <label for="start_date">Dari tanggal</label>
-                            <input type="date"
-                                   id="start_date"
-                                   name="start_date"
-                                   value="{{ request('start_date', $startDate?->format('Y-m-d')) }}"
-                                   required>
-                        </div>
+        
+                <div class="yp-custom-dates"
+                    id="custom-date-fields"
+                    style="{{ $period === 'custom' ? '' : 'display: none;' }}">
 
-                        <div>
-                            <label for="end_date">Sampai tanggal</label>
-                            <input type="date"
-                                   id="end_date"
-                                   name="end_date"
-                                   value="{{ request('end_date', $endDate?->format('Y-m-d')) }}"
-                                   required>
-                        </div>
-
-                        <button type="submit">Tampilkan</button>
+                    <div>
+                        <label for="start_date">Dari tanggal</label>
+                        <input type="date"
+                            id="start_date"
+                            name="start_date"
+                            value="{{ request('start_date', $startDate?->format('Y-m-d')) }}"
+                            required
+                            {{ $period !== 'custom' ? 'disabled' : '' }}>
                     </div>
-                @endif
+
+                    <div>
+                        <label for="end_date">Sampai tanggal</label>
+                        <input type="date"
+                            id="end_date"
+                            name="end_date"
+                            value="{{ request('end_date', $endDate?->format('Y-m-d')) }}"
+                            required
+                            {{ $period !== 'custom' ? 'disabled' : '' }}>
+                    </div>
+
+                    <button type="submit">Tampilkan</button>
+                </div>
+
             </form>
 
             @if($errors->any())
@@ -338,4 +361,30 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
+
+
+<script>
+
+function handlePeriodChange(select) {
+    const customFields = document.getElementById('custom-date-fields');
+    const startDate = document.getElementById('start_date');
+    const endDate = document.getElementById('end_date');
+
+    if (select.value === 'custom') {
+        customFields.style.display = 'flex';
+
+        startDate.disabled = false;
+        endDate.disabled = false;
+    } else {
+        customFields.style.display = 'none';
+
+        startDate.disabled = true;
+        endDate.disabled = true;
+
+        select.form.submit();
+    }
+}
+
+</script>
+
 @endpush

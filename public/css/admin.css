@@ -1748,9 +1748,36 @@
    PAGINATION
 ===================================================== */
 
+
+/* =========================================
+   PAGINATION ADMIN YAYASAN PUSAKA
+========================================= */
+
 .admin-pagination {
     padding-top: 20px;
+    width: 100%;
 }
+
+/* Batasi ukuran ikon panah Laravel */
+.admin-pagination svg {
+    width: 16px !important;
+    height: 16px !important;
+    max-width: 16px;
+    max-height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Rapikan tombol dan teks */
+.admin-pagination a,
+.admin-pagination span {
+    box-sizing: border-box;
+}
+
+.admin-pagination nav {
+    max-width: 100%;
+}
+
 
 
 /* =====================================================

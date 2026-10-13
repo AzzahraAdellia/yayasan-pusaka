@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\TrainingBatchController;
 use App\Http\Controllers\Admin\ImpactStoryController;
 use App\Http\Controllers\ImpactController;
 use App\Http\Controllers\Admin\FeaturedUmkmController;
+use App\Http\Controllers\Admin\VisitReportController;
 
 
 /*
@@ -236,6 +237,16 @@ Route::middleware(['auth', 'verified'])
         Route::get('/', [DashboardController::class, 'index'])
             ->name('dashboard');
 
+            /*
+            |--------------------------------------------------------------------------
+            | EXPORT LAPORAN KUNJUNGAN WEBSITE
+            |--------------------------------------------------------------------------
+            */
+
+            Route::get(
+                '/reports/website-visits/pdf',
+                [VisitReportController::class, 'exportPdf']
+            )->name('reports.website-visits.pdf');
 
         /*
         |--------------------------------------------------------------------------
