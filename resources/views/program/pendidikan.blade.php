@@ -212,13 +212,13 @@
                 </span>
 
                 <h2 class="section-title">
-                    Sebaran Anak Asuh Aktif
+                    Sebaran Anak-Anak Penerima Aktif Manfaat Yayasan Pusaka 
                     <span>Berdasarkan Jenjang Pendidikan.</span>
                 </h2>
             </div>
 
             <p>
-                Gambaran jumlah anak asuh aktif Yayasan Pusaka
+                Gambaran jumlah anak-anak aktif penerima manfaat Yayasan Pusaka
                 berdasarkan jenjang pendidikan yang sedang ditempuh.
             </p>
         </div>
@@ -227,7 +227,7 @@
 
             <div class="row g-4 align-items-stretch">
 
-                {{-- TOTAL ANAK ASUH AKTIF --}}
+                {{-- TOTAL ANAK-ANAK PENERIMA MANFAAT AKTIF --}}
                 <div class="col-lg-4">
                     <div class="education-program-card h-100">
 
@@ -236,7 +236,7 @@
                         </div>
 
                         <span class="section-label">
-                            ANAK ASUH AKTIF
+                            ANAK-ANAK PENERIMA MANFAAT AKTIF YAYASAN PUSAKA
                         </span>
 
                         <h3 style="font-size: 48px; font-weight: 800; margin: 16px 0;">
@@ -246,7 +246,7 @@
                         </h3>
 
                         <p>
-                            Anak asuh aktif yang tercatat
+                            Anak-anak penerima manfaat aktif yang tercatat
                             dalam Sistem Informasi Internal Yayasan Pusaka.
                         </p>
 
@@ -355,7 +355,7 @@
                         <div>
                             <h3 class="mb-1">
                                 {{ number_format((int) ($jenjangAktif['ABK'] ?? 0), 0, ',', '.') }}
-                                Anak Asuh
+                                Anak-anak penerima manfaat aktif
                             </h3>
 
                             <p class="mb-0">
