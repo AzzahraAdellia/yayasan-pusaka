@@ -365,7 +365,7 @@
                     type="text"
                     id="batch_participants"
                     name="participants"
-                    placeholder="Contoh: Anak asuh Yayasan Pusaka wilayah Bandung"
+                    placeholder="Contoh: Anak-anak penerima manfaat Yayasan Pusaka wilayah Bandung"
                     maxlength="255"
                     style="display: block; width: 100%; margin-top: 8px;"
                 >

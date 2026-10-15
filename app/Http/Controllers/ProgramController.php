@@ -39,7 +39,7 @@ class ProgramController extends Controller
             ->orderBy('id')
             ->get();
 
-        // Statistik anak asuh aktif dari API internal
+        // Statistik anak-anak penerima manfaat aktif dari API internal
         $publicStats = $statisticsService->get();
 
         return view(

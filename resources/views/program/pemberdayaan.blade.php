@@ -143,7 +143,7 @@
                         Program ini ditujukan bagi keluarga asuh
                         Yayasan Pusaka yang memiliki usaha, baik
                         yang dijalankan oleh orang tua, wali,
-                        maupun anak asuh.
+                        maupun anak-anak penerima manfaat Yayasan Pusaka.
                     </p>
 
                     <p class="section-description">
@@ -542,7 +542,7 @@
                     <p>
                         Bantuan ini bertujuan untuk mendukung
                         pengembangan usaha yang dijalankan
-                        oleh orang tua, wali, maupun anak asuh
+                        oleh orang tua, wali, maupun anak-anak penerima manfaat Yayasan Pusaka
                         agar dapat terus berkembang dan
                         memberikan manfaat ekonomi bagi
                         keluarga.
@@ -691,7 +691,7 @@
                     </h3>
 
                     <p>
-                        Orang tua dari anak asuh Yayasan
+                        Orang tua dari anak-anak penerima manfaat Yayasan
                         Pusaka yang memiliki dan menjalankan
                         usaha untuk mendukung perekonomian
                         keluarga.
@@ -717,7 +717,7 @@
                     </h3>
 
                     <p>
-                        Wali dari anak asuh Yayasan Pusaka
+                        Wali dari anak-anak penerima manfaat Yayasan Pusaka
                         yang memiliki usaha dan ingin
                         mengembangkan kegiatan usahanya.
                     </p>
@@ -727,7 +727,7 @@
             </div>
 
 
-            {{-- ANAK ASUH --}}
+            {{-- ANAK-ANAK PENERIMA MANFAAT YAYASAN PUSAKA--}}
 
             <div class="col-lg-4 col-md-6">
 
@@ -738,11 +738,11 @@
                     </div>
 
                     <h3>
-                        Anak Asuh
+                        Anak-Anak Penerima Manfaat Yayasan Pusaka
                     </h3>
 
                     <p>
-                        Anak asuh Yayasan Pusaka yang
+                        Anak-anak penerima manfaat Yayasan Pusaka yang
                         memiliki dan menjalankan usaha
                         serta ingin mengembangkan
                         kemampuan kewirausahaannya.

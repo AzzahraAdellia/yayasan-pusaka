@@ -85,7 +85,7 @@
                 </div>
             </div>
 
-            {{-- ANAK ASUH AKTIF --}}
+            {{-- ANAK ANAK PENERIMA MANFAAT AKTIF --}}
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="impact-page-stat-card h-100">
 
@@ -99,10 +99,10 @@
                             : '-' }}
                     </h3>
 
-                    <strong>Anak Asuh Aktif</strong>
+                    <strong>Anak-Anak Penerima Manfaat Aktif</strong>
 
                     <span>
-                        Anak asuh yang tercatat aktif
+                        Anak-anak yang tercatat aktif
                         sebagai penerima manfaat Yayasan Pusaka.
                     </span>
 
@@ -112,7 +112,7 @@
 
                             <div class="mb-3"
                                  style="font-size: 14px; font-weight: 600;">
-                                Rincian Kategori Anak Asuh
+                                Rincian Kategori Anak-Anak Penerima Manfaat Aktif
                             </div>
 
                             <div class="row g-2">

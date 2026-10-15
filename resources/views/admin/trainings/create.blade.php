@@ -164,7 +164,7 @@
                     id="target_participants"
                     name="target_participants"
                     value="{{ old('target_participants') }}"
-                    placeholder="Contoh: Anak asuh Yayasan Pusaka"
+                    placeholder="Contoh: Anak-anaka penerima manfaat aktif Yayasan Pusaka"
                     maxlength="255"
                     style="display: block; width: 100%; margin-top: 8px;"
                 >

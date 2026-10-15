@@ -204,7 +204,7 @@
             <p>
                 Yayasan Pusaka menyelenggarakan berbagai
                 program pelatihan dan pengembangan bagi
-                anak asuh serta orang tua atau wali
+                anak-anak penerima manfaat Yayasan Pusaka serta orang tua atau wali
                 untuk meningkatkan keterampilan,
                 mengenali potensi, dan membuka
                 peluang masa depan.
