@@ -20,7 +20,7 @@
         <p>
             Kelola produk dan informasi UMKM unggulan
             Yayasan Pusaka untuk membantu pemasaran
-            usaha keluarga asuh.
+            usaha keluarga penerima manfaat Yayasan Pusaka.
         </p>
     </div>
 
@@ -309,7 +309,7 @@
             <p>
                 Tambahkan UMKM unggulan beserta foto produk,
                 alamat, dan kontak pemesanan untuk membantu
-                pemasaran produk keluarga asuh Yayasan Pusaka.
+                pemasaran produk keluarga penerima manfaat Yayasan Pusaka.
             </p>
 
             <a

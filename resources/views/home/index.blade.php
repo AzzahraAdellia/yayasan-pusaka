@@ -361,7 +361,7 @@
 
             <div class="row g-4 impact-numbers justify-content-center">
 
-                {{-- KELUARGA ASUH AKTIF --}}
+                {{-- KELUARGA AKTIF --}}
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="impact-stat-card h-100">
 
@@ -377,7 +377,7 @@
                             </span>
                         </div>
 
-                        <p>Keluarga Asuh Aktif</p>
+                        <p>Keluarga Penerima Manfaat Aktif</p>
 
                         <span class="impact-note">
                             Keluarga penerima manfaat yang masih

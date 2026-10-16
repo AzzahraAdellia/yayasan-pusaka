@@ -135,12 +135,12 @@
                     <p class="section-description">
                         Program Pemberdayaan UMKM Yayasan Pusaka
                         merupakan upaya untuk mendukung kemandirian
-                        ekonomi keluarga asuh melalui pengembangan
+                        ekonomi keluarga penerima manfaat melalui pengembangan
                         usaha mikro, kecil, dan menengah (UMKM).
                     </p>
 
                     <p class="section-description">
-                        Program ini ditujukan bagi keluarga asuh
+                        Program ini ditujukan bagi keluarga penerima manfaat
                         Yayasan Pusaka yang memiliki usaha, baik
                         yang dijalankan oleh orang tua, wali,
                         maupun anak-anak penerima manfaat Yayasan Pusaka.
@@ -149,7 +149,7 @@
                     <p class="section-description">
                         Melalui bantuan pengembangan usaha dan
                         pelatihan UMKM, Yayasan Pusaka berupaya
-                        meningkatkan kemampuan keluarga asuh
+                        meningkatkan kemampuan keluarga penerima manfaat
                         dalam mengelola dan mengembangkan usaha
                         secara berkelanjutan.
                     </p>
@@ -162,7 +162,7 @@
 
                     <div>
                         <i class="bi bi-check-circle-fill"></i>
-                        Pemberdayaan ekonomi keluarga asuh
+                        Pemberdayaan ekonomi keluarga penerima manfaat
                     </div>
 
                     <div>
@@ -283,7 +283,7 @@
             </span>
 
             <h2 class="section-title">
-                UMKM Keluarga Asuh
+                UMKM Keluarga Penerima Manfaat Aktif
                 <span>Yayasan Pusaka.</span>
             </h2>
         </div>
@@ -311,7 +311,7 @@
                     <h3>UMKM Aktif</h3>
 
                     <p class="mb-0">
-                        UMKM keluarga asuh yang tercatat aktif
+                        UMKM keluarga penerima manfaat yang tercatat aktif
                         dalam Sistem Informasi Internal Yayasan Pusaka.
                     </p>
 
@@ -338,7 +338,7 @@
 
             <div>
                 <span class="section-label">
-                    PRODUK KELUARGA ASUH
+                    PRODUK KELUARGA PENERIMA MANFAAT
                 </span>
 
                 <h2 class="section-title">
@@ -348,7 +348,7 @@
             </div>
 
             <p>
-                Dukung kemandirian ekonomi keluarga asuh
+                Dukung kemandirian ekonomi keluarga penerima manfaat
                 dengan mengenal dan membeli produk-produk
                 unggulan UMKM binaan Yayasan Pusaka.
             </p>
@@ -487,14 +487,14 @@
 
                 <h2 class="section-title">
                     Dukungan untuk
-                    <span>Usaha Keluarga Asuh.</span>
+                    <span>Usaha Keluarga Penerima Manfaat.</span>
                 </h2>
 
             </div>
 
             <p>
                 Yayasan Pusaka memberikan dukungan
-                bagi keluarga asuh untuk membantu
+                bagi keluarga penerima manfaat untuk membantu
                 mengembangkan usaha, meningkatkan
                 keterampilan, dan mendorong
                 kemandirian ekonomi keluarga.
@@ -534,7 +534,7 @@
                     <p>
                         Yayasan Pusaka memberikan bantuan
                         pengembangan usaha kepada keluarga
-                        asuh yang memiliki dan menjalankan
+                        penerima manfaat yang memiliki dan menjalankan
                         usaha mikro, kecil, dan menengah
                         (UMKM).
                     </p>
@@ -552,7 +552,7 @@
 
                         <span>
                             <i class="bi bi-check2"></i>
-                            Pengembangan usaha keluarga asuh
+                            Pengembangan usaha keluarga penerima manfaat
                         </span>
 
                         <span>
@@ -600,7 +600,7 @@
 
                     <p>
                         Yayasan Pusaka menyelenggarakan
-                        pelatihan UMKM bagi keluarga asuh
+                        pelatihan UMKM bagi keluarga penerima manfaat
                         untuk meningkatkan pengetahuan,
                         keterampilan, dan kemampuan
                         dalam mengelola usaha.
@@ -667,7 +667,7 @@
 
             <p>
                 Program ini ditujukan bagi keluarga
-                asuh Yayasan Pusaka yang memiliki
+                penerima manfaat Yayasan Pusaka yang memiliki
                 dan menjalankan usaha.
             </p>
 

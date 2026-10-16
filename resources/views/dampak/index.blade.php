@@ -61,7 +61,7 @@
 
         <div class="row g-4 justify-content-center">
 
-            {{-- KELUARGA ASUH AKTIF --}}
+            {{-- KELUARGA AKTIF --}}
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="impact-page-stat-card h-100">
 
@@ -75,7 +75,7 @@
                             : '-' }}
                     </h3>
 
-                    <strong>Keluarga Asuh Aktif</strong>
+                    <strong>Keluarga Penerima Manfaat Aktif</strong>
 
                     <span>
                         Keluarga penerima manfaat yang

@@ -66,34 +66,19 @@
                             Pilih kategori
                         </option>
 
-                        <option value="Program"
-                            @selected(old('category', $news->category ?? '') === 'Program')>
-                            Program
+                        <option value="Internal"
+                            @selected(old('category', $news->category ?? '') === 'Internal')>
+                            Internal
                         </option>
 
                         <option value="Kolaborasi"
                             @selected(old('category', $news->category ?? '') === 'Kolaborasi')>
-                            Kolaborasi
+                            Kolaborasi & Kerjasama
                         </option>
 
-                        <option value="Sosial"
-                            @selected(old('category', $news->category ?? '') === 'Sosial')>
-                            Sosial
-                        </option>
-
-                        <option value="Pendidikan"
-                            @selected(old('category', $news->category ?? '') === 'Pendidikan')>
-                            Pendidikan
-                        </option>
-
-                        <option value="Pemberdayaan"
-                            @selected(old('category', $news->category ?? '') === 'Pemberdayaan')>
-                            Pemberdayaan
-                        </option>
-
-                        <option value="Pelatihan"
-                            @selected(old('category', $news->category ?? '') === 'Pelatihan')>
-                            Pelatihan
+                        <option value="Kegiatan"
+                            @selected(old('category', $news->category ?? '') === 'Kegiatan')>
+                            Kegiatan
                         </option>
 
                     </select>
