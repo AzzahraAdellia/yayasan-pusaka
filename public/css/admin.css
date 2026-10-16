@@ -2716,3 +2716,71 @@
 
     font-size: 15px;
 }
+
+
+/* =========================================
+   PAGINATION CMS YAYASAN PUSAKA
+========================================= */
+
+.admin-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+    padding: 18px 0;
+}
+
+.admin-pagination nav {
+    width: 100%;
+}
+
+.admin-pagination .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.admin-pagination .page-item {
+    list-style: none;
+    margin: 0;
+}
+
+.admin-pagination .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #dbe3ef;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #0A4D8C;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.admin-pagination .page-link:hover {
+    background: #eff6ff;
+    border-color: #0A4D8C;
+    color: #0A4D8C;
+}
+
+.admin-pagination .page-item.active .page-link {
+    background: #0A4D8C;
+    border-color: #0A4D8C;
+    color: #ffffff;
+}
+
+.admin-pagination .page-item.disabled .page-link {
+    color: #94a3b8;
+    background: #f8fafc;
+    border-color: #e2e8f0;
+    cursor: default;
+}

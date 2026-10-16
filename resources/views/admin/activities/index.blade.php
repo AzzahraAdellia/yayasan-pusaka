@@ -300,7 +300,7 @@
         @if ($activities->hasPages())
 
             <div class="admin-pagination">
-                {{ $activities->links() }}
+                {{ $activities->links('pagination::bootstrap-5') }}
             </div>
 
         @endif

@@ -63,7 +63,7 @@ class NewsController extends Controller
                 'nullable',
                 'image',
                 'mimes:jpg,jpeg,png,webp',
-                'max:10000',
+                'max:100000',
             ],
 
             'status' => [
@@ -194,7 +194,7 @@ class NewsController extends Controller
                 'nullable',
                 'image',
                 'mimes:jpg,jpeg,png,webp',
-                'max:10000',
+                'max:100000',
             ],
 
             'status' => [

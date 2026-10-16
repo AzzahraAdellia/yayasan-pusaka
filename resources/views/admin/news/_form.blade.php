@@ -268,7 +268,7 @@
                         </span>
 
                         <small>
-                            Maksimal 2 MB
+                            Maksimal 1000 MB
                         </small>
 
                     </label>
