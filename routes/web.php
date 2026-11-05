@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Middleware\TrackWebsiteVisit;
-
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
@@ -29,7 +28,6 @@ use App\Http\Controllers\ImpactController;
 use App\Http\Controllers\Admin\FeaturedUmkmController;
 use App\Http\Controllers\Admin\VisitReportController;
 
-
 /*
 |--------------------------------------------------------------------------
 | WEBSITE PUBLIK
@@ -43,7 +41,6 @@ Route::get(
     '/',
     [HomeController::class, 'index']
 )->name('home');
-
 
 /*
 |--------------------------------------------------------------------------
@@ -73,7 +70,6 @@ Route::prefix('tentang-kami')->name('about.')->group(function () {
         [LegalityController::class, 'index']
     )->name('legal');
 });
-
 
 /*
 |--------------------------------------------------------------------------
@@ -129,7 +125,6 @@ Route::prefix('program')->name('programs.')->group(function () {
     )->name('empowerment.show');
 });
 
-
 /*
 |--------------------------------------------------------------------------
 | DAMPAK
@@ -141,12 +136,10 @@ Route::get(
     [ImpactController::class, 'index']
 )->name('impact');
 
-
 Route::get(
     '/dampak/cerita/{impactStory:slug}',
     [ImpactController::class, 'show']
 )->name('impact.show');
-
 
 /*
 |--------------------------------------------------------------------------
@@ -182,7 +175,6 @@ Route::prefix('informasi')->name('information.')->group(function () {
     )->name('activities.show');
 });
 
-
 /*
 |--------------------------------------------------------------------------
 | MITRA
@@ -193,7 +185,6 @@ Route::get(
     '/mitra',
     [PartnerController::class, 'index']
 )->name('partners');
-
 
 /*
 |--------------------------------------------------------------------------
@@ -210,7 +201,6 @@ Route::post(
     '/kontak',
     [ContactController::class, 'store']
 )->name('contact.store');
-
 
 /*
 |--------------------------------------------------------------------------
@@ -261,8 +251,6 @@ Route::middleware(['auth', 'verified'])
             ->except(['show'])
             ->names('news');
 
-
-
         /*
         |--------------------------------------------------------------------------
         | KEGIATAN
@@ -291,7 +279,6 @@ Route::middleware(['auth', 'verified'])
             ->names('impact-stories');
             
 
-
         /*
         |--------------------------------------------------------------------------
         | PROGRAM
@@ -312,7 +299,6 @@ Route::middleware(['auth', 'verified'])
             '/program/{program}',
             [AdminProgramController::class, 'update']
         )->name('programs.update');
-
 
         /*
         |--------------------------------------------------------------------------
@@ -435,14 +421,23 @@ Route::middleware(['auth', 'verified'])
         |--------------------------------------------------------------------------
         */
 
+        // Semua method pada UserController memeriksa role admin.
         Route::get('/users', [UserController::class, 'index'])
             ->name('users.index');
+
+        Route::get('/users/create', [UserController::class, 'create'])
+            ->name('users.create');
+
+        Route::post('/users', [UserController::class, 'store'])
+            ->name('users.store');
 
         Route::patch('/users/{user}/role', [UserController::class, 'updateRole'])
             ->name('users.update-role');
 
-    });
+        Route::delete('/users/{user}', [UserController::class, 'destroy'])
+            ->name('users.destroy');
 
+    });
 
 /*
 |--------------------------------------------------------------------------
@@ -462,7 +457,6 @@ Route::middleware('auth')->group(function () {
         ->name('profile.destroy');
 
 });
-
 
 /*
 |--------------------------------------------------------------------------

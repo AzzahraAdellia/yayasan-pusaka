@@ -6,54 +6,104 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
+    private function authorizeAdmin(): void
+    {
+        abort_unless(
+            Auth::check() && Auth::user()->role === 'admin',
+            403,
+            'Akses hanya untuk Admin.'
+        );
+    }
+
     public function index()
     {
-        $currentUser = Auth::user();
-
-        abort_if(
-            !$currentUser || $currentUser->role !== 'admin',
-            403
-        );
+        $this->authorizeAdmin();
 
         $users = User::latest()->paginate(10);
 
         return view('admin.users.index', compact('users'));
     }
 
+    public function create()
+    {
+        $this->authorizeAdmin();
+
+        return view('admin.users.create');
+    }
+
+    public function store(Request $request)
+    {
+        $this->authorizeAdmin();
+
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                'unique:users,email',
+            ],
+            'password' => [
+                'required',
+                'confirmed',
+                Password::defaults(),
+            ],
+        ]);
+
+        User::create([
+            'name' => $validated['name'],
+            'email' => strtolower($validated['email']),
+            'role' => 'staff',
+            'password' => Hash::make($validated['password']),
+        ]);
+
+        return redirect()
+            ->route('admin.users.index')
+            ->with('success', 'Akun Staff berhasil dibuat.');
+    }
 
     public function updateRole(Request $request, User $user)
     {
-        $currentUser = Auth::user();
+        $this->authorizeAdmin();
 
-        abort_if(
-            !$currentUser || $currentUser->role !== 'admin',
-            403
+        return back()->with(
+            'error',
+            'Perubahan role dinonaktifkan. Semua akun tambahan wajib berstatus Staff.'
         );
+    }
 
-        $validated = $request->validate([
-            'role' => ['required', 'in:admin,staff'],
-        ]);
+    public function destroy(User $user)
+    {
+        $this->authorizeAdmin();
 
-        if (
-            $user->id === $currentUser->id &&
-            $validated['role'] !== 'admin'
-        ) {
+        if ($user->id === Auth::id() || $user->role === 'admin') {
             return back()->with(
                 'error',
-                'Role akun admin yang sedang digunakan tidak dapat diturunkan.'
+                'Akun Admin tidak dapat dihapus.'
             );
         }
 
-        $user->update([
-            'role' => $validated['role'],
-        ]);
+        DB::transaction(function () use ($user) {
+            // Hapus sesi login Staff pada database,
+            // apabila aplikasi menggunakan database session.
+            if (config('session.driver') === 'database') {
+                DB::table('sessions')
+                    ->where('user_id', $user->id)
+                    ->delete();
+            }
 
-        return back()->with(
-            'success',
-            'Role user berhasil diperbarui.'
-        );
+            $user->delete();
+        });
+
+        return redirect()
+            ->route('admin.users.index')
+            ->with('success', 'Akun Staff berhasil dihapus.');
     }
 }

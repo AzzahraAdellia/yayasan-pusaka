@@ -5,10 +5,12 @@
 
 @section('content')
 
+{{-- =========================================
+     PAGE HEADER
+========================================= --}}
 <div class="admin-page-header">
 
     <div>
-
         <span class="admin-page-label">
             SISTEM
         </span>
@@ -18,38 +20,48 @@
         </h2>
 
         <p>
-            Lihat akun pengguna dan atur role Admin atau Staff.
+            Kelola akun Staff CMS Yayasan Pusaka.
+            Hanya Administrator yang dapat menambahkan
+            atau menghapus pengguna.
         </p>
-
     </div>
+
+    <a
+        href="{{ route('admin.users.create') }}"
+        class="admin-primary-button"
+    >
+        <i class="bi bi-person-plus"></i>
+        Tambah Staff
+    </a>
 
 </div>
 
 
+{{-- =========================================
+     ALERT
+========================================= --}}
 @if (session('success'))
 
-    <div class="admin-alert-success">
+    <div class="admin-alert success">
         <i class="bi bi-check-circle-fill"></i>
         <span>{{ session('success') }}</span>
     </div>
 
 @endif
 
-
 @if (session('error'))
 
-    <div class="admin-alert-error">
+    <div class="admin-alert error">
         <i class="bi bi-exclamation-circle-fill"></i>
-
-        <div>
-            <strong>Perubahan gagal.</strong>
-            <span>{{ session('error') }}</span>
-        </div>
+        <span>{{ session('error') }}</span>
     </div>
 
 @endif
 
 
+{{-- =========================================
+     DAFTAR USER
+========================================= --}}
 <div class="admin-panel">
 
     <div class="admin-panel-header">
@@ -64,7 +76,6 @@
         </div>
 
     </div>
-
 
     <div class="admin-table-responsive">
 
@@ -82,12 +93,12 @@
 
             <tbody>
 
-                @foreach ($users as $user)
+                @forelse ($users as $user)
 
                     <tr>
 
+                        {{-- NAMA --}}
                         <td>
-
                             <div class="admin-user-table-cell">
 
                                 <div class="admin-user-table-avatar">
@@ -99,13 +110,14 @@
                                 </strong>
 
                             </div>
-
                         </td>
 
+                        {{-- EMAIL --}}
                         <td>
                             {{ $user->email }}
                         </td>
 
+                        {{-- ROLE --}}
                         <td>
 
                             @if ($user->role === 'admin')
@@ -124,62 +136,57 @@
 
                         </td>
 
+                        {{-- TANGGAL --}}
                         <td>
                             {{ $user->created_at->format('d/m/Y') }}
                         </td>
 
+                        {{-- AKSI --}}
                         <td>
 
-                            <form
-                                action="{{ route('admin.users.update-role', $user) }}"
-                                method="POST"
-                                class="admin-role-form"
-                            >
+                            @if ($user->role === 'admin')
 
-                                @csrf
-                                @method('PATCH')
+                                <span class="admin-muted">
+                                    <i class="bi bi-shield-lock"></i>
+                                    Admin Utama
+                                </span>
 
-                                <select
-                                    name="role"
-                                    class="admin-role-select"
-                                    @disabled($user->id === auth()->id())
+                            @else
+
+                                <form
+                                    action="{{ route('admin.users.destroy', $user) }}"
+                                    method="POST"
+                                    onsubmit="return confirm('Yakin ingin menghapus akun Staff ini?')"
                                 >
 
-                                    <option
-                                        value="staff"
-                                        @selected($user->role === 'staff')
-                                    >
-                                        Staff
-                                    </option>
-
-                                    <option
-                                        value="admin"
-                                        @selected($user->role === 'admin')
-                                    >
-                                        Admin
-                                    </option>
-
-                                </select>
-
-                                @if ($user->id !== auth()->id())
+                                    @csrf
+                                    @method('DELETE')
 
                                     <button
                                         type="submit"
-                                        class="admin-action-button edit"
-                                        title="Simpan Role"
+                                        class="admin-action-button delete"
+                                        title="Hapus Staff"
                                     >
-                                        <i class="bi bi-check-lg"></i>
+                                        <i class="bi bi-trash3"></i>
                                     </button>
 
-                                @endif
+                                </form>
 
-                            </form>
+                            @endif
 
                         </td>
 
                     </tr>
 
-                @endforeach
+                @empty
+
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            Belum ada pengguna.
+                        </td>
+                    </tr>
+
+                @endforelse
 
             </tbody>
 
@@ -188,9 +195,16 @@
     </div>
 
 
-    <div class="admin-pagination">
-        {{ $users->links() }}
-    </div>
+    {{-- =====================================
+         PAGINATION
+    ===================================== --}}
+    @if ($users->hasPages())
+
+        <div class="admin-pagination">
+            {{ $users->links('pagination::bootstrap-5') }}
+        </div>
+
+    @endif
 
 </div>
 
